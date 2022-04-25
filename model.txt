@@ -124,3 +124,24 @@ c\lvert xy\rvert\quad\quad -1<x<1,0<y<\lvert x\rvert\\
 \end{cases}
 \end{equation*}
 {\color{red/blue/green/black/white/cyan/magenta/yellow}{文字}
+
+% 2em是指定的box的长度，{}里可以输入文字内容。如果不输入，就是填空题那样的下划线。
+\underline{\makebox[2em]{}}
+
+%latex中的长度单位：
+单位	名称	说明
+mm	毫米	1 mm = 2.845 pt
+pt	点	1 pt = 0.351 mm
+bp	大点	1 bp = 0.353 mm > 1 pt
+dd	迪多	1 dd = 0.376 mm = 1.07 pt
+pc	排卡	1 pc = 4.218 mm = 12 pt
+sp	定标点	65536 sp = 1 pt
+cm	厘米	1 cm= 10 mm= 28.453 pt
+cc	西塞罗	1 cc= 4.513 mm= 12 dd = 12.84 pt
+in	英寸	1 in = 25.4 mm = 72.27 pt
+ex	ex	1 ex = 当前字体尺寸中 x 的高度
+em	em	1 em = 当前字体尺寸中 M 的宽度
+% 字体加粗
+{\bfseries 需要加粗的部分}
+
+\bm{}  % 可以用来加粗数学公式中的字体
