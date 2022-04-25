@@ -1,0 +1,110 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{随机过程2020-2021期末}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+\section*{1.}
+\begin{equation*}
+  \begin{bmatrix}
+    0           & 1           & 0           & 0 & 0 \\
+    0           & 0           & 1           & 0 & 0 \\
+    1           & 0           & 0           & 0 & 0 \\
+    \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 & 0 \\
+    \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 & 0 \\
+  \end{bmatrix}
+\end{equation*}
+\section*{2.}
+\begin{equation*}
+  P=\begin{bmatrix}
+    \frac{3}{10} & \frac{1}{2}   & \frac{1}{5}   \\
+    \frac{3}{7}  & \frac{19}{70} & \frac{3}{10}  \\
+    \frac{3}{20} & \frac{21}{80} & \frac{47}{80} \\
+  \end{bmatrix},\quad
+  \pi=\pi\cdot P,\quad\therefore\pi=[\frac{2}{7},\frac{1}{3},\frac{8}{21}]
+\end{equation*}
+\section*{3.}
+ (a)
+\begin{equation*}
+  \begin{aligned}
+     & Z_n=Y(n)=Z(n-1)+Y(1),\quad\therefore Z_n\sim Markov                                 \\
+     & P(\sum\limits_{k=0}^N X_k=m)=(\frac{1}{2})^N\tbinom{N}{\frac{m+N}{2}}               \\
+     & P(N(t)=N)=\frac{\lambda^N}{N!}e^{-\lambda}                                          \\
+     & P_{ij}(1)=\sum\limits_{m=\lvert j-i\rvert}^{\infty}\frac{\lambda^m}{m!}e^{-\lambda}
+    (\frac{1}{2})^m\tbinom{m}{\frac{m+j-i}{2}}                                             \\
+  \end{aligned}
+\end{equation*}
+$\{Z_n\}$各状态相通，常返性相同，以下计算状态0的常返性。
+\begin{equation*}
+  \begin{aligned}
+     & P_{00}(n)=\sum\limits_{n=0}^\infty\sum\limits_{j=0}^\infty\frac{(n\lambda)^{2j}}{2j!}
+    e^{-\lambda n}\tbinom{2j}{j}(\frac{1}{2})^{2j}
+    =\sum\limits_{j=0}^\infty\frac{\tbinom{2j}{j}}{(2j)!}\lambda^{2j}\sum\limits_{n=0}^\infty
+    n^{2j}e^{-\lambda n}
+    \approx\sum\limits_{j=0}^\infty\frac{\tbinom{2j}{j}}{(2j)!}\int_0^\infty x^{2j}e^{-\lambda x}dx \\
+     & =\frac{1}{\lambda}\sum\limits_{j=0}^\infty\tbinom{2j}{j}(\frac{1}{4})^{j}
+    \approx\frac{1}{\lambda}\sum\limits_{j=0}^\infty(\frac{1}{4})^{j}
+    \frac{(\frac{2j}{e})^{2j}\sqrt{4\pi j}}{(\frac{j}{e})^{2j}2\pi j}
+    =\frac{1}{\lambda}\sum\limits_{j=0}^\infty(\pi j)^{-\frac{1}{2}}\to\infty
+  \end{aligned}
+\end{equation*}
+$\therefore$是常返的。
+\section*{4.}
+\begin{equation*}
+  \begin{aligned}
+    (a) & P(T>t)=e^{-\lambda_At}+(1-e^{-\lambda_A t})e^{\lambda_B(t-1)}=e^{-\lambda_A t}
+    +e^{-\lambda_B(t-1)}-e^{-(\lambda_A+\lambda_B)t+\lambda_B},\quad t>1                   \\
+        & F_T(t)=1+e^{-(\lambda_A+\lambda_B)t+\lambda_B}-e^{-\lambda_At}
+    -e^{-\lambda_B(t-1)},\quad t>1                                                         \\
+        & f_T(t)=-(\lambda_A+\lambda_B)e^{-(\lambda_A+\lambda_B)t+\lambda_B}
+    \lambda_Ae^{-\lambda_At}+\lambda_Be^{-\lambda_B(t-1)},\quad t>1                        \\
+        & E(T)=\int_0^\infty tf_T(t)dt=e^{-\lambda_A}(\frac{1}{\lambda_A}
+    -\frac{1}{\lambda_A+\lambda_B})+1+\frac{1}{\lambda_B}                                  \\
+    (b) & P(A+B=10)=\sum\limits_{k=0}^{10}\frac{(2\lambda_A)^k\lambda_B^{10-k}}{k!(10-k)!}
+    e^{-2\lambda_A-\lambda_B}                                                              \\
+        & P(A=4,B=6)=\frac{(2\lambda_A)^4\lambda_B^6}{4!\times6!}e^{-2\lambda_A-\lambda_B} \\
+        & P(A=4\lvert A+B=10)=\frac{\frac{(2\lambda_A)^4\lambda_B^6}{4!\times6!}}
+    {\sum\limits_{k=0}^{10}\frac{(2\lambda_A)^k\lambda_B^{10-k}}{k!(10-k)!}}               \\
+  \end{aligned}
+\end{equation*}
+\section*{5.}
+ (a)设每秒逃逸的粒子数为$N$，逃逸速率$P_1=(1-p)^k$
+\begin{equation*}
+  \therefore N(t)\sim Poisson(p_1\lambda),\quad \lambda=100,\quad E[N]=100(1-p)^k
+\end{equation*}
+(b)设总辐射强度为$Y(t)$，记$N(t)\sim Poisson(\lambda_1).\lambda_1=100(1-p)^kP_n(k)$，其中
+$P_n(k)$是$n$个防护罩中有$k$个打开的概率。
+\begin{equation*}
+  \begin{aligned}
+     & Y(t)=\sum\limits_{k=0}^{N(t)}V_k(t,t_0),\quad E[V_1(t,t_0)]=3e^{\mu(t-t_0)},\quad t\geq t_0       \\
+     & E[Y(t)]=\lambda_1\int_0^t3e^{\mu(t-t_0)}dt_0=\frac{3\lambda_1}{\mu}(e^{\mu t}-1)
+    =\frac{3\lambda_1}{\mu}(e^{10\mu}-1),\quad E[V_1^2(t,t_0)]=\frac{4}{3}e^{\mu(t-t_0)},\quad t\geq t_0 \\
+     & Var[Y(t)]=\lambda_1\int_0^t E[V_1^2(t,t_0)]dt_0
+    =\lambda_1\int_0^t\frac{4}{3}e^{2\mu(t-t_0)}dt_0=\frac{2\lambda_1}{3\mu}(e^{20\mu}-1)                \\
+  \end{aligned}
+\end{equation*}
+\end{document}

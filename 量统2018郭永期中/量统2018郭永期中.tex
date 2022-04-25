@@ -1,0 +1,176 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{量统2018郭永期中}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+
+\section*{一、（本题48分，每小题6分）简答题}
+1.解释下列概念；（1）定态（2）量子隧穿效应（3）宇称\\
+(1)体系的能量有确定值的状态。\\
+(2)能量为E的粒子有一定概率穿透高度为$U_0(U_0>E)$的势垒。\\
+(3)若$\psi(x)=\psi(-x)$，则是偶（正）宇称；若$\psi(x)=-\psi(-x)$，则是奇（负）宇称。\\
+2.德布罗意关系阐明了微观粒子的粒子性$(E,p)$与波动性$(\nu,\lambda$或$\omega,k)$之间的关系，
+用数学公式可将该关系表示为：\\
+$E=\hbar\omega=h\nu,\quad\lambda=\frac{h}{p}$\\
+3.已知升算符与降算符分别为$a^\dagger=\sqrt\frac{m\omega}{2\hbar}(x-\frac{i}{m\omega}p_x),
+  a=\sqrt\frac{m\omega}{2\hbar}(x+\frac{i}{m\omega}p_x)$，其中$x$为坐标算符，$p_x$为动量算符，
+计算对易关系$[a,a^\dagger]$。\\
+\begin{equation*}
+  [a,a^\dagger]=\frac{m\omega}{2\hbar}([x,x]+\frac{i}{m\omega}([\hat p_x,x]-[x,\hat p_x])
+  +\frac{i}{m^2\omega^2}[\hat p_x,\hat p_x])
+  =\frac{m\omega}{2\hbar}\times\frac{i}{m\omega}\times2i\hbar=1
+\end{equation*}
+4.在Franck-Herz实验中，用电子束撞击氢原子，使氢原子跃迁到第一激发态。设第一激发态电子能量的起伏为
+$10^4eV$，根据量子力学原理估算氢原子第一激发态的寿命。\\
+\begin{equation*}
+  \Delta E\cdot\Delta t\geq\frac{\hbar}{2},\quad\Delta t\geq3.30\times10^{-10}s
+\end{equation*}
+5.一维谐振子的能级为(\quad\quad\quad\quad\quad)，能级简并度为(\quad\quad\quad\quad\quad)；
+二维各向同性谐振子的能级为(\quad\quad\quad\quad\quad)，能级简并度为(\quad\quad\quad\quad\quad)；
+三维各向同性谐振子的能级为(\quad\quad\quad\quad\quad)，能级简并度为(\quad\quad\quad\quad\quad)；\\
+\begin{equation*}
+  \begin{aligned}
+     & (1)E_n=(n+\frac{1}{2})\hbar\omega\quad(2)1                    \\
+     & (3)E_n=(n+1)\hbar\omega\quad(4)n+1                            \\
+     & (5)E_n=(n+\frac{3}{2})\hbar\omega\quad(2)\frac{(n+1)(n+2)}{2}
+  \end{aligned}
+\end{equation*}
+6.设力学量算符（厄米算符）$\hat F,\hat G$不对易，令$K=i(\hat F\hat G-\hat G\hat F)$。证明：
+（1）$\hat K$的本征值是实数；（2）在任何态中，$\overline{F^2}+\overline{G^2}\geq\overline{K}$。\\
+(1)
+\begin{equation*}
+  \hat K^\dagger=-i(\hat G^\dagger\hat F^\dagger-\hat F^\dagger\hat G^\dagger)
+  =i(-\hat G\hat F+\hat F \hat G)=\hat K
+\end{equation*}
+$\therefore\hat K$是Hermite算符$\therefore\hat K$的本征值是实数。\\
+(2)
+\begin{equation*}
+  \begin{aligned}
+     & \hat A=\hat F+i\hat G,\quad\hat B=\hat F-i\hat G,\quad\hat A\hat B=\hat F^2+\hat G^2-\hat K^2 \\
+     & \because <\psi\lvert\hat A\hat B\rvert\psi>=\lvert\hat B\lvert\psi>\rvert^2\geq0,\quad
+    \therefore<\psi\lvert\hat F^2\hat G^2-\hat K\rvert\psi>\geq0,\quad
+    \overline{F^2}+\overline{G^2}\geq\overline{K}                                                    \\
+  \end{aligned}
+\end{equation*}
+7.$t=0$时，粒子的状态为$\psi(x)=Asin^2(kx)$，求此时动量的可能测值和相应的概率，并计算动量的平均值。\\
+\begin{equation*}
+  \begin{aligned}
+     & \psi(x)=\frac{1}{6\sqrt{2\pi}}(e^{2ikx}+e^{-2ikx}+2)                                        \\
+     & P(p_x=2k\hbar)=P(p_x=-2k\hbar)=\frac{1}{6},\quad P(p_x=0)=\frac{2}{3},\quad\overline{p}_x=0
+  \end{aligned}
+\end{equation*}
+8.一量子体系由三个全同玻色子组成，玻色子之间无相互作用，玻色子只有可能的2个单粒子态$\varphi_1$和
+$\varphi_2$，相应的能量为$\varepsilon_1$和$\varepsilon_2$，写出该量子体系所有可能态的波函数和能量。\\
+\section*{二、（本题8分）设矩阵A和B满足$A^2=0,AA^\dagger+A^\dagger A=1,B=A^\dagger A$。\\
+  (1)证明$B^2=B$；\\
+  (2)在B表象中，求出A的矩阵表示（设B本征值无简并）。}
+ (1)
+\begin{equation*}
+  \hat B^2=\hat A^\dagger\hat A\hat A^\dagger\hat A=\hat A^\dagger(1-\hat A^\dagger\hat A)\hat A
+  =\hat A^\dagger\hat A=\hat B
+\end{equation*}
+(2)
+\begin{equation*}
+  \begin{aligned}
+     & \because A^2=0,\quad B=A^\dagger A \\
+     & \therefore A=
+    \begin{bmatrix}
+      0           & 0 \\
+      e^{i\delta} & 0
+    \end{bmatrix}
+  \end{aligned}
+\end{equation*}
+\section*{三、（本题8分）证明并举1-2例说明定理：如果体系具有两个互相不对易的守恒量，那么体系的能级
+  一般是简并的。}
+1.对于氢原子，$\hat L_x,\hat L_y,\hat L_z$不对易，但都是守恒量，所以能级是简并的。\\
+2.自由粒子的宇称和动量互相不对易，但都是守恒量，所以能级是简并的。
+\section*{四、（本题8分）氢原子的波函数在球坐标系下写为$\psi(r,\theta,\varphi)=R(r)(e^{i\varphi}
+    sin\theta+cos\theta)$，其中$R(r)$为径向函数。求解下列问题：\\
+  (1)角动量平方$\vec L^2$的可能测量值和相应的概率；\\
+  (2)角动量的$z$分量$L_z$的可能测量值、相应的概率及平均值。}
+参考公式：
+\begin{equation*}
+  \begin{aligned}
+     & Y_{00}(\theta,\varphi)=\frac{1}{\sqrt{4\pi}},\quad
+    Y_{10}(\theta,\varphi)=\sqrt\frac{3}{4\pi}cos\theta,\quad
+    Y_{1,\pm1}(\theta,\varphi)=\mp\sqrt\frac{3}{8\pi}sin\theta e^{\pm i\varphi}                    \\
+     & Y_{20}(\theta,\varphi)=\sqrt\frac{5}{16\pi}(3cos^2\theta-1),\quad
+    Y_{2,\pm1}(\theta,\varphi)=\mp\sqrt\frac{15}{8\pi}sin\theta cos\theta e^{\pm i\varphi}         \\
+     & Y_{2,\pm2}(\theta,\varphi)=\sqrt\frac{15}{32\pi}sin^2\theta e^{\pm2i\varphi}                \\
+    \newline
+    \newline
+     & \psi(r,\theta,\varphi)=\sqrt\frac{2}{3}R(r)Y_{11}(\theta,\varphi)
+    +\sqrt\frac{1}{3}R(r)Y_{10}(\theta,\varphi)                                                    \\
+     & (1)P(L^2=2\hbar^2)=1                                                                        \\
+     & (2)P(L_z=\hbar)=\frac{2}{3},\quad P(L_z=0)=\frac{1}{3},\quad\overline{L_z}=\frac{2}{3}\hbar
+  \end{aligned}
+\end{equation*}
+\section*{五、（本题12分）由两个自旋均为$\frac{\hbar}{2}$的非全同粒子组成的量子体系，设粒子间相互作用为
+  $H=A\vec S_1\cdot\vec S_2$（不考虑轨道运动）。设初始状态$t=0$时，粒子1自旋“向上”$(S_{1z}=
+    \frac{\hbar}{2})$，粒子2自旋“向下”$(S_{2z}=-\frac{\hbar}{2})$。求解下列问题：\\
+  (1)分析并给出该系统的守恒量；\\
+  (2)$t>0$时刻该两粒子体系的自旋波函数；\\
+  (3)总自旋角动量$\vec S^2$和$S_z$的取值及概率。}
+\begin{equation*}
+  \begin{aligned}
+     & (1)\{\hat H,\hat S,\hat S_1,\hat S_2\}                                      \\
+     & (2)\hat H=\frac{A}{2}(\hat S^2-\hat S_1^2-\hat S_2^2)                       \\
+     & j=0,m=0,E_1=-\frac{3}{4}A\hbar^2,\quad\psi_1=\lvert00>                      \\
+     & j=1,m=1,E_2=\frac{1}{4}A\hbar^2,\quad\psi_{21}=\lvert11>                    \\
+     & j=1,m=0,E_2=\frac{1}{4}A\hbar^2,\quad\psi_{22}=\lvert10>                    \\
+     & j=1,m=-1,E_2=\frac{1}{4}A\hbar^2,\quad\psi_{23}=\lvert1-1>                  \\
+     & \Psi(r,0)=\frac{1}{\sqrt2}(\lvert00>+\lvert10>)                             \\
+     & \Psi(r,t)=\frac{1}{\sqrt2}\lvert00>e^{i\frac{3}{4}A\hbar t}
+    +\frac{1}{\sqrt2}\lvert10>e^{-i\frac{1}{4}A\hbar t}                            \\
+     & =\frac{1}{\sqrt2}e^{i\frac{1}{4}A\hbar t}(\lvert00>e^{i\frac{1}{2}A\hbar t}
+    +\lvert10>e^{-i\frac{1}{2}A\hbar t})                                           \\
+     & =E^{i\frac{1}{4}A\hbar t}(\lvert+->cos(\frac{A\hbar t}{2})
+    -\lvert-+>isin(\frac{A\hbar t}{2}))                                            \\
+     & (3)P(S^2=0)=P(S^2=2)=\frac{1}{2},\quad P(S_z=0)=1                           \\
+  \end{aligned}
+\end{equation*}
+\section*{六、（本题16分）极性分子的转动可用平面转子描述，其哈密顿算符为$H_0=\frac{L_z^2}{2I}$。其中$L_z$
+  代表角动量z轴投影，转轴z过分子的质心并与分子的电偶极矩$\vec D$垂直，$I$为分子的转动惯量。}
+$[1]$写出它的能级和归一化能量本征函数，指出各能级的简并度。\\
+$[2]$考虑加入一个微扰哈密顿量$H'=U_0 cos^2\varphi,$其中$U_0>0$是常数，$\varphi$为平面转子的转动角。
+那么准确到微扰论的一级修正，求解：(1)基态能级有多大的移动？(2)第一激发态能级的一级近似。
+\begin{equation*}
+  \begin{aligned}
+     & (1)E_n=\frac{n^2\hbar^2}{2I},\quad\psi_{n1}=\frac{1}{\sqrt{2\pi}}e^{i n\varphi},\quad
+    \psi_{n2}=\frac{1}{\sqrt{2\pi}}e^{-i n\varphi},\quad f_0=1,\quad f_n=2(n\geq1)                       \\
+     & (2)E_0^{(1)}={H'}_{00}=\int_0{2\pi}\frac{U_0}{2\pi}cos^2\varphi=\frac{U_0}{2}                     \\
+     & {H'}_{11}=\int_0{2\pi}\frac{U_0}{2\pi}cos^2\varphi=\frac{U_0}{2}={H'}_{22}                        \\
+     & {H'}_{12}=\int_0{2\pi}\frac{U_0}{2\pi}e^{-2i\varphi}cos^2\varphi d\varphi=\frac{U_0}{4}={H'}_{21} \\
+     & \begin{vmatrix}
+      \frac{U_0}{2}-E & \frac{U_0}{4}   \\
+      \frac{U_0}{4}   & \frac{U_0}{2}-E
+    \end{vmatrix}=0,\quad E_1^{(1)}=\frac{U_0}{4},\quad E_2^{(1)}=\frac{3U_0}{4}
+  \end{aligned}
+\end{equation*}
+
+\end{document}

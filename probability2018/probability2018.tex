@@ -1,0 +1,223 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{2018年概率论期末试题及解答}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+\section{在一根长为1的木棍上随机取两个点，将木棍截为三段，求其中最短的那一段长度的概率密度。}
+\paragraph{解答}
+设截取的两个点到木棍左端的距离分别为X,Y，根据X,Y的大小与$\lvert Y-X\rvert$三段木棍长度分类，共有6种等概发生的情况。以下选取1种进行讨论，之后对概率密度乘6即得到结果：$X<Y-X,X<1-Y$。
+\begin{equation*}
+\begin{aligned}
+&f_X(x)=\int_{2x}^{1-x}f_{XY}(x,y)dy=\int_{2x}^{1-x}dy=1-3x\\
+&f_Z(z)=6-18z,0<z<\frac{1}{3}\\
+\end{aligned}
+\end{equation*}
+\section{U是连续随机变量，V是离散随机变量，且U独立于V。U的概率密度为$f_U(x)=\frac{2}{\pi(1+x^2)},\lvert x\rvert\leq1$。V的分布为$P(V=1)=P(V=-1)=\frac{1}{2}$。请计算$U^V$的累积分布函数。}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+&f_U(u)=\frac{2}{\pi(1+u^2)},-1\leq u\leq1\\
+&Z=U^V=\begin{cases}
+U,p=\frac{1}{2}\\
+\frac{1}{U},p=\frac{1}{2}\\
+\end{cases}
+\\
+&\frac{\partial u}{\partial z}=-\frac{1}{z^2},\quad(z=\frac{1}{u}) \\
+&f_Z(z)=\frac{2}{\pi}\times\frac{1}{1+z^2}\times\frac{1}{2}=\frac{1}{\pi(z^2+1)}\quad(-1<z<1)\\
+&f_Z(z)=\frac{2}{\pi}\times\frac{1}{1+(\frac{1}{z})^2}\times\frac{1}{z^2}\times\frac{1}{2}=\frac{1}{\pi(z^2+1)}\quad(\lvert z\rvert >1)\\
+&f_Z(z)=\frac{1}{\pi(z^2+1)}\\
+&F_Z(z)=\frac{1}{2}+\frac{1}{\pi}arctan(z)\\
+\end{aligned}
+\end{equation*}
+\section{$X_k,k=1,\cdots,n$为独立同分布的随机变量，服从均匀分布$U(0,1)$，考虑$Y_n=X_1+\cdots+X_n$。令随机变量$Z_n$为$Y_n$的小数部分。请计算$Z_n$的概率密度。}
+\paragraph{解答}
+设$Z_2$为$X_1+X_2$的小数部分\\
+\begin{equation*}
+\begin{aligned}
+&Y_2=X_1+X_2,f_{Y_2}(y_2)=\begin{cases}
+y_2,0<y_2<1\\
+2-y_2,1<y_2<2\\
+\end{cases}
+\\
+&Z_2=\begin{cases}
+y_2,0<y<1,f_{Z_2}(z)=f_{Y_2}(y)\\
+y_2-1,1<y<2,f_{Z_2}(z)=f_{Y_2}(y)\\
+\end{cases}
+\\
+&f_{Z_2}(z_2)=\frac{1}{2}y_2+\frac{1}{2}(2-y_2)=1\\
+&Z_2\sim U(0,1)\\
+&X_1\sim U(0,1),X_2\sim U(0,1), Z_2\sim U(0,1)\\
+&Z_3\sim U(0,1)\\
+&Z_n\sim U(0,1)\\
+\end{aligned}
+\end{equation*}
+\section{X和Y是独立同分布随机变量，其分布满足$P(X=0)=\frac{1}{2},P(X>t)=\frac{1}{2}e^{-t},t>0$请计算$Z=X+Y$的累积分布函数。}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+\end{aligned}
+\end{equation*}
+\section{考虑下列场景：不断抛掷骰子并读数，直到连续三次得到结果1，抛掷行为才能结束。请计算从开始抛掷起到结束为止，抛掷次数的均值。}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+&Z=\begin{cases}
+0,X=Y=0\\
+X,X>0,Y=0\\
+Y,X=0,Y>0\\
+X+Y,X>0,Y>0\\
+\end{cases}
+\\
+&f_{Z_1}(z)=\begin{cases}
+\frac{1}{4},z=0\\
+0, otherwise\\
+\end{cases}
+\\
+&f_{Z_2}(z)=\frac{1}{2}f_X(z)=\frac{1}{4}e^{-z},z>0\\
+&f_{Z_3}(z)=\frac{1}{2}f_Y(z)=\frac{1}{4}e^{-z},z>0\\
+&f_{Z_4}(z)=\int_0^zf_X(x)f_Y(z-x)dx=\frac{1}{4}ze^{-z},z>0\\
+&f_Z(z)=\begin{cases}
+\frac{1}{4},z=0\\
+\frac{1}{2}e^{-z}+\frac{1}{4}ze^{-z},z>0\\
+\end{cases}
+\\
+&F_Z(z)=\begin{cases}
+0,z<0\\
+\frac{1}{4},z=0\\
+1-(\frac{1}{4}z+\frac{3}{4})e^{-z},z>0\\
+\end{cases}
+\\
+\end{aligned}
+\end{equation*}
+\section{考虑以下场景：不断抛掷骰子并读数，直到连续三次得到结果1，抛掷行为才能结束。请计算从开始抛掷到结束为止，抛掷次数的均值。}
+\paragraph{解答}
+设抛掷次数为X，事件A为“第一次投出2到6点”，事件B为“第一次投出1点，第二次投出2到6点”，事件C为“第一次和第二次投出1点，第三次投出2到6点”，事件D为“前三次都是1点”。
+\begin{equation*}
+\begin{aligned}
+&P(A)=\frac{5}{6},E(X\lvert A)=1+E(X)\\
+&P(B)=\frac{5}{36},E(X\lvert B)=2+E(X)\\
+&P(C)=\frac{5}{216},E(X\lvert C)=3+E(X)\\
+&P(D)=\frac{1}{216},E(X\lvert D)=3\\
+&E(X)=\frac{5}{6}(1+E(X))+\frac{5}{36}(2+E(X))+\frac{5}{216}(3+E(X))+\frac{3}{216}\\
+&E(X)=258\\
+\end{aligned}
+\end{equation*}
+\section{某种游戏规则如下：你同时掷两枚骰子，如果得到的点数之和为7，那么游戏结束，你将得到0元；如果点数之和不为7，那么你将得到数目与该点数之和相同的钱。同时，你还可以选择结束游戏，或者再掷一次，将游戏进行下去。假定你采用如下策略：事先设定一个门限值T，如果某一次掷骰子得到的钱数超过该门限值，则结束游戏。那么，请给出使得你收入总和的均值最大的门限值，也就是最优的门限值。}
+\paragraph{解答}
+设点数之和为X，收入为Y，门限为T。当$X\leq T$时，游戏继续，否则游戏结束。显然，游戏继续进行的概率与T有关，定义这种关系为$P(T)$。
+
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+X&2&3&4&5&6&7&8&9&10&11&12\\
+\hline
+P& $\frac{1}{36}$ & $\frac{2}{36}$ & $\frac{3}{36}$ & $\frac{4}{36}$ 
+& $\frac{5}{36}$ & $\frac{6}{36}$ & $\frac{5}{36}$ & $\frac{4}{36}$ 
+& $\frac{3}{36}$ & $\frac{2}{36}$ & $\frac{1}{36}$\\
+\hline
+\end{tabular}
+\\
+\begin{equation*}
+\begin{aligned}
+&f(T)=\sum\limits_{x_i>T}x_ip(x_i)\\
+&E(Y)=p(T)E(Y)+f(T)\\
+&E(Y)=\frac{f(T)}{1-p(T)}\\
+\end{aligned}
+\end{equation*}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+T&2&3&4&5&6&7&8&9&10&11&12\\
+\hline
+f(T)& $\frac{208}{36}$ & $\frac{202}{36}$ & $\frac{190}{36}$ & 
+$\frac{170}{36}$ & $\frac{140}{36}$ & $\frac{140}{36}$ & $\frac{100}{36}$ & $\frac{64}{36}$ & $\frac{34}{36}$ & $\frac{12}{36}$ &0\\
+\hline
+p(T)& $\frac{1}{36}$ & $\frac{3}{36}$ & $\frac{6}{36}$ & $\frac{10}{36}$ & 
+$\frac{15}{36}$ & $\frac{15}{36}$ & $\frac{20}{36}$ & $\frac{24}{36}$ &
+$\frac{27}{36}$ & $\frac{29}{36}$ & $\frac{30}{36}$\\
+\hline
+\end{tabular}
+\\
+
+代入计算可知T=6或7最优。
+\section{设$X_1,X_2$相互独立，均服从参数为$\lambda$的指数分布，求$E((X_1-X_2)^2\lvert X_1<X_2)$。}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+&Z=X_1-X_2,V=X_2,\lvert\frac{\partial(z,v)}{\partial(x_1,x_2)}\rvert=1\\
+&f_{ZV}(z,v)=f_{x_1x_2}(z+v,v)=\lambda^2e^{-\lambda(z+2v)},v>0,z>-v\\
+&f_Z(z)=\begin{cases}
+\int_0^{+\infty}\lambda^2e^{-\lambda(z+2v)}dv=\frac{\lambda}{2}e^{-\lambda z},z>0\\
+\int_{-z}^{+\infty}\lambda^2e^{-\lambda(z+2v)}dv=\frac{\lambda}{2}e^{\lambda z},z<0\\
+\end{cases}
+\\
+&P(z<0)=\frac{1}{2}\\
+&f_{Z\lvert Z<0}=\lambda e^{\lambda z},z<0\\
+&E(Z^2\lvert Z<0)\int_{-\infty}^0\lambda z^2e^{\lambda z}dz=\frac{2}{\lambda^2}\\
+\end{aligned}
+\end{equation*}
+\section{A和B轮流掷一对骰子，当A掷出“和为9”或B掷出“和为6”时游戏停止。假设A先掷。求游戏结束时A投掷次数的均值。}
+\paragraph{解答}
+设事件$A_i$为“第i次投掷和为9”，事件$B_i$为“第i次投掷和为6”。设A投掷次数为X。
+\begin{equation*}
+\begin{aligned}
+&P(A_i)=\frac{1}{9},P(B_i)=\frac{5}{36}\\
+&E(X\lvert A_1)=1,\quad P(A_1)=\frac{1}{9}\\
+&E(X\lvert \overline{A_1}B_2)=1,P(\overline{A_1}B_2)=\frac{10}{81}\\
+&E(X\lvert \overline{A_1B_2})=1+E(X),P(\overline{A_1B_2})=\frac{62}{81}\\
+&E(X)=\frac{1}{9}+\frac{10}{81}\times1+\frac{62}{81}(E(X)+1)\\
+&E(X)=\frac{81}{19}\\
+\end{aligned}
+\end{equation*}
+\section{在一根长为1的木棍上随机选取一个点A，若A点左边一段长度小于$\frac{1}{3}$，则在A点左边取一点B，否则在A点右边取一点B，计算A、B两点间距离的均值和方差。}
+\paragraph{解答}
+设A距左端点距离为X，AB间距为Y。
+\begin{equation*}
+\begin{aligned}
+&Y\sim U(0,X),f_{Y\lvert X}(y\lvert x)=\frac{1}{x},0<y<x,E(Y\lvert X<\frac{1}{3})=\frac{x}{2}\quad\quad (X<\frac{1}{3})\\
+&Y\sim U(0,1-X),f_{Y\lvert X}(y\lvert x)=\frac{1}{1-x},0<y<1-x,E(Y\lvert X>\frac{1}{3})=\frac{1-x}{2}\quad\quad (X>\frac{1}{3})\\
+&E(Y)=\int_0^1E(Y\lvert X)f_X(x)dx=\int_0^{\frac{1}{3}}\frac{x}{2}dx+\int_{\frac{1}{3}}^1\frac{1-x}{2}dx=\frac{5}{36}\\
+&Var(Y)=E(Var(Y\lvert X))+Var(E(Y\lvert X))\\
+&Var(Y\lvert X)=\begin{cases}
+\frac{x^2}{12},0<x<\frac{1}{3}\\
+\frac{(1-x)^2}{12},\frac{1}{3}<x<1\\
+\end{cases}
+\\
+&E(Y\lvert X)=\begin{cases}
+\frac{x}{2},0<x<\frac{1}{3}\\
+\frac{1-x}{2},\frac{1}{3}<x<1\\
+\end{cases}
+\\
+&E(Var(Y\lvert X))=\int_0^{\frac{1}{3}}\frac{x^2}{12}dx+\int^1_{\frac{1}{3}}\frac{(1-x)^2}{12}dx=\frac{1}{108}\\
+&E(Y\lvert X)=\begin{cases}
+\frac{x}{2},0<x<\frac{1}{3}\\
+\frac{1-x}{2},\frac{1}{3}<x<1\\
+\end{cases}
+\\
+&Var(E(Y\lvert X))=E(E^2(Y\lvert X))-E^2(E(Y\lvert X))\\
+&E(E(Y\lvert X))=\frac{5}{36}\\
+&E(E^2(Y\lvert X))=\int_0^{\frac{1}{3}}\frac{x^2}{4}dx+\int_{\frac{1}{3}}^1(\frac{x-1}{2})^2dx=\frac{1}{36}\\
+&Var(E^2(Y\lvert X))=E(E^2(Y\lvert X))=\frac{11}{1296}\\
+&Var(Y))=\frac{1}{108}+\frac{11}{1296}=\frac{23}{1296}\\
+\end{aligned}
+\end{equation*}
+\end{document}

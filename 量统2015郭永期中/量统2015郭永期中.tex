@@ -1,0 +1,166 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{量统2015郭永期中}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+\section*{一、}
+1.(1)体系能量有确定值的状态。\\
+\quad(2)粒子在无穷远处出现的概率为0的状态。\\
+\quad(3)若$\psi(x)=\psi(-x)$，则是偶（正）宇称；若$\psi(x)=-\psi(-x)$，则是奇（负）宇称。\\
+\quad(4)能量为E的粒子有一定概率穿透高度为$U_0(U_0>E)$的势垒。\\
+2.
+\begin{equation*}
+  E=\hbar\omega=h\nu,\lambda=\frac{h}{p}
+\end{equation*}
+3.
+\begin{equation*}
+  [a,a^\dagger]=\frac{m\omega}{2\hbar}([x,x]+\frac{i}{m\omega}([\hat p_x,x]-[x,\hat p_x])
+  +\frac{i}{m^2\omega^2}[\hat p_x,\hat p_x])
+  =\frac{m\omega}{2\hbar}\times\frac{i}{m\omega}\times2i\hbar=1
+\end{equation*}
+4.
+\begin{equation*}
+  \begin{aligned}
+     & [\hat p_x,f(x)]\psi(x)=\hat p_x(f(x)\psi(x))-f(x)\hat p_x\psi(x)
+    =-i\hbar\frac{\partial}{\partial x}(f(x)\psi(x))
+    +i\hbar f(x)\frac{\partial}{\partial x}\psi(x)
+    =-i\hbar(\frac{\partial}{\partial x}f(x))\psi(x)                    \\
+     & [\hat p_x,f(x)]=-i\hbar\frac{\partial}{\partial x}f(x)           \\
+     & [\hat L_z,\hat L_+]=[\hat L_z,\hat L_x]+i[\hat L_z,\hat L_y]
+    =i\hbar\hat L_y+\hbar\hat L_x=\hbar\hat L_+                         \\
+     & [\hat L_z,\hat L_-]=[\hat L_z,\hat L_x]-i[\hat L_z,\hat L_y]
+    =i\hbar\hat L_y-\hbar\hat L_x=-\hbar\hat L_-
+  \end{aligned}
+\end{equation*}
+5.设$a_n$对应的本征函数$\lvert\psi_{a_n}>,b_n$对应的本征函数$\lvert\psi_{b_n}>$，
+\begin{equation*}
+  \begin{aligned}
+     & <\psi_{a_n}\lvert\psi_{b_n}>=<\psi_{b_n}\lvert\psi_{a_n}>         \\
+     & [\hat A,\hat B]\psi=\hat A\hat B\psi-\hat B\hat A\psi
+    =\hat A\sum\limits_i^\infty b_i\psi_{b_i}-\hat B\sum\limits_k^\infty a_k\psi_{a_k}
+    =\sum\limits_i^\infty b_i\sum_j^\infty a_j\psi_{a_j,b_i}
+    -\sum\limits_k^\infty a_k\sum\limits_l^\infty b_l\psi_{a_k,b_l}      \\
+     & \because P(a_n,b_n)=P(b_n,a_n)\therefore b_i=b_l,a_j=a_k(i=l,j=k)
+    \therefore [\hat A,\hat B]\psi=0,[\hat A,\hat B]=0                   \\
+  \end{aligned}
+\end{equation*}
+6.记$\hat L_z$的本征态为$\lvert m>$，
+\begin{equation*}
+  \begin{aligned}
+     & <m\lvert\hat L_z\rvert m>=m\hbar\lvert m>                           \\
+     & [\hat L_x,\hat L_y]\lvert m>=i\hbar L_z\lvert m>=i\hbar^2m\lvert m>
+  \end{aligned}
+\end{equation*}
+$\therefore$在$\hat L_z$的本征态$\lvert m>$中，$[\hat L_x,\hat L_y]=i\hbar^2m$\\
+7.原式$=(\psi_n,(\hat H\hat A-\hat A\hat H)\psi_n)
+  =(\psi_n,\hat H\hat A\psi_n)-(\psi_n,\hat A\psi_n)E_n$\\
+$\because\hat H$是线性Hermite算符
+$\therefore(\psi_n,\hat H\hat A\psi_n)=(\hat A\psi_n,\hat H\psi_n)=E_n(\hat A\psi_n,\psi_n)$\\
+$\because\hat A$是线性Hermite算符$\therefore(\hat A\psi_n,\psi_n)=(\psi_n,\hat A\psi_n)$
+$\therefore(\psi_n,[\hat H,\hat A]\psi_n)=0$\\
+\section*{二、}
+1.
+\begin{equation*}
+  B^\dagger=A^\dagger(AA^\dagger)A=A^\dagger(1-A^\dagger A)A=A^\dagger A
+  -(A^\dagger)^\dagger A^\dagger=A^\dagger A=B
+\end{equation*}
+2.$\because B^2=B\therefore B$有2个本征值$\lambda_0=1,\lambda_1=0$
+\begin{equation*}
+  \begin{aligned}
+     & B=\begin{bmatrix}
+      1 & 0 \\
+      0 & 0
+    \end{bmatrix},\quad
+    A=\begin{bmatrix}
+      a_1 & a_2 \\
+      a_3 & a_4
+    \end{bmatrix},\quad
+    B^2=A^\dagger A,\quad A^2=0          \\
+     & A=\begin{bmatrix}
+      0           & 0 \\
+      e^{i\delta} & 0
+    \end{bmatrix}
+  \end{aligned}
+\end{equation*}
+\section{三、}
+1.基态：
+\begin{equation*}
+  E_0=\frac{\pi^2\hbar^2}{ma^2},\quad
+  \psi_0=\frac{2}{a}sin(\frac{\pi x_1}{a})sin(\frac{\pi x_2}{a}),\quad
+  f_0=1
+\end{equation*}
+2.第一激发态：
+\begin{equation*}
+  \begin{aligned}
+     & E_1=\frac{5\pi^2\hbar^2}{2ma^2}                                     \\
+     & \psi_{11}=\frac{2}{a}[sin(\frac{\pi x_1}{a})sin(\frac{2\pi x_2}{a})
+      -sin(\frac{\pi x_1}{a})sin(\frac{\pi x_2}{a})]\times
+    \begin{cases}
+      \lvert10> \\
+      \lvert11> \\
+      \lvert1-1>
+    \end{cases}                                             \\
+     & \psi_{12}=\frac{2}{a}[sin(\frac{\pi x_1}{a})sin(\frac{2\pi x_2}{a})
+    +sin(\frac{\pi x_1}{a})sin(\frac{\pi x_2}{a})]\lvert00>                \\
+     & f_1=4
+  \end{aligned}
+\end{equation*}
+\section*{四、}
+\begin{equation*}
+  \begin{aligned}
+     & \psi(r,\theta,\varphi)=\sqrt{\frac{8\pi}{3}}R(r)Y_{11}(\theta,\varphi)+
+    \sqrt{\frac{4\pi}{3}}R(r)Y_{10}(\theta,\varphi)                                     \\
+     & (1)L^2=2\hbar^2,\quad P=1                                                        \\
+     & (2)P(L_z=0)=\frac{1}{3},P(L_z=\hbar)=\frac{2}{3},\overline{L_z}=\frac{2}{3}\hbar
+  \end{aligned}
+\end{equation*}
+\section*{五、}
+\begin{equation*}
+  \begin{aligned}
+     & \hat{\vec J}=\hat{\vec{S_1}}+\hat{\vec{S_2}},\quad\hat H=A\hat J_z+\frac{B}{2}(\hat J^2-\hat S_1^2-\hat S_2^2) \\
+     & (1)j=0,m=0,E_1=-\frac{3}{4}B\hbar^2,\psi_1=\lvert00>                                                           \\
+     & (2)j=1,m=1,E_2=A\hbar+\frac{1}{4}B\hbar^2,\psi_2=\lvert11>                                                     \\
+     & (3)j=1,m=0,E_3=\frac{1}{4}B\hbar^2,\psi_3=\lvert10>                                                            \\
+     & (4)j=1,m=-1,E_4=-A\hbar+\frac{1}{4}B\hbar^2,\psi_4=\lvert1-1>
+  \end{aligned}
+\end{equation*}
+\section{六、}
+\begin{equation*}
+  \begin{aligned}
+     & H'=-q\varepsilon x,\quad E_n^{(0)}=(n+\frac{1}{2})\hbar\omega               \\
+     & E_n^{(1)}=<n\lvert-q\varepsilon x\rvert n>=0                                \\
+     & H'_{n+1,n}=<n+1\lvert-q\varepsilon x\rvert n>
+    =\sqrt{\frac{(n+1)\hbar}{2\mu\omega}},\quad else\quad H'_{m,n}=0               \\
+     & E_n^{(2)}=\frac{\lvert H'_{n+1,n}\rvert^2}{E_n^{(0)}-E_{n+1}^{(0)}}
+    =-\frac{n+1}{2\mu\omega^2}                                                     \\
+     & \psi_n=\frac{H'_{n+1,n}\psi_{n+1}^{(0)}}{E_n^{(0)}-E_{n+1}^{(0)}}
+    =-\sqrt{\frac{n+1}{2\mu\hbar\omega^3}}\lvert n+1>                              \\
+     & \therefore\psi_n=\lvert n>-\sqrt{\frac{n+1}{2\mu\omega^3}}\lvert n+1>,\quad
+    E_n=(n+\frac{1}{2})\hbar\omega-\frac{n+1}{2\mu\omega^2}
+  \end{aligned}
+\end{equation*}
+\end{document}

@@ -1,0 +1,170 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\usepackage{color}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{随机过程2017-2018期末}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+\section*{1.$X(t)$为宽平稳的实高斯过程。均值为0，相关函数为$R(t)=\frac{1}{1+t^2}$。\\
+(1)请判断$X(t)$是Markov过程吗？\\
+(2)用$X_t$作为$X(t)$的简写，令$A=E[X_3\lvert X_0],B=X_3-E[X_3\lvert X_0]$，求A和B的联合分布函数。}
+(1)否。
+\begin{equation*}
+  \begin{aligned}
+     & [X_3,X_0]^T\sim N(0,\Sigma_1),\quad\Sigma_1=
+    \begin{bmatrix}
+      1   & 0.1 \\
+      0.1 & 1   \\
+    \end{bmatrix},\quad A=0.1X_0,\quad B=X_3-0.1X_0 \\
+     & [A,B]^T\sim N(0,\Sigma_2),\quad\Sigma_2=
+    \begin{bmatrix}
+      0.01 & 0    \\
+      0    & 0.99 \\
+    \end{bmatrix},\quad f_{AB}(a,b)=\frac{1}{2\pi\times\frac{3\sqrt{11}}{100}}
+    e^{-\frac{a^2}{0.02}-\frac{b^2}{1.98}}                      \\
+  \end{aligned}
+\end{equation*}
+\section*{2.考虑Gaussian随机变量X，定义随机变量Y为$Y=
+    \begin{cases}
+      X,\quad\lvert X\rvert\geq a \\
+      -X,\quad\lvert X\rvert<a    \\
+    \end{cases}$
+  请计算Y的概率密度，并计算$E(XY)$。}
+\begin{equation*}
+  \begin{aligned}
+     & X\sim N(\mu,\sigma^2),\quad f_Y(y)=f_X(y)=\frac{1}{\sqrt{2\pi}\sigma}
+    e^{-\frac{(x-\mu)^2}{2\sigma^2}},\quad XY=
+    \begin{cases}
+      X^2,\quad\lvert X\rvert\geq a \\
+      -X^2,\quad\lvert X\rvert<a    \\
+    \end{cases}                                                            \\
+     & E[XY]=2\int_0^a-\frac{x^2}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx
+    +\int_a^\infty\frac{x^2}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx       \\
+     & =E[X^2]-4\int_0^a\frac{x^2}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx
+    =\sigma^2--4\int_0^a\frac{x^2}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx \\
+  \end{aligned}
+\end{equation*}
+\section*{3.设进入货运站有A线和B线。A线货车到达服从参数分布为$\lambda$的泊松过程，每车货物重量独立
+  均服从$[2,4]$吨的均匀分布。A线和B线相互独立运行。求$[0,T]$内两线到达货物总量之差的均值和方差。}
+设A、B线的到达分别为$N_A(t),N_B(t)$，货物总量为$Y_A(t),Y_B(t)$。
+\begin{equation*}
+  \begin{aligned}
+     & Y_A(t)=\sum\limits_{k=1}^{N_A(t)}X_{Ak},X_{Ak}\sim U(2,4)                                \\
+     & Y_B(t)=\sum\limits_{k=1}^{N_B(t)}X_{Bk},X_{Bk}\sim U(1,2)                                \\
+     & E[Y_A(T)]=E[Y_A(T)\lvert N_A]=E[N_AE[X_A]]=3E[N_A]=3\lambda T                            \\
+     & E[Y_B(T)]=E[Y_B(T)\lvert N_B]=E[N_BE[X_B]]=\frac{3}{2}E[N_B]=\frac{9}{2}\lambda T        \\
+     & E[Y_A(T)-Y_B(T)]=E[Y_A(T)]-E[Y_B(T)]=-\frac{3}{2}\lambda T                               \\
+     & Var[Y_A(T)\lvert N_A]=N_AVar[X_A]=\frac{1}{3}N_A                                         \\
+     & Var[Y_A(T)]=Var[E[Y_A(T)\lvert N_A]]+E[Var[Y_A(T)\lvert N_A]]=Var[3N_A]+E[\frac{N_A}{3}]
+    =9\lambda T+\frac{1}{3}\lambda T=\frac{28}{3}\lambda T                                      \\
+     & Var[Y_B(T)\lvert N_B]=N_BVar[X_B]=\frac{1}{12}N_B                                        \\
+     & Var[Y_B(T)]=Var[E[Y_B(T)\lvert N_B]]+E[Var[Y_B(T)\lvert N_B]]=Var[\frac{3}{2}N_B]
+    +E[\frac{1}{12}N_B]=\frac{27}{4}\lambda T+\frac{1}{4}\lambda T=7\lambda T                   \\
+     & Var[Y_A(T)-Y_B(T)]=Var[Y_A(T)]+Var[Y_B(T)]=\frac{49}{3}\lambda T                         \\
+  \end{aligned}
+\end{equation*}
+\section*{4.考虑零均值高斯过程$\{X(t),-\infty<t<+\infty\}$，自相关函数为$R_X(\tau)=e^
+  {-\lvert\tau\rvert}$。试求：已知$X(0)+X(1)=1$时，$X(\frac{1}{2})$的均值和方差？}
+\begin{equation*}
+  \begin{aligned}
+     & X_1=[X(\frac{1}{2}),X(0),X(1)]^T,\quad X_1\sim N(0,\Sigma_1),\quad\Sigma_1=
+    \begin{bmatrix}
+      1                & e^{-\frac{1}{2}} & e^{-\frac{1}{2}} \\
+      e^{-\frac{1}{2}} & 1                & e^{-1}           \\
+      e^{-\frac{1}{2}} & e^{-1}           & 1                \\
+    \end{bmatrix}                                                        \\
+     & X_2=[X(\frac{1}{2}),X(0)+X(1)]^T,\quad X_2\sim N(0,\Sigma_2),\quad\Sigma_2=
+    \begin{bmatrix}
+      1                 & 2e^{-\frac{1}{2}} \\
+      2e^{-\frac{1}{2}} & 2+2e^{-1}         \\
+    \end{bmatrix}                                                        \\
+     & E[X(\frac{1}{2})\lvert (X(0)+X(1)=1)]=\frac{e^{-\frac{1}{2}}}{1+e^{-1}},\quad
+    Var[X(\frac{1}{2})\lvert (X(0)+X(1)=1)]=\frac{e-1}{e+1}                          \\
+  \end{aligned}
+\end{equation*}
+\section*{5.考虑如下的Markov链，从某一个状态$k$出发，链或者以概率$1>a_k>0$转移到$k+1$，或者以概率
+  $1-a_k$回到0。计算其转移概率的极限，并请判断该链是常返还是非常返。}
+\begin{equation*}
+  \begin{aligned}
+     & P=\begin{cases}
+      a_i,\quad j=i+1 \\
+      1-a_i,\quad j=0 \\
+      0,\quad else    \\
+    \end{cases}\quad
+    \pi=\pi\cdot P,\quad\therefore\pi_k=\pi_0\prod\limits{i=0}^{k-1}a_i,\quad
+    \pi_0=\frac{1}{1+\sum\limits_{k=1}^\infty\prod\limits_{i=0}^{k-1}a_i}
+  \end{aligned}
+\end{equation*}
+\section*{6.某人正在逐次进行实验。如果本次实验和上次实验都成功，则下次实验成功的概率是0.8，否则下次实验
+  成功的概率为0.5。\\
+  (1)定义状态1为\{本次实验失败\}，状态2为\{本次实验成功，上次实验失败\}，状态3为\{本次实验和上次实验都成功\}。
+  令$X_n$表示第$n$次实验后的状态，请判断$\{X_n\}$是否是Markov链，并求出$\{X_n\}$的一步转移概率矩阵。\\
+  (2)经过很多次实验之后，求每次实验成功的概率。}
+\begin{equation*}
+  \begin{aligned}
+    (1) & \{X_n\} is Markov Chain。                                                              \\
+        & P=\begin{bmatrix}
+      0.5 & 0.5 & 0   \\
+      0.5 & 0   & 0.5 \\
+      0.2 & 0   & 0.8 \\
+    \end{bmatrix}                                                            \\
+    (2) & \pi=\pi\cdot P,\quad\pi_1=\frac{4}{11},\quad\pi_2=\frac{2}{11},\quad\pi_3=\frac{5}{11} \\
+        & P=\pi_2+\pi_3=\frac{7}{11}                                                             \\
+  \end{aligned}
+\end{equation*}
+\section*{7.考虑$n$个独立的指数分布，分别记为$X_1,\cdots,X_n$，其参数分别为$\lambda_1,\cdots,
+    \lambda_n$，请计算$P(X_1<X_2<\cdots<X_n)$。}
+\begin{equation*}
+  \begin{aligned}
+     & P(X_1<\cdots<X_n)=P(X_1<\cdots<X_{n-1}\lvert X_{n-1}<X_n)P(X_{n-1}<X_n)                                 \\
+     & P(X_1<X_2)=\frac{\lambda_1}{\lambda_1+\lambda_2},\quad
+    P(X_1<X_2<X_3)=\frac{\lambda_1\lambda_2}{(\lambda_1+\lambda_2)(\lambda_2+\lambda_3)},\cdots,\quad
+    P(X_1<X_2<\cdots<X_n)=\frac{\prod\limits_{i=1}^{n-1}\lambda_i}{\prod_{i=1}^{n-1}(\lambda_i+\lambda_{i+1})} \\
+  \end{aligned}
+\end{equation*}
+\section*{8.$N(t)$是参数为$\lambda$的泊松过程。定义$X(t)=X_0(-1)^{N(t)}$，其中$X_0$为随机变量且以
+  等概率取1或-1，设$X_0$与$N(t)$独立。\\
+  (1)计算$X(t)$的自相关函数。并判断其是否为宽平稳过程。\\
+  (2)令$\int_{t-T}^tX(\tau)d\tau$，其中T为常数，求$Y(t)$的功率谱密度。}
+\begin{equation*}
+  \begin{aligned}
+     & R_X(t,s)=E[X_0^2(-1)^{N(t)+N(s)}]=E[(-1)^{N(t)+N(s)}]=E[(-1)^{N(t-s)}]                                 \\
+     & P(N(t-s)=odd)=\frac{1}{2}(1-e^{-2\lambda(t-s)}),\quad P(N(t-s)=even)=\frac{1}{2}(1+e^{-2\lambda(t-s)}) \\
+     & R_X(t,s)=e^{-2\lambda(t-s)},\quad R_X(\tau)=e^{-2\lambda\lvert\tau\rvert}                              \\
+  \end{aligned}
+\end{equation*}
+\section*{9.设$\{N(t),t\geq0\}$是强度为$\lambda(t)=e^{-t},\quad t\geq0$的非齐次泊松过程，试求：已知
+$[0,T]$内发生一次事件条件下，该事件发生时刻的分布密度？}
+\begin{equation*}
+  \begin{aligned}
+     & P(N(T)=1)=\int_0^Te^{-s}dse^{-\int_0^Te^{-s}ds}=(1-e^{-T})e^{-1+e^{-T}}   \\
+     & P(X>x\lvert N(T)=1)=\frac{P(N(x)=0,N(T-x)=1)}{P(N(T)=1)}
+    =\frac{1-e^{-x}-e^{-T+x}+e^{-T}}{1-e^{-T}}e^{-1+e^{-T}-e^{-x}-e^{-T+x}}      \\
+     & F_X(x\lvert N(T)-1)=1-P(X>x\lvert N(T)=1),\quad f_X(x)=\frac{d}{dx}F_X(x) \\
+  \end{aligned}
+\end{equation*}
+\end{document}

@@ -1,0 +1,181 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{2017年概率论期末试题及解答}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+\section{设有三个灯泡，其寿命彼此独立，分别服从参数为$\lambda_1,\lambda_2,\lambda_3$的指数分布。设对三个灯泡同时通电并计时，求：第一个灯泡晚于第二个灯泡熄灭情况下，\\
+(a)第三个灯泡亦晚于第二个灯泡熄灭的概率？\\
+(b)第三个灯泡与第二个灯泡寿命之差的均值与方差？\\}
+\paragraph{解答(a)}
+设三个灯泡寿命分别为$X_1,X_2,X_3$。
+\begin{equation*}
+\begin{aligned}
+P(X_3>X_2\lvert X_1>X_2)&=\frac{P(X_3>X_2,X_1>X_2)}{P(X_1>X_2)}\\&=\frac{\int_0^{+\infty} dx_2\int_{x_2}^{+\infty}dx_3\int_{x_2}^{+\infty}\lambda_1\lambda_2\lambda_3e^{-\lambda_1x_1-\lambda_2x_2-\lambda_3x_3}dx_1}{\frac{\lambda_2}{\lambda_1+\lambda_2}}\\
+&=\frac{\int_0^{+\infty}\lambda_2e^{-(\lambda_1+\lambda_2+\lambda_3)x_2}dx_2}{\frac{\lambda_2}{\lambda_1+\lambda_2}}\\
+&=\frac{\lambda_1+\lambda_2}{\lambda_1+\lambda_2+\lambda_3}
+\end{aligned}
+\end{equation*}
+\paragraph{解答(b)}
+设三个灯泡寿命分别为$X_1,X_2,X_3$。
+\begin{equation*}
+\begin{aligned}
+f_{X_2\lvert X_1>X_2}(x_2\lvert x_1>x_2)
+&=\frac{\int_{x_2}^{+\infty}\lambda_1\lambda_2e^{-\lambda_1x_1-\lambda_2x_2}dx_1}{\int_0^{+\infty}dx_2\int_{x_2}^{+\infty}\lambda_1\lambda_2e^{-\lambda_1x_1-\lambda_2x_2}dx_1}\\
+&=(\lambda_1+\lambda_2)e^{-(\lambda_1+\lambda_2)x_2}\\
+X_2\lvert X_1>X_2\sim Exp(\lambda_1+\lambda_2)\\
+E(X_2\lvert X_1>X_2)
+&=\frac{1}{\lambda_1+\lambda_2}\\
+E(X_3-X_2\lvert X_1>X_2)
+&=E(X_3\lvert X_1>X_2)-E(X_2\lvert X_1>X_2)\\
+&=E(X_3)-E(X_2\lvert X_1>X_2)\\
+&=\frac{1}{\lambda_3}-\frac{1}{\lambda_1+\lambda_2}\\
+Var(X_2\lvert X_1>X_2)
+&=\frac{1}{(\lambda_1+\lambda_2)^2}\\
+Var(X_3)
+&=\frac{1}{\lambda_3^2}\\
+Var(X_2-X_3\lvert X_1>X_2)
+&=Var(X_2\lvert X_1>X_2)+Var(X_3)\\
+&=\frac{1}{(\lambda_1+\lambda_2)^2}+\frac{1}{\lambda_3^2}
+\end{aligned}
+\end{equation*}
+\section{设X,Y的联合概率密度为$f_{X,Y}(x,y)=\begin{cases}\frac{cy}{x},0<y<x<1\\
+0,other\end{cases}$。计算常数c，并请计算X和Y的期望，以及条件概率密度$f_{X\lvert Y}(x\lvert y)$。}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+&\int_0^1dx\int_0^x\frac{cy}{x}dy=\int_0^1\frac{cx}{2}dx=\frac{c}{4}=1,c=4\\
+&E(X)=\int^1_0xdx\int_0^x\frac{4y}{x}dy=\int_0^12x^2dx=\frac{2}{3}\\
+&E(Y)=\int_0^1dx\int_0^x\frac{4y^2}{x}dy=\int_0^1\frac{4x^2}{3}dx=\frac{4}{9}\\
+&f_Y(y)=\int^1_y\frac{4y}{x}dx=-4yln(y),0<y<1\\
+&f_{X\lvert Y}(x\lvert y)=\frac{f_{XY}(x,y)}{f_Y(y)}=-\frac{1}{xln(y)}, y<x<1\\
+\end{aligned}
+\end{equation*}
+\section{设一个罐子中有8个黑球，2个白球，不断进行有放回的摸球，直到白球和黑球都曾出现为止。求：(a)摸球次数的均值和方差；(b)最后一次出现黑球的概率。}
+\paragraph{解答(a)}
+设摸球次数为X。原问题分解为“第一个摸出的是白球，之后黑球第一次出现”和“第一个摸出的是黑球，之后白球第一次出现”。可以看出，第一次摸球之后，原问题分解为两个服从几何分布的问题。若$Y\sim Ge(p)$，则$E(Y)=\frac{1}{p},Var(Y)=\frac{1-p}{p^2},E(Y^2)=\frac{2-p}{p^2}$
+\begin{equation*}
+\begin{aligned}
+&P(X=k)=0.8^{k-1}\times0.2+0.2^{k-1}\times0.8,k\geq 2\\
+&E(X)=0.8\times\frac{1}{0.2}+0.2\times\frac{1}{0.8}+1=5.25\\
+&E((X-1)^2)=0.8\times\frac{2-0.2}{0.2^2}+0.2\times\frac{2-0.8}{0.8^2}=36.375\\
+&E(X^2)=E((X-1)^2)+2E(X)-1=45.875\\
+&Var(X)=E(X^2)-E^2(X)=18.3125\\
+\end{aligned}
+\end{equation*}
+\paragraph{解答(b)}
+P(最后一次是黑球)=P(第一次是白球)=0.2\\
+\section{环线汽车从起点站开出后，共有N站，只下不上，然后回到起点站。设有n位乘客在起点站上车，n服从参数为$\lambda$的泊松分布。设对于每一位乘客，其目的站都是相互独立的，并且是等可能地在N站之一下车。求汽车停靠站数的均值和方差。}
+\paragraph{解答}
+定义随机变量$X_i$，如果在第i站停车，则$X_i=1$，否则$X_i=0$。设停靠总站数为X，乘客数为Y。\\
+\begin{equation*}
+\begin{aligned}
+&X=\sum\limits_{i=1}^NX\\
+&P(X_i=1\lvert Y=y)=1-(\frac{N-1}{N})^Y\\
+&E(X\lvert Y)=\sum E(X_i\lvert Y)=N(1-(\frac{N-1}{N})^Y)\\
+&P(Y=y)=\frac{\lambda_y}{y!}e^{-\lambda}\\
+&E(X)=\sum\limits_{y=0}^\infty\frac{\lambda^y}{y!}N(1-(1-\frac{1}{N})^Y)e^{-\lambda}=N(1-e^{-\frac{\lambda}{N}})\\
+&Var(X)=E(X^2)-E^2(X)\\
+&E(X^2\lvert Y)=E((\sum\limits_{i=1}^NX_i^2+\sum\limits_{i\neq j}X_iX_j)\lvert Y)=\sum\limits_{i=1}^NE(X_i\lvert Y)+\sum\limits_{i\neq j}&P(X_iX_j=1)(i\neq j)=1-2(1-\frac{1}{N})^Y+(1-\frac{2}{N})^Y\\
+&\sum\limits_{i=1}^NE(X_i\lvert Y)=N(1-(1-\frac{1}{N})^Y)\\
+&\sum\limits_{i\neq j}E(X_iX_j\lvert Y)=(N^2-N)(1-2(1-\frac{1}{N})^Y+(1-\frac{2}{N})^Y)
+&E(\sum\limits_{i=1}^NE(X_i\lvert Y))=N(1-e^{-\frac{\lambda}{N}})\\
+&Lemma:\sum\limits_{y=1}^\infty (1-\frac{2}{N})^y\times \frac{\lambda^y}{y!}e^{-\lambda}=1-e^{-\frac{2\lambda}{N}}\\
+&Lemma:\sum\limits_{y=1}^\infty(1-\frac{1}{N})^y\frac{\lambda^y}{y!}e^{-\lambda}=1-e^{-\frac{\lambda}{N}}\\
+&E(X^2)=N(1-e^{-\frac{\lambda}{N}})+(N^2-N)-2(N^2-N)e^{-\frac{\lambda}{N}}+(N^2-N)e^{-\frac{2\lambda}{N}}\\
+&=N^2+(N-2N^2)e^{-\frac{\lambda}{N}}+(N^2-N)e^{-\frac{2\lambda}{N}}\\
+&Var(X)=E(X^2)-E^2(X)=Ne^{-\frac{\lambda}{N}}-Ne^{-\frac{2\lambda}{N}}\\
+\end{aligned}
+\end{equation*}
+\section{同时抛掷5枚均匀硬币，将正面朝上的硬币拾起后再次抛掷。设第一次抛掷反面朝上的硬币个数为X，第二次抛掷正面向上的硬币个数为Y，请计算$E(X+Y)$和$E(X\lvert Y)$。}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+&X\sim B(5,\frac{1}{2}), Z=5-X\sim B(5,\frac{1}{2})\\
+&Y\sim B(z,\frac{1}{2}), Z-Y\sim B(Z,\frac{1}{2})\\
+&E(X+Y)=E(X)+E(Y)=\frac{5}{2}+E(Y)\\
+&E(Y\lvert X)=\frac{5-X}{2},E(Y)=E(\frac{5-x}{2})=\frac{5}{2}-\frac{1}{2}\times\frac{5}{2}=\frac{5}{4}\\
+&E(X+Y)=\frac{15}{4}\\
+\end{aligned}
+\end{equation*}
+如果已知一个硬币在第二次是反面，那么它在第一次是反面的概率
+\begin{equation*}
+\begin{aligned}
+&P=\frac{\frac{1}{2}}{\frac{1}{2}+\frac{1}{4}}=\frac{2}{3}\\
+&E(X\lvert Y)=\frac{2}{3}(5-Y)\\
+\end{aligned}
+\end{equation*}
+\section{请举例说明，存在这样的三个随机变量X,Y,Z，满足X,Y相互独立，但是在给定Z的条件下，两者不再独立了。你需要分别写出$f_X(x),f_Y(y),f_{X,Y}(x,y),f_{X\lvert Z}(x\lvert z),f_{Y\lvert Z}(y\lvert z),f_{X,Y\lvert Z}(x,y\lvert z)$。}
+\paragraph{解答}
+Z=0时，X,Y满足\\
+\begin{tabular}{|l|l|l|}
+\hline
+\diagbox{X}{Y} & 0 & 1  \\
+\hline
+0 & $\frac{1}{4}$ & $\frac{1}{8}$  \\
+\hline
+1 & $\frac{1}{4}$ & $\frac{1}{8}$  \\
+\hline
+\end{tabular}
+\newline
+Z=1时，X,Y满足\\
+\begin{tabular}{|l|l|l|}
+\hline
+\diagbox{X}{Y} & 0 & 1 \\
+\hline
+0 & $\frac{1}{4}$ & $\frac{3}{8}$  \\
+\hline
+1 & $\frac{1}{4}$ & $\frac{1}{8}$ \\
+\hline
+\end{tabular}
+\newline
+X,Y独立，但给定Z时，X,Y不独立。\\
+\section{考虑某种掷骰子游戏，游戏规定，若掷出奇数点，则游戏结束；若掷出偶数点，则需付给庄家与所掷出点数数目相同的钱，并继续掷。游戏结束时，游戏者将从庄家手里拿到一笔固定数目的钱。请问，庄家应在游戏结束时付出多少钱，才能确保自己平均意义上不赔本。}
+\paragraph{解答}
+设庄家能从游戏者手中得到的钱数为X\\
+\begin{equation*}
+\begin{aligned}
+&E(X)=\frac{1}{6}(2+E(X))+\frac{1}{6}(4+E(X))+\frac{1}{6}(6+E(X))\\
+&E(X)=4\\
+\end{aligned}
+\end{equation*}
+\section{设随机变量X服从高斯分布，$X\sim N(0,\sigma^2)$，请计算$Y=\sqrt{max\{X,0\}}$的概率密度。}
+\begin{equation*}
+\begin{aligned}
+&E(X)=\frac{1}{6}(2+E(X))+\frac{1}{6}(4+E(X))+\frac{1}{6}(6+E(X))\\
+&E(X)=4\\
+\end{aligned}
+\end{equation*}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+&P(Y=0)=\frac{1}{2}\\
+&Y=\sqrt{X},\lvert\frac{dx}{dy}\rvert=2y\quad\quad (X>0)\\
+&f_Y(y)=\begin{cases}
+\frac{2y}{\sqrt{2\pi}\sigma}e^{-\frac{y^4}{2\sigma^2}},y>0\\
+\frac{1}{2}\delta(y),y=0\\
+0, other
+\end{cases}
+\end{aligned}
+\end{equation*}
+\end{document}

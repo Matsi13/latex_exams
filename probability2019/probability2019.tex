@@ -1,0 +1,174 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{2019年概率论期末试题及解答}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+\section{将52张扑克牌洗匀后，一张一张翻开，直到翻出红色的A为止。请计算所需翻牌次数的均值。}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+&P(X=k)=\frac{1}{52}\\
+&E(X)=\sum\limits_{k=1}^{52}\frac{k}{52}=26.5\\
+\end{aligned}
+\end{equation*}
+\section{直角坐标系中，三角形ABC的三个顶点分别为A(-1,0),B(1,0)和C(0,1)。在该三角形的内部随机取一个点，设其坐标为(X,Y)，请计算(X,Y)的联合概率密度和各自边缘密度，并判断X与Y是否相互独立？}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+&f_{XY}(x,y)=1,-1<x<1,0<y<1-\lvert x\rvert\\
+&f_X(x)=\int_0^{1-\lvert x\rvert}f_{XY}(x,y)dy=1-\lvert x\rvert,-1<x<1\\
+&f_Y(y)=\int_{y-1}^{1-y}f_{XY}(x,y)dx=2-2y,0<y<1\\
+\end{aligned}
+\end{equation*}
+\\
+X,Y不独立
+\section{假定有A和B两个彩票站，所售彩票的中奖概率分别为a和b，a>b，彩票价格分别为2元和1元。夫妻两人分别在两个彩票站买彩票，每个月买一张，两人都会在自己中奖后停止购买并结算花费。请计算当a和b满足什么条件时，丈夫花费钱数的均值大于妻子花费钱数的均值？}
+\paragraph{解答}
+设丈夫购买X张，妻子购买Y张。
+\begin{equation*}
+\begin{aligned}
+&X\sim Ge(a),Y\sim Ge(b)\\
+&E(X)=\frac{1}{a},E(Y)=\frac{1}{b}\\
+\end{aligned}
+\end{equation*}
+\\
+a<2b时，丈夫花费钱数的均值大于妻子花费钱数的均值。
+\section{考虑独立的随机变量：$X_1,X_2\sim N(0,\sigma_1^2),Y_1,Y_2\sim N(0,\sigma_2^2)$，如果$A=X_1^2+X_2^2,B=Y_1^2+Y_2^2$。请计算（这里t为确定性参数）$P(A<B\lvert A>t)+P(A>B\lvert B>t$。}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+&\begin{cases}
+X_1=\rho cos\theta\\
+X_2=\rho sin\theta\\
+\end{cases}
+\lvert \frac{\partial(x_1,x_2)}{\partial(\rho,\theta)}\rvert=\rho\\
+&f_{\rho,\theta}(\rho,\theta)=f_{X_1,X_2}(\rho cos\theta,\rho sin\theta)\rho=\frac{\rho}{1\pi\sigma_1^2}e^{-\frac{\rho^2}{2\sigma_1^2}},\rho>0,0<\theta<2\pi\\
+&f_\rho(\rho)=\int_0^{2\pi}f_{\rho,\theta}(\rho,\theta)d\theta=\frac{\rho}{\sigma_1^2}e^{-\frac{\rho^2}{2\sigma_1^2}}\\
+&A=\rho^2,f_A(a)=\frac{1}{2\sigma_1^2}e^{-\frac{a}{2\sigma_1^2}},F_A(a)=1-e^{-\frac{a}{2\sigma_1^2}}\\
+&f_B(b)=\frac{1}{2\sigma_2^2}e^{-\frac{b}{2\sigma_2^2}},F_B(b)=1-e^{-\frac{b}{2\sigma_2^2}}\\
+&f_{AB}(a,b)=\frac{1}{4\sigma_1^2\sigma_2^2}e^{-\frac{a}{2\sigma_1^2}-\frac{b}{2\sigma_2^2}}\\
+&P(A>t)=\int_t^{+\infty}\frac{1}{2\sigma_1^2}e^{-\frac{a}{2\sigma_1^2}}=e^{-\frac{t}{2\sigma_1^2}}\\
+&P(B>t)=\int_t^{+\infty}\frac{1}{2\sigma_2^2}e^{-\frac{b}{2\sigma_2^2}}=e^{-\frac{t}{2\sigma_2^2}}\\
+&P(A<B\lvert A>t)=\frac{P(t<A<B)}{P(A>t)}=\frac{\int_t^{+\infty}da\int_a^{+\infty}f_{AB}(a,b)db}{e^{-\frac{t}{2\sigma_1^2}}}=\frac{\sigma_2^2}{\sigma_1^2+\sigma_2^2}e^{-\frac{t}{2\sigma_2^2}}\\
+&P(A<B\lvert B>t)=\frac{P(A<B,B>t)}{P(B>t)}=\frac{\int_t^{+\infty}db\int_0^bf_{AB}(a,b)da}{e^{-\frac{t}{2\sigma_2^2}}}=1-\frac{\sigma_1^2}{\sigma_1^2+\sigma_2^2}e^{-\frac{t}{2\sigma_1^2}}\\
+&P(A<B\lvert A>t)+P(A<B\lvert B>t)=1-\frac{\sigma_1^2}{\sigma_1^2+\sigma_2^2}e^{-\frac{t}{2\sigma_1^2}}+\frac{\sigma_2^2}{\sigma_1^2+\sigma_2^2}e^{-\frac{t}{2\sigma_2^2}}\\
+\end{aligned}
+\end{equation*}
+\section{从0-499这500个整数中随机取一个数X，并计算其各位数字之和S（例如，245的各位数字之和即为S=2+4+5=11），请计算S的均值。}
+\paragraph{解答}
+\begin{equation*}
+S=\frac{1}{500}(45\times\frac{500}{10}+45\times\frac{500}{100}\times10+(1+2+3+4)\times100)=11\\
+\end{equation*}
+\section{设非负随机变量$X_1,X_2$独立同分布，设U在区间$[0,t]$上均匀分布，且与$X_1,X_2$相互独立，试计算$P(U<X_1\lvert X_1+X_2=t)=?$}
+\paragraph{解答[法一]}
+设$X_1$和$X_2$的密度函数为$f_X(x),Y=X_1+X_2$\\
+\begin{equation*}
+\begin{aligned}
+&f_Y(y)=\int_0^yf_X(y-x)f_X(x)dx\\
+&f_{X_1X_2}(x_1,x_2)=f_X(x_1)f_X(x_2)\\
+&\frac{\partial(y,x_1)}{\partial(x_1,x_2)}=1\\
+&f_{X_1Y}(x_1,y)=f_X(x_1)f_X(y-x_1)\\
+&f_{X_1\lvert Y}(x_1\lvert y)=\frac{f_X(x_1)f_X(y-x_1)}{\int_0^tf_X(x)f_X(t-x)dx},0<x_1<t\\
+&X_1=x_1,P(U<x_1\lvert X_1<x_1,X_2=t-x_1)=P(U<x_1)=\frac{x_1}{t}\\
+&P(U<X_1\lvert X_1+X_2=t)=\int_0^tP(U<X_1\lvert X_1=x_1,X_2=t-x_1)f_{X_1\lvert t}(x\lvert t)=\frac{\int_0^t\frac{x_1}{t}f_X(x_1)f_X(t-x_1)dx_1}{\int_0^tf_X(t-x)f_X(x)dx}\\
+&\int_0^{\frac{t}{2}}x_1f(x_1)f_X(t-x_1)dx_1=\int_{\frac{t}{2}}^t(t-x_1)f_X(x_1)f_X(t-x_1)dx_1\\
+&\int_0^tx_1f(x_1)f_X(t-x_1)dx_1=\int_{\frac{t}{2}}^ttf_X(x_1)f_X(t-x_1)dx_1\\
+&P(U<X_1\lvert X_1+X_2=t)=\frac{\int_{\frac{t}{2}}^tf_X(x_1)f_X(t-x_1)dx_1}{\int_0^tf(x_1)f_X(t-x_1)dx_1}=\frac{1}{2}\\
+\end{aligned}
+\end{equation*}
+\paragraph{解答[法二]}
+U与$X_1,X_2$独立，关于U的概率仅与区间长度有关。
+\begin{equation*}
+\begin{aligned}
+&P(U<X_1\lvert X_1+X_2=t)=P(t-X_1<U<t\lvert X_1+X_2=t)\\
+&=P(X_2<U<t\lvert X_1+X_2=t)=P(U>X_1\lvert X_1+X_2=t)\\
+&P(U<X_1\lvert X_1+X_2=t)+P(U>X_1\lvert X_1+X_2=t)=1\\
+&P(U<X_1\lvert X_1+X_2=t)=\frac{1}{2}\\
+\end{aligned}
+\end{equation*}
+\section{设随机变量X,Y相互独立，且$X\sim Exp(\lambda),Y\sim Exp(\mu)$设$Z=min(X,Y)$,$W=\begin{cases}
+1,\quad if\quad Z=X\\
+0,\quad if\quad Z=Y\\
+\end{cases}$\\
+试求Z与W的相关系数？}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+&f_Z(z)=(\lambda+\mu)e^{-(\lambda+\mu)z}\\
+&P(W=1)=\frac{\lambda}{\lambda+\mu},P(W=0)=\frac{\mu}{\lambda+\mu}\\
+&Y=WZ,Y=\begin{cases}
+X,\quad X<Y\\
+0,\quad X>Y\\
+\end{cases}
+\\
+&E(Y)=\int_0^{+\infty}dy\int_0^y\lambda\mu xe^{-\lambda x-\mu y}dx=(\frac{\lambda}{\lambda+\mu})^2\\
+&E(Z)=\frac{1}{\lambda+\mu}\\
+&E(W)=\frac{\lambda}{\lambda+\mu}\\
+&E(ZW)-E(Z)E(W)=Cov(Z,W)=0\\
+&Corr(Z,W)=0\\
+\end{aligned}
+\end{equation*}
+\section{设随机变量X和Y相互独立，且均服从参数为1的指数分布。定义$U=X+Y$,$V=\frac{X}{X+Y}$，试写出U和V的联合分布，并计算$E(V\lvert U)$。}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+&X=UV,Y=U-UV,\frac{\partial(x,y)}{\partial(u,v)}=
+\begin{vmatrix}
+v&u\\
+1-v&-u
+\end{vmatrix}
+=\lvert u\rvert=u\\
+&f_{UV}(u,v)=ue^{-uv}e^{-(u-uv)}=ue^{-u},u>0,0<v<1\\
+&f_V(v)=\int_0^{+\infty}ue^{-u}du=1\\
+&f_U(u)=\int_0^1ue^{-u}dv=ue^{-u}\\
+&f_{V\lvert U}=\frac{f_{UV}(u,v)}{f_U(u)}=1\\
+&E(V\lvert U)=\int_0^1vdv=\frac{1}{2}\\
+\end{aligned}
+\end{equation*}
+\section{在边长为2的正方形区域内随机选择一个点，计算该点到区域边界的最短距离的均值与方差。}
+\paragraph{解答}
+将正方形沿两条中线和两条对角线切分成8个区域，由对称性，在求密度函数时可用下半侧的左起第二个代表其他区域。设距离为Z。
+\begin{equation*}
+\begin{aligned}
+&f_{XY}(x,y)=\frac{1}{4},0<y<x<1\\
+&Z=Y\\
+&f_Y(y)=\int_y^1\frac{1}{4}dx=\frac{1-y}{4}\\
+&f_Z(z)=8f_Y(z)=2-2z,0\leq z\leq1\\
+&E(Z)=\frac{1}{3},Var(Z)=\frac{1}{18}\\
+\end{aligned}
+\end{equation*}
+\section{连续抛掷硬币，直到出现连续的一个正面一个反面（或一个反面一个正面）位置，计算已经完成的抛掷中，正面向上数目的期望与方差。}
+\paragraph{解答}
+两种情况：（1）N正+1反（2）N反+1正，（1）和（2）是等概率的。设正面数为Y。\\
+注：本题中级数求和的结果直接给出，详细证明来自几何分布的均值与方差。
+\begin{equation*}
+\begin{aligned}
+&P(Y=1)=\lim_{n\to\infty}\frac{1}{4}+(\frac{1}{4}+\frac{1}{8}+\cdots+\frac{1}{2^n})=\frac{3}{4}\\
+&P(Y=k)=\frac{1}{2^{k+1}}\quad\quad(k\geq2)\\
+&E(Y)=\frac{3}{4}+\sum\limits_{k=2}^{+\infty}\frac{k}{2^{k+1}}=\frac{3}{2}\\
+&E(Y^2)=\frac{3}{4}+\sum\limits_{k=2}^{\infty}\frac{k^2}{2^{k+1}}=\frac{7}{2}\\
+&Var(Y)=E(Y^2)-E^2(Y)=\frac{5}{4}\\
+\end{aligned}
+\end{equation*}
+\end{document}

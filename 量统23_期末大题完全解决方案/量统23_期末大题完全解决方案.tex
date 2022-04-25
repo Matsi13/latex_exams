@@ -1,0 +1,242 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\usepackage{color}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{量统23\_期末大题完全解决方案\_答案}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+\section*{1.}
+\begin{equation*}
+  \begin{aligned}
+    (1) & E_1^{(1)}=H_{11}'=b,\quad E_2^{(1)}=H_{22}'=b,\quad E_1^{(2)}=\frac
+    {\lvert H_{21}'\rvert^2}{E_1^{0}-E_2^{(0)}}=\frac{a^2}{E_{01}-E_{02}},\quad
+    E_2^{(2)}=\frac{\lvert H_{12}'\rvert^2}{E_2^{0}-E_1^{(0)}}=\frac{a^2}{E_{02}-
+    E_{01}}                                                                                    \\
+        & E_1=E_{01}+b+\frac{a^2}{E_{01}-E_{02}},\quad
+    E_2=E_{02}+b+\frac{a^2}{E_{02}-E_{01}}                                                     \\
+    (2) & \begin{vmatrix}
+      b-\lambda & a         \\
+      a         & b-\lambda \\
+    \end{vmatrix}=0,\quad\lambda_1=b+a,\quad\lambda_2=b-a,\quad E_1=E_0+b+a,
+    \quad E_2=E_0+b-a                                                                          \\
+  \end{aligned}
+\end{equation*}
+\section*{3.}
+\begin{equation*}
+  \begin{aligned}
+    (1) & z=\sum g_ie^{-\beta\varepsilon_i}=e^\alpha\sum g_ie^{-\alpha-\beta\varepsilon
+    _i}                                                                                   \\
+        & \frac{\partial lnz}{\partial\beta}=\frac{1}{z}\frac{\partial z}{\partial\beta}
+    =\frac{1}{z}\sum-g_i\varepsilon_ie^{-\beta\varepsilon_i}=\frac{e^{-\alpha}}{N}\sum
+    -g_i\varepsilon_ie^{-\beta\varepsilon_i}=-\frac{1}{N}\sum\varepsilon_i g_i
+    e^{-\alpha-\beta\varepsilon_i}=-\frac{1}{N}\sum\varepsilon_in_i                       \\
+        & \therefore\overline{E}=-N\frac{\partial lnz}{\partial\beta}                     \\
+    (2) & d\overline{E}=\delta W+\delta Q,\quad\delta W=Ydy,\quad d\overline{E}=d\sum n_i
+    \varepsilon_i=\sum n_id\varepsilon_i+\sum\varepsilon_idn_i                            \\
+        & \because dW=\sum n_id\varepsilon_i=\sum Y_kdy_k=\sum n_i\sum\frac{\partial
+    \varepsilon_i}{\partial y_k}dy_k                                                      \\
+        & \therefore Y_k=\sum n_i\frac{\partial\varepsilon_i}{\partial y_k}=\sum g_ie^
+    {-\alpha-\beta\varepsilon_i}\frac{\partial\varepsilon_i}{\partial y_k}=-\frac{N}
+    {z\beta}\frac{\partial z}{\partial y_k}                                               \\
+        & P=Y_k=-\frac{N}{\beta}\frac{\partial lnz}{\partial y_k}=\frac{N}{\beta}\frac
+    {\partial lnz}{\partial V}                                                            \\
+  \end{aligned}
+\end{equation*}
+\section*{4.}
+\begin{equation*}
+  \begin{aligned}
+    (1) & dE=\delta W+\delta Q,\quad\because\delta W=0,\quad\therefore dE=\delta Q,C_V=
+    \frac{\partial Q}{\partial T}=(\frac{\partial E}{\partial T})_V                     \\
+    (2) & dF=-SdT-PdV,\quad\therefore P=-\frac{\partial F}{\partial V}
+  \end{aligned}
+\end{equation*}
+\section*{5.}
+\begin{equation*}
+  \begin{aligned}
+     & \varepsilon_n=(n+\frac{1}{2})h\nu,\quad g_n=1,\quad\theta_\nu=\frac{h\nu}{k},
+    x=\frac{\theta_\nu}{T}=\beta h\nu,\quad z^\nu(\beta)=\sum e^{-(n+\frac{1}{2})h\nu}
+    =\frac{e^{-\frac{1}{2}\beta h\nu}}{1-e^{-\frac{1}{2}\beta h\nu}}                 \\
+     & \overline{E}=-N\frac{\partial lnz}{\partial\beta}=Nh\nu(\frac{1}{2}+\frac{1}
+    {e^{\beta h\nu}}-1)                                                              \\
+  \end{aligned}
+\end{equation*}
+\section*{7.}
+\begin{equation*}
+  \begin{aligned}
+    (1) & W\{n_i\}=\prod\frac{g_i!}{n_i!(g_i-n_i)!}\approx=\frac{g_i^{g_i}}{n_i^{n_i}(g_i
+    -n_i)^{g_i-n_i}},\quad ln(W\{n_i\})=\sum g_ilng_i-n_ilnn_i+(n_i-g_i)ln(g_i-n_i)       \\
+        & F=ln(W\{n_i\})+\alpha(N-\sum n_i)+\beta(E-\sum n_i\varepsilon_i),\quad\frac
+    {\partial F}{\partial n_i}=ln(\frac{g_i}{n_i}-1)-\alpha-\beta\varepsilon_i=0,\quad
+    n_i=\frac{g_i}{e^{\alpha+\beta\varepsilon_i}+1}                                       \\
+    (2) & N=\int_0^{\mu_0}f(\varepsilon)g(\varepsilon)d\varepsilon=\int_0^{\mu_0}
+    g(\varepsilon)d\varepsilon,\quad g(\varepsilon)=\frac{2\pi VJ}{h^3}(2m)^{\frac{3}
+    {2}}\sqrt\varepsilon d\varepsilon                                                     \\
+        & N=\frac{4\pi JV}{3h^3}(2m\mu_0)^{\frac{3}{2}},\quad\mu_0=\frac{h^2}{2m}(\frac
+    {3N}{4\pi JV})^{\frac{2}{3}},\quad E=\int_0^{\mu_0}\varepsilon f(\varepsilon)g
+    (\varepsilon)d\varepsilon=\frac{3}{5}N\mu_0                                           \\
+  \end{aligned}
+\end{equation*}
+\section*{8.}
+\begin{equation*}
+  \begin{aligned}
+     & W\{n_i\}=\prod\frac{(n_i+g_i-1)!}{n_i!(g_i-1)!}\approx\frac{(n_i+g_i)^{n_i+g_i}}
+    {n_i^{n_i}g_i^{g_i}},\quad ln(W\{n_i\})=\sum(n_i+g_i)ln(n_i+g_i)-n_ilnn_i-g_ilng_i   \\
+     & F=ln(W\{n_i\})+\alpha(N-\sum n_i)+\beta(E-\sum n_i\varepsilon_i),\quad\frac
+    {\partial F}{\partial n_i}=ln(\frac{g_i}{n_i}-1)-\alpha-\beta\varepsilon_i=0,\quad
+    n_i=\frac{g_i}{e^{\alpha+\beta\varepsilon_i}+1}=\frac{g_i}{e^{\beta\varepsilon_i}+1} \\
+  \end{aligned}
+\end{equation*}
+\section*{9.}
+\begin{equation*}
+  \begin{aligned}
+    (1) & \Omega(\varepsilon)=\int dxdydz\int dp_xdp_ydp_z=V\int_0^{2\pi}d\varphi\int_0
+    ^\pi sin\theta d\theta\int_0^{\sqrt{2m\varepsilon}}p^2dp=\frac{4\pi}{3}V(2m
+    \varepsilon)^{\frac{3}{2}}                                                               \\
+        & g(\varepsilon)d\varepsilon=\frac{Jd\Omega(\varepsilon)}{h^3}=\frac{2\pi}{h^3}JV
+    (2m)^{\frac{3}{2}}\sqrt\varepsilon d\varepsilon                                          \\
+    (2) & \Omega(\varepsilon)=\int dxdydz\int dp_xdp_ydp_z=V\int_0^{2\pi}d\varphi\int_0
+    ^\pi sin\theta d\theta\int_0^{\frac{\varepsilon}{c}}p^2dp=\frac{4\pi}{3c^3}V
+    \varepsilon^3                                                                            \\
+        & g(\varepsilon)d\varepsilon=\frac{Jd\Omega(\varepsilon)}{h^3}=\frac{8\pi}{c^3h^3}JV
+    \varepsilon^3                                                                            \\
+  \end{aligned}
+\end{equation*}
+\section*{10.}
+\begin{equation*}
+  \begin{aligned}
+     & g(\varepsilon)d\varepsilon=\frac{2\pi}{h^3}V(2m)^{\frac{3}{2}}\sqrt{\varepsilon}d
+    \varepsilon,\quad z=\int_0^\infty g(\varepsilon)e^{-\beta\varepsilon}d\varepsilon
+    =\frac{V}{h^2}(\frac{2\pi m}{\beta})^{\frac{3}{2}}                                   \\
+     & \overline{E}=-N\frac{\partial lnz}{\partial\beta}=\frac{3}{2}NkT,\quad
+    P=\frac{N}{\beta}\frac{\partial lnz}{\partial V}=\frac{NkT}{V}=\frac{2\overline{E}}
+    {3V}                                                                                 \\
+  \end{aligned}
+\end{equation*}
+\section*{11.}
+\begin{equation*}
+  \begin{aligned}
+     & \Omega(\varepsilon)=\int dxdy\int dp_xdp_y=S\int_0^{2\pi}d\theta=\int_0^{\sqrt{2m
+    \varepsilon}}pdp=2\pi Sm\varepsilon                                                   \\
+     & g(\varepsilon)d\varepsilon=\frac{Jd\Omega(\varepsilon)}{h^2}=\frac{2\pi JSm}{h^2},
+    \quad N=\int_0^\infty\frac{2\pi JSm}{h^2(e^{-\beta\varepsilon}-1)}\to\infty           \\
+  \end{aligned}
+\end{equation*}
+\section*{13.}
+\begin{equation*}
+  \begin{aligned}
+     & \Omega(\varepsilon)=\int dxdydz\int dp_xdp_ydp_z=V\int_0^{2\pi}d\varphi\int_0
+    ^\pi sin\theta d\theta\int_0^{(\frac{\varepsilon}{\alpha})^{\frac{1}{l}}}p^2dp
+    =\frac{4\pi}{3}V(\frac{\varepsilon}{\alpha})^\frac{3}{l}                              \\
+     & g(\varepsilon)d\varepsilon=\frac{Jd\Omega(\varepsilon)}{h^3}=\frac{4\pi JV
+      \varepsilon^{\frac{3}{l}-1}}{h^3l\alpha^{\frac{3}{l}}}=C_1V\varepsilon^{\frac{3}{l}
+    -1}                                                                                   \\
+     & z=\int_0^\infty g(\varepsilon)e^{-\beta\varepsilon}d\varepsilon=C_1V\int_0^\infty
+    \varepsilon^{\frac{3}{l}-1}e^{-\beta\varepsilon}d\varepsilon                          \\
+     & \overline{E}=-N\frac{\partial lnz}{\partial\beta}=\frac{N}{z}C_1V\int_0^\infty
+    \varepsilon^{\frac{3}{l}}e^{-\beta\varepsilon}d\varepsilon=\frac{N}{z}C_1V\beta^
+    {-\frac{l}{3}}\int_0^\infty x^{\frac{3}{l}}e^{-x}dx=\frac{N}{z}C_1V\beta^
+    {-\frac{l}{3}}\Gamma(\frac{3}{l}+1)                                                   \\
+     & P=\frac{N}{\beta}\frac{\partial lnz}{\partial V}=\frac{N}{\beta z}C_1\int_0^\infty
+    \varepsilon^{\frac{3}{l}-1}e^{-\beta\varepsilon}=\frac{N}{z}C_1\beta^{-\frac{1}{3}}
+    \int_0^\infty x^{\frac{3}{l}-1}e^{-x}dx=\frac{N}{z}C_1\beta^{-\frac{1}{3}}\Gamma
+    (\frac{3}{l})                                                                         \\
+     & \therefore P=\frac{l\overline{E}}{3V}                                              \\
+  \end{aligned}
+\end{equation*}
+\section*{14.}
+\begin{equation*}
+  \begin{aligned}
+     & \varepsilon_i=\varepsilon^t+\varepsilon_\alpha^l+U=\frac{p_x^2+p_y^2+p_z^2}{2m}+
+    \varepsilon_\alpha^l+U,\quad g_i=\frac{g_\alpha^l}{h^3}dxdydzdp_xdp_ydp_z           \\
+     & n(p_x,p_y,p_z)dp_xdp_ydp_z=\frac{1}{h^3}e^{-\alpha-\frac{\beta}{2m}(p_x^2+p_y^2+
+    p_z^2)}dp_xdp_ydp_z\int e^{-\beta U}dxdydz\sum\limits_\alpha g_\alpha^le^{-\beta
+    \varepsilon_\alpha^l}                                                               \\
+     & N=\frac{e^{-\alpha}}{h^3}\int e^{-\frac{\beta}{2m}(p_x^2+p_y^2+p_z^2)}dp_xdp_y
+    dp_z\int e^{-\beta U}dxdydz\sum\limits_\alpha g_\alpha^le^{-\beta\varepsilon_
+    \alpha^l}                                                                           \\
+     & n(p_x,p_y,p_z)dp_xdp_ydp_z=\frac{N}{(2\pi mkT)^\frac{3}{2}}e^{-\frac{p_x^2+p_y^2
+    +p_z^2}{2mkT}}dp_xdp_ydp_z                                                          \\
+     & n(v_x,v_y,v_z)=N(\frac{m}{2\pi kT})^\frac{3}{2}e^{-\frac{m}{2kT}(v_x^2+v_y^2+
+    v_z^2)}                                                                             \\
+  \end{aligned}
+\end{equation*}
+\section*{15.}
+\begin{equation*}
+  \begin{aligned}
+     & \Omega(\varepsilon)=\int dxdydz\int dp_xdp_ydp_z=V\int_0^{2\pi}d\varphi\int_0^{\pi
+    }sin\theta d\theta\int_0^\frac{\varepsilon}{c}p^2dp=\frac{4\pi V\varepsilon^2}{3c^
+    2}                                                                                    \\
+     & g(\varepsilon)d\varepsilon=\frac{J}{h^3}d\Omega(\varepsilon)=\frac{4\pi VJ
+    \varepsilon^2}{c^3h^3}d\varepsilon=\frac{8\pi V\varepsilon^2}{c^3h^3}d\varepsilon     \\
+     & N=\int_0^{\mu_0}f(\varepsilon)g(\varepsilon)d\varepsilon=\int_0^{\mu_0}g(
+    \varepsilon)d\varepsilon=\frac{8\pi V\mu_0^3}{3c^3h^3},\quad\mu_0=\frac{ch}{2}
+    (\frac{3N}{\pi V})^\frac{1}{3}                                                        \\
+  \end{aligned}
+\end{equation*}
+\section*{16.}
+\begin{equation*}
+  \begin{aligned}
+     & N=\frac{2\pi VJ}{h^3}(2m)^\frac{3}{2}\int_0^\infty\frac{\sqrt\varepsilon}{e^{\frac
+          {\varepsilon}{kT_c}}-1}=2.612J(\frac{2\pi mkT_c}{h^2})^\frac{3}{2},\quad T_c=\frac
+    {h^2}{2\pi mk}(\frac{n}{2.612J})^\frac{2}{3}                                          \\
+  \end{aligned}
+\end{equation*}
+\section*{21.}
+\begin{equation*}
+  \begin{aligned}
+    (1) & \varepsilon=h\nu=pc,\quad p=\frac{h\nu}{c},\quad g(p)dp=\frac{8\pi V}{h^3}p^2d
+    p,\quad g(\nu)d\nu=\frac{8\pi V\nu^2}{c^3}d\nu                                       \\
+        & n(\nu)d\nu=\frac{8\pi V\nu^2d\nu}{c^3(e^\frac{h\nu}{kT}-1)},\quad E(\nu,t)dt=
+    \frac{8\pi Vh\nu^3d\nu}{c^3(e^\frac{h\nu}{kT}-1)}                                    \\
+    (2) & N=\int_0^\infty n(\nu)d\nu=(272.7T)^3V                                         \\
+  \end{aligned}
+\end{equation*}
+(3)不守恒。
+\section*{22.}
+\begin{equation*}
+  \begin{aligned}
+     & g(p)dp=\frac{4\pi V}{h^2}pdp,\quad g(\nu)d\nu=\frac{4\pi V\nu d\nu}{c^2},\quad
+    n(\nu)d\nu=\frac{4\pi V\nu d\nu}{c^2(e^\frac{h\nu}{kT}-1)}                        \\
+     & N=\int_0^\infty\frac{4\pi V}{c^2}\frac{\nu d\nu}{e^\frac{h\nu}{kT}-1}=\frac
+    {4\pi V}{c^2}(\frac{kT}{h})^2\int_0^\infty\frac{xdx}{e^x-1}                       \\
+  \end{aligned}
+\end{equation*}
+\section*{23.}
+\begin{equation*}
+  \begin{aligned}
+     & \phi(\beta,y)=-\int_0^\infty \frac{8\pi V\varepsilon^2d\varepsilon}{h^3c^3}ln(1-e^
+    {-\beta\varepsilon})=\frac{8\pi^5V}{45\beta^3h^3c^3},\quad\overline{E}=-\frac{d\phi}
+    {d\beta}=bVT^4                                                                        \\
+     & b=\frac{8\pi^5V}{15h^3c^3},\quad P=\frac{1}{\beta}\frac{d\phi}{dV}=\frac{1}{3}bT
+    ^4=\frac{\overline{E}}{3V}                                                            \\
+  \end{aligned}
+\end{equation*}
+
+
+
+
+\end{document}

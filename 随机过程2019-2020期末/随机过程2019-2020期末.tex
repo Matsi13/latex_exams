@@ -1,0 +1,160 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{随机过程2019-2020期末}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+\section*{1.连续投掷色子$n$次，设$S_n$为$n$次投掷结果之和，当$n$充分大时，请计算$S_n$被7除余数为2的概率。}
+\begin{equation*}
+  \begin{aligned}
+     & S_n={0,1,2,3,4,5,6},\quad P_{ij}=\begin{cases}
+      \frac{1}{6},\quad i\neq j \\
+      0,\quad else
+    \end{cases}                                 \\
+     & \pi=\pi\cdot P,\quad\sum\pi_i=1,\quad\therefore\pi_i=\frac{1}{6},\quad i=0,1,\cdots,6\quad
+    \lim_{n\to\infty}P(S_n=2)=\frac{1}{7}                                                         \\
+  \end{aligned}
+\end{equation*}
+\section*{2.到达公园钓鱼的游客人数服从参数为$\lambda$的泊松过程，$\lambda$为在$[\alpha,\beta]$区间上均匀
+  分布的随机变量，$\beta>\alpha>0$、每位游客能钓到鱼的概率为$p$。公园中鱼的重量是随机的，均值为$\mu$，方差为
+  $\sigma^2$。已经统计得知在$[0,t]$时间内到达游客数为$N$。设$[t,2t]$时间内所有游客钓到的鱼的总重量为$A$，求
+  $A$的均值和方差。}
+设能钓到鱼的游客的到达为$Y(t)$，则$Y(t)$是参数为$p\lambda$的泊松过程。在$N(t)=N$的情况下，$\lambda$的后验
+概率分布为$g(\lambda)$，设$[t,2t]$内第$i$位游客$Y_i$钓到鱼的重量为$V_i$，则$A=\sum_{i=1}^{Y(t)}V_i$。
+\begin{equation*}
+  \begin{aligned}
+     & g(\lambda)=\frac{(2\lambda t)^Ne^{-2\lambda t}}{\int_\alpha^\beta(2\lambda t)^Ne^{-2\lambda t}
+    d\lambda}                                                                                         \\
+     & E[A]=E_Y[\sum\limits_{i=1}^YE[V_i]\lvert Y(t)=Y]=E_Y[\mu Y]=\mu E_\lambda[E_Y[Y\lvert\lambda]]
+    =\mu E_\lambda[pt\lambda]=\mu pt\int_\alpha^\beta\lambda g(\lambda)d\lambda                       \\
+     & E[A^2]=E_Y[E^2[\sum\limits_{i=1}^Y[V_i]]\lvert Y(t)=Y]=E_Y[(\mu^2+\sigma^2)Y^2]
+    =(\mu^2+\sigma^2)E_\lambda[E_Y[Y^2\lvert\lambda]]
+    =(\mu^2+\sigma^2)ptE_\lambda(\lambda+pt\lambda^2)                                                 \\
+     & =(\mu^2+\sigma^2)pt\int_\alpha^\beta(\lambda+pt\lambda^2)g(\lambda)d\lambda                    \\
+     & Var(A)=E^2[A]-E[A^2]                                                                           \\
+  \end{aligned}
+\end{equation*}
+\section*{3.设$X(t)$和$Y(t)$为独立的零均值宽平稳高斯过程，自相关函数为$R_X(\tau)=R_Y(\tau)=e^{-\lvert
+  \tau\rvert}$，请计算$E[cos(X(3)+Y(3))\lvert(X(0)+Y(0))]$。}
+\begin{equation*}
+  \begin{aligned}
+     & \vec X_1=[X(0),X(3),Y(0),Y(3)]^T,\quad\vec X_1\sim N(0,\Sigma_1),\quad\Sigma_1=
+    \begin{bmatrix}
+      1      & e^{-3} & 0      & 0      \\
+      e^{-3} & 1      & 0      & 0      \\
+      0      & 0      & 1      & e^{-3} \\
+      0      & 0      & e^{-3} & 1      \\
+    \end{bmatrix}                                                          \\
+     & \vec X_2=[X(3)+Y(3),X(0)+Y(0)]^T,\quad\vec X_2=A\vec X_1,\quad
+    A=\begin{bmatrix}
+      0 & 1 & 0 & 1 \\
+      1 & 0 & 1 & 0 \\
+    \end{bmatrix}                                                        \\
+     & \vec X_2\sim N(0,\Sigma_2),\quad\Sigma_2=A\Sigma_1A^T=
+    \begin{bmatrix}
+      2       & 2e^{-3} \\
+      2e^{-3} & 2       \\
+    \end{bmatrix}                                                          \\
+     & X_3=(X(3)+Y(3))\lvert(X(0)+Y(0)),\quad X_3\sim N(\mu_3,\sigma_3^2),\quad
+    \mu_3=e^{-3}(X(0)+Y(0)),\quad\sigma_3^2=2(1-e^{-6})                                \\
+     & E[cos(X_3)]=\frac{1}{2}(E[e^{jx_3}]+E[E^{-jx_3}])=\frac{1}{2}[\phi(1)+\phi(-1)]
+    =cos(e^{-3})e^{e^{-6}-1}                                                           \\
+  \end{aligned}
+\end{equation*}
+\section*{4.到达商店的客流服从参数为$\lambda$的泊松过程，每个客人在商店中消费的钱数为相互独立的随机变量，
+  均值与方差均为1。设$Y(t)$为截止到时刻$t$为止，商店的总收入。请确定参数$T$，使得$Z(t)=Y(t+T)-Y(t)$为宽平稳
+  过程，并计算其相关函数。}
+\begin{equation*}
+  \begin{aligned}
+     & Y(t)=\sum\limits_{k=1}^{N(t)}X_k,\quad X_k i.i.d,\quad E[X_k]=Var[X_k]=1 \\
+     & Z(t)=Y(t+T)-Y(t)=Y(T)=\sum\limits_{k=1}^{N(T)}X_k                        \\
+     & \therefore\forall T>0,Z(t)w.s.s.                                         \\
+     & E[Z(t)]=E[\sum\limits_{k=1}^nE[X_k]\lvert N(T)=n]=E_N(n)=\lambda T       \\
+     & Var[Z(t)]=E[Var[\sum\limits_{k=1}^nX_k\lvert N(T)=n]]+
+    Var[E[\sum\limits_{k=1}^nX_k\lvert N(T)=n]]
+    =E[n]+Var[n]=2\lambda T                                                     \\
+     & E[Z(t)Z(s)]=E[Z^2(t)]=\lambda^2T^2+2\lambda T                            \\
+  \end{aligned}
+\end{equation*}
+\section*{5.$X(t)$为零均值宽平稳高斯过程，自相关函数为$R_X(\tau)=e^{-\lvert\tau\rvert}$。\\
+(1)设$Y(t)$为$X(t)$的导数，求$X(t)$和$Y(t)$的联合分布。\\
+(2)求$E[X(0)\lvert Y(1)=2]$}
+
+\section*{6.到达道路监控系统从车流服从参数为$\lambda$的泊松过程，设车流中有3种类型：小客车、货车与公交车。
+  对于通过监控系统的每一辆车而言，其车型属于上述三类的概率分别为$\frac{1}{2},\frac{1}{3},\frac{1}{6}$。请计
+  算：两台公交车通过的时间间隙中，通过的小客车与货车各一辆的概率。}
+设小客车、货车。公交车的通过依次为$N_1(t),N_2(t),N_3(t)$，两辆公交车的间隔为$T$，事件$A$为“两台公交车通过的
+时间间隙中，通过的小客车与货车各一辆”。
+\begin{equation*}
+  \begin{aligned}
+     & N_1(t)\sim Poisson(\frac{\lambda}{2}),\quad N_2(t)\sim Poisson(\frac{\lambda}{3}),\quad
+    N_3(t)\sim Poisson(\frac{\lambda}{6}),\quad T\sim Exp(\frac{\lambda}{6})                        \\
+     & P(A\lvert T)=P(N_1\lvert T)P(N_2=1\lvert T)=\frac{\lambda^2T^2}{6}e^{-\frac{5}{6}\lambda T},
+    \quad P(A)=\int_0^\infty\frac{\lambda^2T^2}{6}e^{-\frac{5}{6}\lambda T}\times
+    \frac{\lambda}{6}e^{-\frac{1}{6}\lambda T}=\frac{1}{18}                                         \\
+  \end{aligned}
+\end{equation*}
+\section*{7.设$\{X(t),-\infty<t<+\infty\}$为零均值高斯过程，相关函数为$R(\tau)$，令$Y(t)=2e^\frac{X(t)}
+    {2}$,试判断$\{Y(t)\}$是否宽平稳。}
+\begin{equation*}
+  \begin{aligned}
+     & X\sim N(0,\sigma^2),\quad\sigma^2=R(0)                                         \\
+     & E[Y(t)]=2E[e^{\frac{X(t)}{2}}]=2\phi(-2j)=e^{2R(0)}                            \\
+     & R_Y(t,s)=E[Y(t)Y(s)]=E[e^{\frac{1}{2}(X(t)+X(s))}]                             \\
+     & [X(t),X(s)]^T\sim N(0,\Sigma),\quad\Sigma=
+    \begin{bmatrix}
+      R(0)   & R(t-s) \\
+      R(t-s) & R(0)   \\
+    \end{bmatrix},\quad Z=X(t)+X(s)\sim N(0,2R(0)+2R(t-s))                \\
+     & R_Y(t,s)=4E[e^\frac{Z}{2}]=4\phi_Z(-\frac{j}{2})=4e^{\frac{1}{4}(R(0)+R(t-s))} \\
+     & \therefore Y\quad w.s.s.
+  \end{aligned}
+\end{equation*}
+\section*{8.厂家A出厂的灯泡80\%是合格品，平均寿命10年，20\%是次品，平均寿命是1年。厂家B出厂的灯泡90\%是合格
+  品，平均寿命5年，10\%是次品，平均寿命是0.5年。假设灯泡的寿命均服从指数分布。小李买了厂家A的一个灯泡，小王买了
+  厂家B的一个灯泡，并同时开始使用。试求，小李的灯泡先于小王的灯泡熄灭的概率是多大？}
+\begin{equation*}
+  P=\frac{4}{5}\times\frac{9}{10}\times\frac{5}{10+5}
+  +\frac{1}{5}\times\frac{9}{10}\times\frac{5}{1+5}
+  +\frac{4}{5}\times\frac{1}{10}\times\frac{0.5}{10+0.5}
+  +\frac{1}{5}\times\frac{1}{10}\times\frac{0.5}{1+0.5}
+  =\frac{841}{2100}=0.40
+\end{equation*}
+\section*{9.N个黑球和N个白球混合在一起，装在两个罐子里，每个罐子里有N个球。假设在每一个时刻进行一次“交换”
+  操作，即从两个罐子里分别取出一个球，交换后放回。请计算在时间充分长后，第一个罐子中白球数目所服从的统计分布。}
+相当于从$2N$个球中，选N个放进罐子中。$P(X=k)=\frac{\tbinom{N}{k}\tbinom{N}{N-k}}{\tbinom{2N}{N}}$。
+\section*{10.设X和Y为独立同分布的n维高斯随机变量，服从$N(0,\Sigma)$，其中$\Sigma\in R^{n\times n}$非奇异，
+  请给出矩阵$A$，使得$Z=AY$满足$Var(X^TZ)=n$。}
+\begin{equation*}
+  \begin{aligned}
+     & \because Var(X^TZ)=n\quad\therefore Var(X^TAY)=n                          \\
+     & \Sigma=LL^T,\quad X_1=L^{-1}X\sim N(0,I_n),\quad Y_1=L^{-1}Y\sim N(0,I_n) \\
+     & X_1^TY_1\sim N(0,n),\quad X_1^TY_1=X^T(L^{-1})^TL^{-1}Y=X^T\Sigma^{-1}Y   \\
+     & \therefore A=\Sigma^{-1}
+  \end{aligned}
+\end{equation*}
+\end{document}

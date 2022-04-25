@@ -1,0 +1,211 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{量统2019郭永期中}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+\section*{一、简答题}
+1.解释下列概念：\\
+(1)德布罗意假设(2)束缚态(3)Zeeman效应\\
+(1)实物粒子具有波粒二象性。\\
+(2)粒子在无穷远处出现的概率为0的状态。\\
+(3)正常Zeeman效应：没有外磁场时的一条谱线在有外磁场时分裂成3条；
+反常Zeeman效应：没有外磁场时的一条谱线在有外磁场时分裂成偶数条。\\
+2.填写下列对易关系，其中$x,y,z$代表坐标算符，$\hat p,\hat L$分别为动量算符和轨道角动量算符。\\
+\begin{equation*}
+  \begin{aligned}
+     & (1)[y,\hat p_y]=(\quad\quad\quad);(2)[\hat p_y,x]=(\quad\quad\quad);
+    (3)[\hat p_x,\hat p_z]=(\quad\quad\quad);                                            \\
+     & (4)[\hat L_x,x]=(\quad\quad\quad);(5)[\hat L_x,\hat L_z]=(\quad\quad\quad);
+    (6)[\hat L_x,\hat L^2]=(\quad\quad\quad);                                            \\
+    \newline
+     & (1)[y,\hat p_y]=i\hbar;(2)[\hat p_y,x]=0;(3)[\hat p_x,\hat p_z]=0;                \\
+     & (4)[\hat L_x,x]=0;(5)[\hat L_x,\hat L_z]=-i\hbar\hat L_y;(6)[\hat L_x,\hat L^2]=0 \\
+  \end{aligned}
+\end{equation*}
+3.设厄米算符$\hat A$满足$\hat A^2=\hat A$（假设算符$\hat A$的本征值无简并），直接给出（1）
+$\hat A$的本征值（2）在自身表象中算符$\hat A$的矩阵表示。\\
+\begin{equation*}
+  \begin{aligned}
+     & (1)\lambda_1=1,\lambda_2=0     \\
+     & (2)A=\begin{bmatrix}
+      1 & 0 \\
+      0 & 0
+    \end{bmatrix}
+  \end{aligned}
+\end{equation*}
+4.在轨道角动量分量算符$\hat L_z$的本征态中，求角动量分量算符$\hat L_x$的平均值$\overline{L_x}$。\\
+\begin{equation*}
+  \begin{aligned}
+    \overline{L_x} & =\frac{1}{i\hbar}<m\lvert[\hat L_y,\hat L_z]\rvert m>
+    =\frac{1}{i\hbar}<m\lvert\hat L_y\hat L_z\rvert m>-\frac{1}{i\hbar}<m\lvert\hat L_z\hat L_y\rvert m>                \\
+                   & =\frac{1}{i\hbar}m\hbar<m\lvert\hat L_y\rvert m>-\frac{1}{i\hbar}m\hbar<m\lvert\hat L_y\rvert m>=0 \\
+  \end{aligned}
+\end{equation*}
+5.一刚性振子绕一固定点转动，转子转动惯量为$I$，能量的经典表达式为$H=\frac{\vec L^2}{2I}$，
+其中$\vec L$为轨道角动量。求该转子的定态能量本征值、能量本征波函数并给出能级的简并度。\\
+\begin{equation*}
+  E_n=\frac{n(n+1)}{2I}\hbar^2,\quad Y_{nm}=Y_{nm}(\theta,\varphi),\quad f_n=2n+1
+\end{equation*}
+6.威尔逊云室是一个充满“过饱和蒸气”的容器，射入的高速电子使气体分子或原子电离成离子。以离子为中心，
+过饱和蒸气便凝结成小液滴。在强光照射下，可以看到一条白亮的带状的痕迹——粒子的径迹。若测出径迹的线度
+约为约为$10^{-6}cm$，测出云室中的电子动能为$10^8eV$。用量子力学原理简单说明可以采用“轨道”的概念描述
+威尔逊云室中电子的运动。\\
+\begin{equation*}
+  \Delta p_x\geq\frac{\hbar}{2\Delta x}\approx10^{-28}kg\cdot m/s,\quad
+  p=\sqrt{2mE}=1.8\times10^{-23}kg\cdot m/s,\quad p>>\Delta p_x
+\end{equation*}
+7.设每个粒子可占据单粒子态$\psi_1,\psi_2,\psi_3$中的一个态，相应的能量$\varepsilon_1,\varepsilon_2,
+  \varepsilon_3$。对于两个全同Bose子体系，直接给出体系可能态的数目、相应的态函数及能量。\\
+\begin{equation*}
+  \begin{aligned}
+     & E_1=2\varepsilon_1,\quad\Psi_1=\psi_1(1)\psi_2(2)           \\
+     & E_2=2\varepsilon_2,\quad\Psi_2=\psi_2(1)\psi_2(2)           \\
+     & E_3=2\varepsilon_3,\quad\Psi_3=\psi_3(1)\psi_3(2)           \\
+     & E_4=\varepsilon_1+\varepsilon_2,\quad
+    \Psi_4=\frac{1}{\sqrt2}(\psi_1(1)\psi_2(2)+\psi_2(1)\psi_1(2)) \\
+     & E_5=\varepsilon_1+\varepsilon_3,\quad
+    \Psi_5=\frac{1}{\sqrt2}(\psi_1(1)\psi_3(2)+\psi_3(1)\psi_1(2)) \\
+     & E_6=\varepsilon_2+\varepsilon_3,\quad
+    \Psi_6=\frac{1}{\sqrt2}(\psi_2(1)\psi_3(2)+\psi_3(1)\psi_2(2)) \\
+  \end{aligned}
+\end{equation*}
+8.已知厄米算符$\hat A$和$\hat B$，给出算符$(\hat A+i\hat B)^2$厄米性的条件。
+\begin{equation*}
+  (\hat A+i\hat B)^2=\hat A^2+2i\hat A\hat B-\hat B^2,\quad
+  2i\hat A\hat B=-2i\hat B\hat A,\quad\hat A\hat B+\hat B\hat A=0
+\end{equation*}
+\section*{二、（本题12分）设氢原子处于波函数$\psi(r,\theta,\varphi,s_z)=\frac{1}{2}
+    \begin{pmatrix}
+      R_{21}(r)Y_{11}(\theta,\varphi) \\
+      -\sqrt3R_{21}(r)Y_{1-1}(\theta,\varphi)
+    \end{pmatrix}$描写的状态。}
+ (1)直接写出氢原子的守恒量;\\
+(2)求力学量$\hat H,\hat {\vec L}^2,\hat L_z,\hat S_z,\hat M_z$的可能取值。这些可能值出现的概率及平均值，
+其中$\hat M_z$为总磁矩$\hat{\vec M}=-\frac{e}{2m}\hat{\vec L}-\frac{e}{m}\hat{\vec S}$的z分量。
+\begin{equation*}
+  \begin{aligned}
+    (1) & \{\hat H,\hat L^2,\hat L_z\}                                                         \\
+    (2) & P(E=\frac{E_0}{4})=1,\quad\overline{E}=\frac{E_0}{4}                                 \\
+        & P(L^2=2\hbar^2)=1,\quad\overline{L^2}=2\hbar^2                                       \\
+        & P(L_z=\hbar)=\frac{1}{4},\quad P(L_z=-\hbar)=\frac{3}{4},
+    \quad\overline{L_z}=-\frac{\hbar}{2}                                                       \\
+        & P(S_z=\frac{\hbar}{2})=\frac{1}{4},\quad P(S_z=-\frac{\hbar}{2})=\frac{3}{4},\quad
+    \overline{S_z}=-\frac{\hbar}{4}                                                            \\
+        & P(J_z=\frac{3}{2}\hbar)=\frac{1}{4},\quad P(J_z=-\frac{3}{2}\hbar)=\frac{3}{4},\quad
+    \overline{J_z}=-\frac{3}{4}\hbar                                                           \\
+        & P(M_z=-\frac{e\hbar}{m})=\frac{1}{4},\quad P(M_z=\frac{e\hbar}{m})=\frac{3}{4},\quad
+    \overline{M_z}=\frac{e\hbar}{2m}                                                           \\
+  \end{aligned}
+\end{equation*}
+\section*{三、（本题10分）设一维粒子Hamilton量$H=\frac{p_x^2}{2m}+V(x)$，分别求出坐标x表象及动量$p_x$
+  表象中Hamilton量H的矩阵元。}
+\begin{equation*}
+  \begin{aligned}
+     & H_{x'x''}=\int_{-\infty}^{+\infty}\delta(x-x')[-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+V(x)]
+    \delta(x-x'')dx=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\delta(x'-x'')+V(x')\delta(x'-x'')       \\
+     & H_{p'p''}=\int_{-\infty}^{+\infty}\delta(p-p')[\frac{p^2}{2m}+V(i\hbar\frac{\partial}
+      {\partial p})]\delta(p-p'')dp
+    =[\frac{{p'}^2}{2m}+V(i\hbar\frac{\partial}{\partial p'})]\delta(p'-p'')
+  \end{aligned}
+\end{equation*}
+\section*{四、（本题15分）}
+ (1)写出在$\hat S_z$表象中电子自旋矩阵$\hat S_x,\hat S_y$和$\hat S_z$。\\
+(2)测量一个处于自由空间的电子自旋的z分量，结果为$\frac{\hbar}{2}$。问第二次测量自旋的x分量，可能得到
+什么结果？得到这些结果的概率是多少？\\
+(3)假设两个电子组成的量子系统有哈密顿算符$\hat H=A(\hat S_{1z}+\hat S_{2z})+B\hat{\vec S_1}
+  \cdot\hat{\vec S_2}$描述，其中A,B为实常数，$\hat{\vec S_1}$和$\hat{\vec S_2}$分别是两电子的自旋，
+$\hat S_{1z}$和$\hat S_{2z}$分别是这两个电子自旋的z分量。求该量子系统的所有能级及能量本征函数。\\
+(4)在第(3)问的基础上，若初始时刻$t=0$时，电子1自旋“向上”($s_{1z}=\frac{\hbar}{2}$)，电子2自旋“向下”
+（$s_{2z}=-\frac{\hbar}{2}$）,求$t>0$时刻该两电子系统的自旋波函数、总自旋角动量$\hat{\vec S^2}$和
+$\hat S_z$的取值及概率。\\
+\begin{equation*}
+  \begin{aligned}
+    (1) & \hat S_x=\frac{\hbar}{2}\begin{bmatrix}
+      0 & 1 \\
+      1 & 0
+    \end{bmatrix},\quad
+    \hat S_y=\frac{\hbar}{2}\begin{bmatrix}
+      0 & -i \\
+      i & 0
+    \end{bmatrix},\quad
+    \hat S_z=\frac{\hbar}{2}\begin{bmatrix}
+      1 & 0  \\
+      0 & -1
+    \end{bmatrix}                       \\
+    (2) & P(S_x=\frac{\hbar}{2})=P(S_x=-\frac{\hbar}{2})=\frac{1}{2}         \\
+    (3) & \hat H=A\hat J_z+\frac{B}{2}(\hat J^2-\hat S_1^2-\hat S_2^2)       \\
+        & j=0,m=0,E_1=-\frac{3}{4}B\hbar^2,\quad\psi_1=\lvert00>             \\
+        & j=1,m=1,E_2=A\hbar+\frac{1}{4}B\hbar^2,\quad\psi_{21}=\lvert11>    \\
+        & j=1,m=0,E_2=\frac{1}{4}B\hbar^2,\quad\psi_{22}=\lvert10>           \\
+        & j=1,m=-1,E_2=-A\hbar+\frac{1}{4}B\hbar^2,\quad\psi_{23}=\lvert1-1> \\
+    (4) & \Psi(r,0)=\lvert00>+\lvert10>                                      \\
+        & \Psi(r,t)=\frac{1}{\sqrt2}\lvert00>e^{i\frac{3}{4}B\hbar t}
+    +\frac{1}{\sqrt2}\lvert10>e^{-i\frac{1}{4}B\hbar t}                      \\
+        & P(S^2=0)=P(S^2=2\hbar^2)=\frac{1}{2},\quad P(S_z=0)=1
+  \end{aligned}
+\end{equation*}
+\section*{五、（本题15分）考虑一个质量为$\mu$的粒子在三维各向同性谐振子势$V(r)=\frac{1}{2}\mu\omega^2r^2$
+  中运动，解答以下问题：}
+ (1)直接给出该量子系统的两组守恒量完全集；\\
+(2)在笛卡尔坐标系中采用分离变量法，可以得到三个一维谐振子，利用一维谐振子中所学知识给出粒子在三维
+各向同性谐振子势中运动时的能量本征值及本征函数，并给出能级的简并度（注：能级本征函数用一维谐振子的
+能量本征函数$\psi_n(x)$表达即可。）；\\
+(3)设粒子受到微扰$\hat H'=\lambda x^2yz$作用（其中$\lambda$为实常数，刻画耦合强度），计算并讨论
+粒子基态和第一激发态两种情况的一级微扰能。\\
+(4)（附加题，选做）若该粒子是自旋量子数为$\frac{1}{2}$的核子，考虑核子受到自旋轨道耦合$-C\vec S\cdot\vec L$
+作用（其中假设C是常数且$C>0,\vec S$为核子自旋），通过计算讨论自旋轨道耦合效应对能级带来的影响。\\
+【参考公式】在占有数表象中，坐标矩阵元为
+\begin{equation*}
+  \begin{aligned}
+     & x_{n'n}=<n'\lvert x\rvert>=\frac{1}{\sqrt2\alpha}[\sqrt n\delta_{n',n-1}
+    +\sqrt{n+1}\delta_{n',n+1}],\quad\alpha=\sqrt\frac{\mu\omega}{\hbar}                 \\
+     & x^2_{n'n}=<n'\lvert x^2\rvert n>=\frac{1}{2\alpha^2}[\sqrt{n(n-1)}\delta_{n',n-2}
+    +(2n+1)\delta_{n',n}+\sqrt{(n+1)(n+2)}\delta_{n',n+2}]                               \\
+  \end{aligned}
+\end{equation*}
+其中$\lvert n>$为一维线性谐振子的第n个能量本征态，在坐标表象中$\lvert n>=\psi_n(x)$。\\
+\begin{equation*}
+  \begin{aligned}
+    (1) & \{\hat H,\hat L^2,\hat L_z\},\quad\{\hat H_z,\hat H_y,\hat H_z\}                                \\
+    (2) & E_n=(n+\frac{3}{2})\hbar\omega,\quad\Psi_n(x,y,z)=\psi_{n1}(x)\psi_{n2}(y)\psi_{n3}(z),\quad
+    n_1+n_2+n_3=n,\quad f_n=\frac{1}{2}(n+1)(n+2)                                                         \\
+    (3) & E_0=<0\lvert H'\rvert0>=\lambda<0\lvert x^2\rvert0><0\lvert y\rvert0><0\lvert z\rvert0>=0,\quad
+    E_0=\frac{3}{2}\hbar\omega                                                                            \\
+        & E_1^{(0)}=\frac{5}{2}\hbar\omega,quad\Psi_1=\psi_1(x)\psi_0(y)\psi_0(z),\quad
+    \Psi_2=\psi_0(x)\psi_1(y)\psi_0(z),\quad\Psi_3=\psi_0(x)\psi_0(y)\psi_1(z)                            \\
+        & {H'}_{23}={H'}_{32}=\frac{\lambda}{4\alpha^4},\quad else {H'}_{mn}=0                            \\
+        & \begin{vmatrix}
+      E & 0                          & 0                          \\
+      0 & E                          & -\frac{\lambda}{4\alpha^4} \\
+      0 & -\frac{\lambda}{4\alpha^4}
+    \end{vmatrix}=E(E-\frac{\lambda}{4\alpha^4})(E+\frac{\lambda}{4\alpha^4})=0,\quad
+    E_{11}^{(1)}=0,\quad E_{12}^{(1)}=\frac{\lambda}{4\alpha^4},\quad
+    E_{13}^{(1)}=-\frac{\lambda}{4\alpha^4},\quad\alpha=\sqrt\frac{\mu\omega}{\hbar}
+  \end{aligned}
+\end{equation*}
+\end{document}

@@ -1,0 +1,112 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{2014年概率论期末试题}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+\section{市中心一家蛋糕店，一小时内进入这家店的顾客数服从参数为$\lambda$的泊松分布。蛋糕店内有K种蛋糕，每个顾客选取每种蛋糕的概率服从均匀分布。求一小时内被购买的蛋糕种类的期望。}
+\paragraph{解答}
+设第i种蛋糕有人买时$X_i=1$，反之$X_i=0$。设有N人进入蛋糕店。
+\begin{equation*}
+\begin{aligned}
+&X=\sum_{i=1}^N{X_i}\\
+&P(X_i=1\lvert N)=1-(1-\frac{1}{K})^N\\
+&E(X\lvert N)=N-N(1-\frac{1}{K})^N\\
+&E(X)=\sum_{n=0}^{\infty}{\frac{\lambda^n}{n!}e^{-\lambda}(n-n(1-\frac{1}{K})^n)}\\
+&=\frac{1}{\lambda}-e^{-\frac{\lambda}{K}}\frac{1}{\lambda(1-\frac{1}{K})}
+\end{aligned}
+\end{equation*}
+\section{设有长度为10的数列Xi，每个数的值的分布为U(0,1)。定义局部极大值为
+Xi-1<Xi>Xi+1，设其数量为N。\\
+(1)求E(N)。\\
+(2)求$E(X_1N)$。}
+\paragraph{(1)解答}
+设$X_i$为局部最大值时$Y_i=1$，反之$Y_i=0$。
+\begin{equation*}
+\begin{aligned}
+&Y_1=0,\quad Y_10=0\\
+&P(Y_i=1)=\frac{1}{3},i=2,3,\cdots,9\\
+&E(N)=E(\sum_{i=2}^9{Y_i})=\sum_{i=2}^9{E(Y_i)}=\frac{8}{3}
+\end{aligned}
+\end{equation*}
+\paragraph{(2)解答}
+\begin{equation*}
+\begin{aligned}
+&E(X_1N)=E(E(x_1N\lvert X_1))\\
+&E(x_1N\lvert X_1)=x_1E(N\vert X_1)=x_1E(\sum_{i=3}^9{Y_i})+x_1E(Y_2\lvert X_1)\\
+&=\frac{7}{3}x_1+x_1\int_{x_1}^{1}{dx_2}\int_0^{x_2}{dx_3}=\frac{17}{6}x_1-\frac{1}{2}x_1^3\\
+&E(X_1N)=\int_0^1{(\frac{17}{6}x_1-\frac{1}{2}x_1^3)dx_1}=\frac{31}{24}
+\end{aligned}
+\end{equation*}
+\section{}
+设有联合密度函数\begin{equation*}
+Z= f_{X,Y}(x,y)=\begin{cases}
+c\lvert xy\rvert\quad\quad -1<x<1,0<y<\lvert x\rvert\\
+0 \quad\quad else
+\end{cases}
+\end{equation*}
+(1)求c\\
+(2)求$P(x>y\lvert y<0.5)$。
+\paragraph{(1)解答}
+\[2\int_0^1{dx}\int_0^x{cxydy}=\frac{c}{4}=1\]
+\[c=4\]
+\paragraph{(2)解答}
+\[P(x>y\lvert y<0.5)=\frac{P(x>y,y<0.5)}{P(y<0.5)}=\frac{P(x>0,y<0.5)}{P(y<0.5)}=\frac{1}{2}\]
+\section{有两个灯泡，其寿命服从参数为$\lambda$的指数分布。同时测试两个灯泡，第一个灯泡使用$T_1$时间后损坏，之后第二个灯泡在$T_2$时间损坏。求$P(T_2>2T_1)$。}
+\[P(T_2>2T_1)=\int_0^{\infty}{\lambda e^{-\lambda t_1}t_1}\int_{2t_1}^{\infty}{\lambda e^{-\lambda t_2}dt_2}=\frac{1}{3}\]
+\section{有四个硬币，抛掷时正面朝上的概率均为p。刚开始四个硬币均处于反面朝
+上的状态，从第一个硬币开始抛掷，若抛到反面继续抛；若抛到正面则抛掷下一个硬币。设抛掷次数为N，求P(N=6)。}
+\paragraph{解答}
+原事件相当于“前5次抛掷有且只有两次反面，第6次为正面”。
+\[P=\frac{\tbinom{5}{2}}{2^5}\times\frac{1}{2}=\frac{5}{32}\]
+\section{设随机变量$X\sim N(0,1)$,$Y\sim N(0,1)$，求$E(X^2-Y^2\lvert X^2+Y^2)$。}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+E(X^2-Y^2\lvert X^2+Y^2)&=E(X^2\lvert X^2+Y^2)-E(Y^2\lvert X^2+Y^2)\\
+&=E(X^2\lvert X^2+Y^2)-E(X^2\lvert X^2+Y^2)\\
+&=0
+\end{aligned}
+\end{equation*}
+\section{抛掷一枚骰子，若抛到6则停止抛掷，若抛到$i(1\leq i\leq 5)$则休息i分钟后继续抛掷。求抛掷时间X的期望。}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+E(X)&=\frac{1}{6}(E(X)+5)+\frac{1}{6}(E(X)+4)+\frac{1}{6}(E(X)+3)+\frac{1}{6}(E(X)+2)+\frac{1}{6}(E(X)+1)\\
+E(X)&=15
+\end{aligned}
+\end{equation*}
+\section{在苏格拉底的花园中有9朵玫瑰，有一天，苏格拉底要柏拉图去花园中采一朵最漂亮的玫瑰，但有一个规则，不能走回头路，而且只能采一朵。柏拉图采取这样的策略：先观察前三朵玫瑰，之后若出现比前三朵都漂亮的玫瑰，则采下这朵玫瑰。求柏拉图采到的玫瑰是最美的那朵的概率。}
+\paragraph{解答}
+“柏拉图采到的玫瑰是最美的那朵”需要满足以下条件：\\
+（1）第k朵玫瑰最美，$k\geq 4$；\\
+（2）前$k-1$朵玫瑰中，最美的出现在前三朵中。\\
+以第6朵玫瑰最美为例。第6朵玫瑰最美的概率为$\frac{1}{9}$，前5朵玫瑰中最美的出现在前三朵的概率为$\frac{3}{5}$。以此类推。
+\begin{equation*}
+\begin{aligned}
+P&=\frac{1}{9}(1+\frac{3}{4}+\frac{3}{5}+\frac{3}{6}+\frac{3}{7}+\frac{3}{8})\\&=\frac{341}{840}
+\end{aligned}
+\end{equation*}
+\section{设有N个点，每两个点间有线相连的概率为p，若三个点每两个点间均有线相连，则称这三个点构成一个三角形。求三角形数量的期望和方差。}
+\paragraph{解答}
+
+\end{document}

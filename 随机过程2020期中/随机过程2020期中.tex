@@ -1,0 +1,124 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{随机过程2020期中}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+\section*{1.设$X(t)$和$Y(t)$为独立的零均值平稳高斯过程，自相关函数为$R_X(\tau)=R_Y(\tau)=
+    e^{-\lvert\tau\rvert}$}，请计算$E[cos^2(X(1)+Y(1))\lvert(X(0)+Y(0))]$。\\
+\begin{equation*}
+  \begin{aligned}
+     & \vec w=[X(0),X(1),Y(0),Y(1)]^T,\quad\vec w\sim N(0,\Sigma_W),\quad\Sigma_W=
+    \begin{bmatrix}
+      1           & \frac{1}{e} & 0           & 0           \\
+      \frac{1}{e} & 1           & 0           & 0           \\
+      0           & 0           & 1           & \frac{1}{e} \\
+      0           & 0           & \frac{1}{e} & 1           \\
+    \end{bmatrix}                                                                 \\
+     & \vec v=[X(1)+Y(1),X(0)+Y(0)]^T,\vec v=A\vec w                                          \\
+     & A=\begin{bmatrix}
+      0 & 1 & 0 & 1 \\
+      1 & 0 & 1 & 0 \\
+    \end{bmatrix},\quad\Sigma_V=A\Sigma_WA^T=
+    \begin{bmatrix}
+      2           & \frac{2}{e} \\
+      \frac{2}{e} & 2
+    \end{bmatrix}                                                                 \\
+     & U=(X(1)+Y(1))\lvert(X(0)+Y(0)),\quad U\sim N(\mu_1,\sigma_1^2)                         \\
+     & \mu_1=\frac{1}{e}(X(0)+Y(0)),\quad\sigma_1^2=2(1-\frac{1}{e^2})                        \\
+     & E[cos^2u]=\frac{1}{2}+\frac{1}{2}E[cos(2u)]=\frac{1}{2}+\frac{1}{4}E[e^{2ju}+e^{-2ju}] \\
+     & =\frac{1}{2}+\frac{1}{4}\phi_U(2)+\frac{1}{4}\phi_U(-2)
+    =\frac{1}{2}+\frac{1}{4}e^{4(\frac{1}{e^2}-1)}cos(2\mu_1)                                 \\
+  \end{aligned}
+\end{equation*}
+\section*{2.假设$X(t)$和$V(t)$是两个相互独立的宽平稳随机过程，它们的自相关函数分别为$R_{XX}(\tau)$
+  和$R_{VV}(\tau)$。}
+ (a)利用$X(t)$和$V(t)$构造一个随机过程$G(t)$，使得$G(t)$的自相关函数满足$R_{GG}(\tau)
+  =R_{XX}(\tau)R_{VV}(\tau)$，并证明之。\\
+(b)令$W(t)$表示一个自相关函数为$R_{WW}(\tau)=\delta(\tau)$的宽平稳随机过程，并将$W(t)$输入一个因果的
+线性时不变系统。该系统的输入$W(t)$和输出$Z(t)$满足以下线性常系数微分方程为$\frac{dZ(t)}{dt}+aZ(t)=bW(t)$。
+请确定常系数$a$和$b$的取值，从而使系统的输出$Z(t)$的自相关函数为$R_{ZZ}(\tau)=2e^{-\lvert\tau\rvert}$。\\
+(c)是否可以找到一个宽平稳随机过程$U(t)$，使得它的自相关函数满足$R_{UU}(\tau)=R_{XX}(\tau)\ast
+  R_{VV}(\tau)$，其中$\ast$表示卷积，$R_{XX}(\tau)=2e^{-\lvert\tau\rvert},R_{VV}(\tau)=3e^{-\lvert
+  \tau\rvert}$。如果不可以，请说明原因；如果可以，请说明如何利用宽平稳随机过程$W(t)$以及任意因果的线性时不变
+滤波器得到$U(t)$，其中$W(t)$的自相关函数为$R_{WW}(\tau)=\delta(\tau)$。\\
+\begin{equation*}
+  \begin{aligned}
+    (a) & G(t)=X(t)V(t),\quad R_{GG}(t,s)=E[X(t)V(t)X(s)V(s)]=E[X(t)X(s)]E[V(t)V(s)]
+    =R_{XX}(\tau)R_{VV}(\tau)                                                              \\
+    (b) & R_{ZZ}(\tau)=2e^{-\lvert\tau\rvert},\quad S_Z(\omega)=\frac{4}{\omega^2+1},\quad
+    S_W(\omega)=1,\quad W(t)=H(t)\ast Z(t),\lvert H(j\omega)\rvert^2=\frac{\omega^2+1}{4}  \\
+        & \because H(j\omega)=\frac{j\omega}{b}+\frac{a}{b},\quad
+    \therefore\frac{a^2}{b^2}+\frac{\omega^2}{b^2}=\frac{\omega^2+1}{4},\quad
+    b=\pm2,\quad a=\pm1                                                                    \\
+    (c) & S_U(\omega)=S_X(\omega)S_Y(\omega)=\frac{24}{(\omega^2+1)^2},\quad
+    R_{UU}(\tau)=6(\lvert\tau\rvert+1)e^{-\lvert\tau\rvert}                                \\
+  \end{aligned}
+\end{equation*}
+\section*{3.在正交幅度调制通信系统中，$X(t)$定义为$X(t)=Acos(2\pi f_ct)+Bsin(2\pi f_ct)$。这里$f_c$是
+  “载波”频率，$A$和$B$是均值为0、方差为$\sigma^2$的独立随机变量，假设$A$和$B$除了均值外的所有阶矩都是非零的。}
+ (a)求$X(t)$的均值。\\
+(b)求$X(t)$的自相关函数。\\
+(c)$X(t)$是否为宽平稳随机过程？\\
+(d)$X(t)$是否为严平稳随机过程？\\
+\newline
+(a)$E[X(t)]=0$\\
+(b)$R_X(t,s)=\sigma^2cos[2\pi f_c(t-s)]$\\
+(c)$X(t)$是宽平稳。\\
+(d)$X(t)$不是严平稳。
+\section*{4.已知随机变量$R,\Theta$相互独立，$R$服从Rayleigh分布，即其概率密度函数为$f_R(r)=\begin{cases}
+      \frac{r}{\sigma^2}e^{-\frac{r^2}{2\sigma^2}},\quad r\geq0 \\
+      0,\quad r<0
+    \end{cases}$,$\Theta$服从$(0,2\pi)$上的均匀分布。令$X(t)=Rcos(\omega t+\Theta),-\infty<t<+\infty$，
+  其中$\omega$是常数。试判断$\{X(t),-\infty<t<+\infty\}$是否为高斯过程，并详细说明理由。}
+\begin{equation*}
+  \begin{aligned}
+     & (U,V)\sim N(0,0,\sigma^2,\sigma^2,0),\quad U=Rcos(\Theta),\quad V=Rsin(\Theta)      \\
+     & f_{UV}(u,v)=f_{R,\Theta}(r,\theta)=\frac{r}{2\pi\sigma^2}e^{-\frac{r^2}{2\sigma^2}} \\
+     & R\sim Rayleigh(\sigma),\quad\Theta\sim Uniform(0,2\pi)                              \\
+     & X=Rcos(\Theta)=U,\quad X\sim N(0,\sigma^2)                                          \\
+  \end{aligned}
+\end{equation*}
+\section*{5.设$X_n$是独立的Bernoulli分布随机变量，满足$P(X_n=0)=\frac{1}{3},P(X_n=1)=\frac{2}{3}$，
+  考虑随机过程$Y_n=\frac{1}{n}(X_1+X_2+\cdots+X_n)$，请计算：}
+ (a)$Y_n$的均值。\\
+(b)$Y_n$的自相关函数。\\
+(c)$Y_n$的自协方差函数，并判断其宽平稳性。\\
+\begin{equation*}
+  \begin{aligned}
+    (a) & E[Y_n]=\frac{2}{3}                                                         \\
+    (b) & R_Y(m,n)=E[(Y_m-\frac{2}{3})(Y_n-\frac{2}{3})]=E[Y_mY_n]-\frac{2}{3}E[Y_m]
+    -\frac{2}{3}E[Y_n]+\frac{4}{9}                                                   \\
+        & \because Y_n=\frac{m}{n}Y_m+\frac{n-m}{m}Y_{n-m}',\quad\therefore R_Y(m,n)
+    =\frac{m}{n}E[Y_m^2]+\frac{n-m}{n}E[Y_{n-m}']E[Y_m]-\frac{4}{9}=\frac{m}{n}
+    +\frac{4(n-m)}{9n}-\frac{4}{9}=\frac{2m}{9n}                                     \\
+    (c) & C_Y(m,n)=E[Y_mY_n]=\frac{m}{n}E[Y_m^2]+\frac{n-m}{n}E[Y_{n-m}']E[Y_m]
+    =\frac{4}{9}+\frac{2}{9n}                                                        \\
+  \end{aligned}
+\end{equation*}
+$Y_n$不是宽平稳。\\
+\end{document}

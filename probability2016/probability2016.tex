@@ -1,0 +1,142 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{2016年概率论期末试题及解答}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+\section{设X,Y相互独立，均服从标准正态分布。设$Z=E(X\lvert(3X-Y+2))$，试求：Z的均值，方差；$E(YZ)$。}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+&V=3X-Y+2\\
+&\begin{bmatrix}X\\V\end{bmatrix}=\begin{bmatrix}1&0\\3&-1\end{bmatrix}\begin{bmatrix}X\\Y\end{bmatrix}+\begin{bmatrix}0\\2\end{bmatrix}\\
+&\vec{\mu_{XY}}=(0,0)^T, \Sigma_{XY}=\begin{bmatrix}1&0\\0&1\end{bmatrix}\\
+&\vec{\mu_{XY}}=\begin{bmatrix}1&0\\3&-1\end{bmatrix}\begin{bmatrix}0\\0\end{bmatrix}+\begin{bmatrix}0\\2\end{bmatrix}=\begin{bmatrix}0\\2\end{bmatrix}\\
+&\Sigma_{XY}=\begin{bmatrix}1&0\\3&-1\end{bmatrix}\begin{bmatrix}1&0\\0&1\end{bmatrix}\begin{bmatrix}1&3\\0&-1\end{bmatrix}=\begin{bmatrix}1&3\\3&10\end{bmatrix}\\
+&\rho=\frac{3}{\sqrt{10}},\sigma_1^2=10,\mu_1=0,\mu_2=2\\
+&(X,V)\sim N(0,2,1,10,\frac{3}{\sqrt{10}})\\
+&f_{X\lvert V}(x\lvert v)=\frac{1}{\sqrt{2\pi\sigma_3^2}}e^{-\frac{(x-\mu_3)^2}{2\sigma_3^2}}\\
+&\mu_3=\mu_1+\rho\frac{\sigma_1}{\sigma_2}(v-\mu_2)=\frac{3}{10}(v-2)\\
+&\sigma_3^2=\sigma_1^2(1-\rho_2)=\frac{7}{10}\\
+&f_{X\lvert V}(x\lvert v)=\frac{1}{\sqrt{1.4\pi}}e^{-\frac{(x-0.3v+0.6)^2}{1.4}}\\
+&Z=0.3v-0.6,V\sim N(2,10)\\
+&E(Z)=0.3E(V)-0.6=0\\
+&Var(Z)=0.09Var(V)=0.9\\
+&\begin{bmatrix}Y\\Z\end{bmatrix}=\begin{bmatrix}0&1\\0.9&-0.3\end{bmatrix}\begin{bmatrix}X\\Y\end{bmatrix}+\begin{bmatrix}0\\0\end{bmatrix}\\
+&\vec{\mu_{XY}}=(0,0)^T,\Sigma_{XY}=\begin{bmatrix}1&0\\0&1\end{bmatrix}\\
+&\vec{\mu_{YV}}=(0,0)^T,\Sigma_{YV}=\begin{bmatrix}1&-0.3\\-0.3&0.9\end{bmatrix}\\
+&Cov(Y,V)=-0.3=E(YV)-E(Y)E(V)\\
+&E(YV)=-0.3\\
+\end{aligned}
+\end{equation*}
+\section{盒中有4个黑球和6个白球，考虑从盒子取球并放回的游戏。一旦相邻两次取出同色球，则游戏结束。试求：游戏结束时取球次数的均值与方差。}
+\paragraph{解答}
+设总摸球数为X，事件A为“之前摸的是白球”，事件B为“之前摸的是黑球”。
+\begin{equation*}
+\begin{aligned}
+&E(X)=1+\frac{3}{5}E(X\lvert A)+\frac{2}{5}E(X\lvert B)\\
+&E(X\lvert A)=\frac{3}{5}\times 1+\frac{2}{5}(1+E(X\lvert B))\\
+&E(X\lvert B)=\frac{2}{5}\times 1+\frac{3}{5}(1+E(X\lvert A))\\
+&E(X\lvert A)=\frac{35}{19},E(X\lvert B)=\frac{40}{19}\\
+&E(X)=\frac{56}{19}
+\end{aligned}
+\end{equation*}
+\section{设一根木棍的长度在1米和2米之间均匀分布。在木棍上随机选一个点，将其截为两段，求较长一段超出较短一段的长度的均值和方差。}
+\paragraph{解答}
+设木棍长度为X，截取的较短一段长为Y，两段之差的绝对值为Z。
+\begin{equation*}
+\begin{aligned}
+&X\sim U(1,2),\quad Y\sim U(0,\frac{x}{2}),\quad Z\sim U(0,x)\\
+&E(Z\lvert X)=\frac{x}{2},\quad Var(Z\lvert X)=\frac{X^2}{12}\\
+&E(Z)=E(E(Z\lvert X))=\int_1^2\frac{x}{2}dx=\frac{3}{4}\\
+&Var(Z)=Var(E(Z\lvert X)+E(Var(Z\lvert X))\\
+&E(Var(Z\lvert X))=\int_1^2\frac{x^2}{12}dx=\frac{7}{36}\\
+&Var(E(Z\lvert X))=Var(\frac{X}{2})=\frac{1}{4}Var(X)=\frac{1}{48}\\
+&Var(Z)=\frac{31}{144}\\
+\end{aligned}
+\end{equation*}
+\section{设有两个灯泡，其寿命彼此独立，分别服从参数为$\lambda_1$和$\lambda_2$的指数分布。设对两个灯泡同时通电并开始计时，求第一个灯泡先于第二个灯泡熄灭情况下，第一个灯泡寿命的方差。}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+P(X_1\leq t\lvert X_1<X_2)&=\frac{P(X_1\leq t,X_1<X_2)}{P(X_1<X_2)}\\
+&=\frac{\int_0^tdx_1\int_{x_1}^{+\infty}\lambda_1\lambda_2^2e^{-\lambda_1x_1-\lambda_2x_2}dx_2}{\frac{\lambda_1}{\lambda_1+\lambda_2}}\\
+&=\int_0^t(\lambda_1+\lambda_2)e^{-(\lambda_1+\lambda_2)x_1}\\
+f_{X_1\lvert X_1<X_2}(x_1\lvert x_1<x_2)&=(\lambda_1+\lambda_2)e^{-(\lambda_1+\lambda_2)x_1},x_1>0\\
+Var(X_1\lvert X_1<X_2)&=\frac{1}{(\lambda_1+\lambda_2)^2}\\
+\end{aligned}
+\end{equation*}
+\section{设随机变量X服从[$-\frac{1}{2}$,$\frac{1}{2}$]上的均匀分布，考虑随机变量Y，满足$X=\frac{1}{2}(\frac{2}{\sqrt{2\pi}}\int_{-\infty}^Y e^{-\frac{t^2}{2}}dt-1)$，请计算$E(Y^2)$。}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+&V=2X+1=\int_{-\inf}^Y\frac{1}{\sqrt{2\pi}}e^{-\frac{t_2}{2}}dt\\
+&V\sim U(0,1)\\
+&F_Y(y)=\int_{-\inf}^Y\frac{1}{\sqrt{2\pi}}e^{-\frac{t_2}{2}}dt\\
+&Y\sim N(0,1)\\
+&E(Y^2)=Var(Y)+E^2(Y)=1\\
+\end{aligned}
+\end{equation*}
+\section{考虑二维平面上的正方形，边长为a，两条对角线分别在两个坐标轴上。在该正方形内随机取一个点(X,Y)，设随机变量$Z_1=X+Y$,$Z_2=X-Y$，试计算以$Z_1$为条件的，$Z_2$的条件概率密度$f_{Z_2\lvert Z_1}(Z_2\lvert Z_1)$。}
+\paragraph{解答}
+(建议作图看一看，很明显)\\
+\begin{equation*}
+\begin{aligned}
+&Z_1=X+Y\sim U(-\frac{a}{\sqrt{2}},\frac{a}{\sqrt{2}})\\
+&Z_2=X-Y\sim U(-\frac{a}{\sqrt{2}},\frac{a}{\sqrt{2}})\\
+&Z_1\bot Z_2\\
+&f_{Z_2\lvert Z_1}(z_2\lvert z_1)=\frac{1}{\sqrt{2}a},-\frac{a}{\sqrt{2}}<z_2<\frac{a}{\sqrt{2}}\\
+\end{aligned}
+\end{equation*}
+\section{设随机变量$X_1$，$X_2$，$\cdots$独立同分布，其分布函数为$F_X(x)$，设随机变量$N(y)$满足$N(y)=min(k:X_k>y)$。请计算$$\lim_{y\to\infty}P[N(y)\geq E(N(y))]$$}
+\paragraph{解答}
+\begin{equation*}
+\begin{aligned}
+&P(N(y)=k)=(F_X(y))^{k-1}(1-F_X(y))\\
+&p=1-F_X(y), \quad N(y)\sim Ge(p), E(N(y))=\frac{1}{p}\\
+&m=\lceil \frac{1}{p} \rceil \\
+&P(N(y)\geq E(N(y)))=\sum\limits _{k=m}^\infty (1-p)^{k-1}p=(1-p)^{m-1}=(F_X(y))^{m-1}\\
+&\lim_{y\to\infty}(F_X(y))^{\lceil \frac{1}{1-F_X(y)}\rceil-1}=\lim_{y\to\infty}
+(F_X(y))^{\frac{1}{1-F_X(y)}}=e^{-1}\\
+\end{aligned}
+\end{equation*}
+\section{在单位圆上随机取三个点，构成三角形，请计算三角形最大的内角服从的分布。}
+\paragraph{解答}
+建模：在[$0,2\pi$]的弧长上随机取两个点，已知同弧所对圆周角是圆心角的一半，故进一步建模：在[$0,\pi$]上任取2个点，设为X，Y。\\
+X,Y的大小及三段长度共有6种等概情况，以下选取一种讨论，其余可类推。
+以$0<X<Y<\pi$，$X>Y-X$，$X>\pi-Y$为例。
+\begin{equation*}
+\begin{aligned}
+f_X(x)&=\int_{max\{x,\pi-x\}}^{2x}f_{XY}(x,y)dy\\
+&=\frac{1}{\pi_2}\int_{max\{x,\pi-x\}}^{2x}dy\\
+&=\begin{cases}
+\frac{x}{\pi^2}, \frac{\pi}{2}<x<\pi\\
+\frac{3x-\pi}{\pi^2},\frac{\pi}{3}<x<\frac{\pi}{2}\\
+\end{cases}\\
+f_{\theta}(\theta)&=\begin{cases}
+\frac{6\theta}{\pi^2}, \frac{\pi}{2}<\theta<\pi\\
+\frac{18\theta-6\pi}{\pi^2},\frac{\pi}{3}<\theta<\frac{\pi}{2}\\
+\end{cases}
+\end{aligned}
+\end{equation*}
+\end{document}

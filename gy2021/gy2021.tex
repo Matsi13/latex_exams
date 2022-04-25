@@ -1,0 +1,86 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{2021年量子与统计试题（郭永）}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+\section*{一、简答题}
+1.从以下7个概念中任选2个简要解释。\\
+(1)定态(2)束缚态(3)纠缠态(4)可分离态(5)散射(6)纯态(7)混态\\
+2.德布罗意关系阐明了微观粒子的粒子性(E,p)与波动性($\nu$,$\lambda$和$\omega$,k)之间的关系，用数学公式可将该关系表示为：\\
+3.直接写出以下对易关系：\\
+(1)[$\hat p_x$,y]=$\quad\quad$(2)[$\hat p_z$,$\hat L_z$]=$\quad\quad$(3)[$\hat p_z$,$\hat p_y$]=$\quad\quad$\\
+(4)[z,$\hat L_z$]=$\quad\quad$(5)[$\hat L_z$,$\hat L_y$]=$\quad\quad$(6)[$\hat L_x$,$\hat L^2$]=$\quad\quad$\\
+4.已知氢原子处在波函数\[
+  \varPsi(r,\theta,\varphi)=\frac{1}{2}R_{21}(r)Y_{10}(\theta,\varphi)+\frac{\sqrt{3}}{2}R_{21}(r)Y_{1-1}(\theta,\varphi)
+\]描述的态上，求$\hat H$，$\hat L^2$和$\hat L_z$的可能取值与平均值。\\
+5.已知厄米算符$\hat A$满足$\hat A^2 = \hat A$，求$\hat A$的本征值和$\hat A$在自身表象中的矩阵表示。\\
+6.在量子态$\varphi$上，力学量算符$\hat A$和$\hat B$的不确定度的乘积的下限：\\
+写出坐标$y$和动量的分量$\hat p_y$的不确定度关系：\\
+写出时间$t$和能量$E$的不确定度关系：\\
+7.已知粒子可能处在单粒子态$\varphi_1$或$\varphi_2$上，对应的能量分别为$\varepsilon_1$和$\varepsilon_2$，请写出两个全同粒子
+可能出现的状态的波函数和对应的能量。分两种情况：(1)两个玻色子(2)两个费米子\\
+8.一维自由粒子（无自旋），能量和宇称同时具有确定值的状态波函数为：\\
+能量与动量同时具有确定值的波函数为：\\
+9.已知系统的哈密顿量\[
+  \hat H=\frac{\hat p_x^2}{2\mu}+V(x)
+\]
+(1)求[$x$,$\hat H$]\\
+(2)粒子处于束缚定态，求$\overline{p_x}$\\
+\section*{二、}
+已知系统的哈密顿量\[\hat H=\frac{1}{2I_x}(\hat L_x^2+\hat L_y^2)+\frac{1}{2I_z}L_z^2\]\\
+(1)写出守恒量和守恒量完全集。\\
+(2)求出体系的能量本征值、能量本征函数、能级简并度。\\
+\section*{三、}
+粒子处在一维无限深势阱里，势阱宽度为a，$t=0$时刻的归一化波函数为\[
+  \psi(x,0)=\frac{1}{\sqrt{3a}}sin(\frac{\pi}{a}x)+\frac{1}{\sqrt{4a}}sin(\frac{2\pi}{a}x)+
+  \frac{C_3}{\sqrt{a}}sin(\frac{3\pi}{a}x)
+\]已知一维无限深势阱中，粒子的能级和波函数为\[
+  E_n=\frac{\pi^2\hbar^2n^2}{2ma^2},
+  \quad\quad \psi_n (x)=\sqrt{\frac{2}{a}}sin(\frac{n\pi}{a}x),\quad\quad
+  n = 1,2,3,\cdots
+\]
+(1)求$C_3$的值。\\
+(2)在$t=0$时刻，求$E$的可能取值、取值概率和平均值。\\
+(3)写出$t=0$时波函数在能量表象中的矩阵表示。\\
+(4)求任意时刻的波函数$\psi(x,t)$\\
+\section*{四、}
+质量为m，能量为E的粒子入射势垒，势垒在$x<0$处为0，在$x>0$处为$V_0$。\\
+(1)$E>V_0>0$时，求透射率和反射率。\\
+(2)$V_0>E>0$时，直接写出透射率和反射率，并给出理论分析。\\
+(3)$E>0>V_0$时，透射率$T=1$吗？不需推导，只要求给出定性解释。\\
+(4)浅谈你对隧穿效应的认识（不多于100字）。\\
+\section*{五、}
+ (1)对于两电子系统，忽略电子之间的相互作用和$s-s$自旋耦合作用，总自旋角动量$s$可以取哪些值？
+给出单体近似下的对称和反对称自旋波函数。\\
+(2)一个电子在沿$x$轴方向的磁场中运动，系统的哈密顿量\[
+  H=\frac{eb\hbar}{2mc}\sigma_x\]
+$t=0$时电子自旋“向上”（$s_z=\hbar/2$）。求$t>0$时，电子的总自旋角动量$\vec{s}$的平均值。
+
+
+
+
+\end{document}
+
+
+

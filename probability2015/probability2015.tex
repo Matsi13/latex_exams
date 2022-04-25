@@ -1,0 +1,181 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{diagbox}
+\geometry{a4paper,scale=0.8}
+\title{2015年概率论期末试题}
+\author{Deschain}
+\begin{document}
+\maketitle
+\paragraph{}
+1.一个粒子在二维空间中做随机运动，方向可以是上，下，左，右四种，且各方向等概，每一步的步长为1。假定从原点开始，每一秒运动一次，以第n秒时粒子所在位置与原点的距离为半径画圆，请计算这个圆面积的均值。
+\subparagraph{[法一]}
+设n秒时，共左右移动X次，上下移动$n-X$次，则$X\sim B(X,\frac{1}{2})$。此时水平方向的位移的平方
+\begin{equation*}
+\begin{aligned}
+Z&=(X-2Y)^2=X^2-4XY+4Y^2 \\
+E(Z\lvert X)&= X^2-4X*E(Y\lvert X)+4E(Y^2\lvert X) \\
+&= X^2-4X*\frac{X}{2}+4[Var(Y\lvert X)+E^2(Y \lvert X)]
+\end{aligned}
+\end{equation*}
+同理垂直方向位移的平方
+\[ E(V\lvert X)=n-X\]
+设面积为S，则
+\[E(S)=\pi (E(V)+E(Z))=n\pi \]
+\subparagraph{[法二]}
+设有a次上下移动，b次左右移动，$a+b=n$。
+记第k次上下移动量为$I_k(I_1,I_2,\cdots ,I_n =\pm 1)$
+\begin{equation*}
+\begin{aligned}
+X&=\sum_{k=1}^a I_k \\
+E(X^2)&=E[(\sum_{k=1}^a I_k)^2] \\
+&=E(\sum_{k=1}^a I_k^2)+E(\sum_{m\neq n}^{}I_m I_n) \\
+&=\sum_{k=1}^a E(I_k^2) + sum_{m\neq n}^{}E(I_m)E(I_n) \\
+&=a\times 1+0 \\
+&=a
+\end{aligned}
+\end{equation*}
+同理$E(Y^2)=b$
+\[ E(S)=\pi E(X^2+Y^2)=\pi (a+b)=n\pi \]
+\paragraph{}
+2.设枪库里有两种枪，其中一种经过校正，命中率为p，另外一种尚未校正，命中率为q。考虑两种射击方式：从枪库里任取一支枪，射击一次，然后放回，如此连续两次；或者是从枪库里任取一支枪，独立射击两次。请问哪一种方式有更高的两次均命中的概率？
+\begin{equation*}
+\begin{aligned}
+&P1=(\frac{p+q}{2})^2 \\
+&P2=\frac{p^2+q^2}{2}
+\end{aligned}
+\end{equation*}
+$P2\geq P1$(当且仅当$p=q$时取“=”)
+\paragraph{}
+3.随机变量X,Y相互独立，分别服从参数为$\lambda, \mu$的指数分布。设
+\begin{equation*}
+Z= \begin{cases}
+4X+1,\quad X>Y \\
+5Y-2,\quad X<Y
+\end{cases}
+\end{equation*}
+请计算Z的概率密度与均值。\\
+(1)$X>Y$
+\begin{equation*}
+\begin{aligned}
+&f_{X_1}(x)=\int_0^x{\lambda e^{-\lambda x}\mu e^{-\mu y}dy}=\lambda e^{-\lambda x}(1-e^{-\mu x}) ,x>0\\
+&Z_1=4X+1 \\
+&f_{Z_1}(z)=\frac{1}{4}f_{X_1}(\frac{z-1}{4}) \\
+&f_{Z_1}(z)=\frac{\lambda}{4}e^{-\frac{\lambda (z-1)}{4}}(1-e^{-\frac{\mu (z-1)}{4}}) , z \geq 1
+\end{aligned}
+\end{equation*}
+(2)$X<Y$
+\begin{equation*}
+\begin{aligned}
+&f_{Y_2}(y)=\int_0^y{\lambda e^{-\lambda x}\mu e^{-\mu y}dx}=\mu e^{-\mu y}(1-e^{-\lambda y}) ,y>0\\
+&Z_1=5Y-2 \\
+&f_{Z_2}(z)=\frac{1}{5}f_{Y_2}(\frac{y+2}{5}) \\
+&f_{Z_2}(z)=\frac{\mu}{4}e^{-\frac{\mu (z+2)}{5}}(1-e^{-\frac{\lambda (z+2)}{5}}) , z \geq -2
+\end{aligned}
+\end{equation*}
+综上，
+\begin{equation*}
+f_Z(z)=\begin{cases}
+\frac{\mu}{4}e^{-\frac{\mu (z+2)}{5}}(1-e^{-\frac{\lambda (z+2)}{5}}) ,-2\leq z\leq 1 \\
+\frac{\mu}{4}e^{-\frac{\mu (z+2)}{5}}(1-e^{-\frac{\lambda (z+2)}{5}})+\frac{\lambda}{4}e^{-\frac{\lambda (z-1)}{4}}(1-e^{-\frac{\mu (z-1)}{4}}) , z \geq 1
+\end{cases}
+\end{equation*}
+\begin{equation*}
+E(Z)=\frac{5}{\mu}+\frac{4}{\lambda}-\frac{3\mu}{5(\lambda + \mu)}+\frac{4\lambda -\mu}{(\lambda + \mu)^2}
+\end{equation*}
+\paragraph{}
+4.假设股票市场每一天都是交易日，每个交易日的收盘股指点数是独立同分布的随机变量。从某个起始点开始算起，称一个交易日为拐点，如果从起始日到该交易日间每天收盘股指点数都在上涨，紧随该交易日后的后一天收盘股指点数下跌。请计算拐点到起始日之间的天数的均值。
+设第i天的收盘股指点数为$X_i,X_i$的累积分布函数为$F(x)$，起始日与拐点之间的天数为Y。此处定义：如果第1天到第5天一直上涨，第6天下降，那么$Y=4$。
+(1)排列思想
+设事件A为“收盘股指点数从起始点到第$k+1$天一直上升”，事件B为“收盘股指点数从起始点到第$k+2$天一直上升”。则“第k天是拐点”等价于$A-B$。
+\begin{equation*}
+\begin{aligned}
+P(A)&=\frac{1}{(k+1)!}\\
+P(B)&=\frac{1}{(k+2)!}\\
+P(Y=k)&=P(A)-P(B)\\
+&=\frac{1}{(k+1)!}-\frac{1}{(k+2)!}\\
+E(Y)&=\sum_{k=1}^\infty{\frac{(k+1)(k+2)}{(k+2)!}-2\times \frac{k+1}{(k+2)!}}\\
+&=\sum_{k=1}^{\infty}{\frac{1}{k!}-2\times \frac{k+2-1}{(k+2)!}}\\
+&=\sum_{k=1}^{\infty}{\frac{1}{k!}-2\times \frac{1}{(k+1)!} + 2\times \frac{1}{(k+2)!}}\\
+&=e-(2e-2)+2(e-1-\frac{1}{2})\\
+&=e-1
+\end{aligned}
+\end{equation*}
+(2)分布函数法
+\begin{equation*}
+\begin{aligned}
+P(Y=k)&=\int_0^\infty f(x_{k+1})dx_{k+1}\int_0^{x_{k+1}} f(x_{k+2})dx_{k+2}\int_0^{x_{k+1}} f(x_k)dx_k\int_0^{x_k} f(x_{k-1})dx_{k-1}\cdots \int_0^{x_2} f(x_1)dx_1\\
+&=\int_0^\infty f(x_{k+1})dx_{k+1}\int_0^{x_{k+1}} f(x_{k+2})dx_{k+2}\times \frac{1}{k!}[F(x_{k+1})]^k\\
+&=\int_0^\infty \frac{1}{k!}[F(x_{k+1})]^{k+1}f(x_{k+1})dx_{k+1}\\
+&=\frac{1}{k!(k+2)}
+\end{aligned}
+\end{equation*}
+求均值同上。
+\paragraph{}
+5.设X,Y均为连续随机变量。X有密度函数$f_X(x)={\lambda}^2xe^{-\lambda x}$，而Y满足[0,X]上的均匀分布，计算$E(Y^2\lvert Y>1)$。
+\begin{equation*}
+\begin{aligned}
+f_{Y\lvert X}(y\lvert x)&=\frac{1}{x},0<y<x\\
+f_{XY}(x,y)&=f_X(x)f_{Y\lvert X}(y\lvert x)\\
+&={\lambda}^2e^{-\lambda x},0<y<x\\
+f_{Y}(y)&=\int_y^\infty {\lambda}^2e^{-\lambda x}dx\\
+&=\lambda e^{-\lambda y},y>0\\
+f_{Y\lvert Y>1}(y\lvert y>1)&=\frac{\lambda e^{-\lambda y}}{\int_1^\infty {\lambda e^{-\lambda y}dy}}\\
+&=\lambda e^{\lambda -\lambda y},y>1\\
+E(Y^2\lvert Y>1)&=\int_1^\infty {\lambda y^2 e^{\lambda - \lambda y}dy}\\
+&=1+\frac{2}{\lambda}+\frac{2}{\lambda ^2}
+\end{aligned}
+\end{equation*}
+\paragraph{}
+6.设X,Y服从均值为1，方差为0的高斯分布，且相互独立。试求：$E[X^2+Y^2\lvert cos(\frac{X}{Y})]$。
+由书后习题可知，$X^2+Y^2$与$\frac{X}{Y}$相互独立，所以$X^2+Y^2$与$cos(\frac{X}{Y})$相互独立。
+\begin{equation*}
+E[X^2+Y^2\lvert cos(\frac{X}{Y})]=E(X^2 +Y^2)=E(X^2)+E(Y^2)=Var(X)+E^2(X)+Var(Y)+E^2(Y)=2
+\end{equation*}
+\paragraph{}
+7.连续投掷一枚不均匀的硬币N次，正面向上的概率为p，其中N服从参数为$\lambda$的Poisson分布。设正面向上的次数为M，反面向上的次数为K，计算$E[min{M,K}]$。
+答案链接：https://math.stackexchange.com/questions/2198813/properties-of-the-minimum-of-two-poisson-random-variables
+麻烦看懂了的同学教教我，谢谢！
+\paragraph{}
+8.考虑一枚不均匀的硬币，已知存在随机变量N，使得连续抛掷N次，第N次的结果满足出现正面和反面的概率均为$\frac{1}{2}$。因此，即使是不公平硬币，也可以用于公平游戏。请给出N的具体描述，并通过计算验证其公平性。
+
+每组连续丢两次硬币，直到第k组出现“正反”或“反正”的组合，此时丢的两次为第2k-1次和第2k次。那么N=2k。
+公平性：$P(+\lvert N) = P(-\lvert N)$。即第N次为+的组合模式（……-+）与第N次为-的组合模式（……-+）一一对应，对应的事件概率相同。
+\paragraph{}
+9.设随机变量X和Y满足$E(X)=E(Y)=1$，且有$E(X\lvert Y)=E(X)$,计算$E(XY)$。很明显，如果X和Y相互独立，一定有$E(X\lvert Y)=E(X)$。反之成立吗？请举例说明。
+\begin{equation*}
+E(XY)=E(E(Xy\lvert Y=y))=E(YE(X\lvert Y))=E(YE(X))=E(Y)=1
+\end{equation*}
+举例说明：
+\begin{tabular}{|l|c|c|c|}
+\hline
+\diagbox{Y}{X} & 0 & 1 & 2 \\
+\hline
+0 & $\frac{1}{4}$ & $\frac{1}{8}$ & $\frac{1}{8}$ \\
+\hline
+1 & $\frac{1}{8}$ & $\frac{3}{8}$ & 0 \\
+\hline
+\end{tabular}
+\paragraph{}
+10.篮球赛时长n分钟，某球员每一分钟有一次投篮机会，投中概率为p，并且教练规定，若一次投篮不中，下一分钟不得投篮，需将机会交给队友。请计算一场球赛中该队员的投中次数的均值。
+\begin{equation*}
+\begin{aligned}
+E_1&=p\\
+E_2&=p^2+p\\
+E_n&=p(1+E_{n-1})+(1-p)E_{n-2}\\
+D_n&=E_n-E_{n-1}+\frac{p}{p-2}\\
+D_n&=(p-1)D_{n-1}\\
+D_n&=(p^2+\frac{p}{p-2})(p-1)^{n-2}, n\geq 2\\
+E_n&=E_1+\sum_{k=2}^n{D_n}+(n-1)\times \frac{p}{p-2}
+\end{aligned}
+\end{equation*}
+\begin{equation*}
+E_n=\begin{cases}
+p, n=1\\
+p^2+(p^2+\frac{p}{p-2})\frac{1-(p-1)^{n-1}}{2-p}-(n-1)\frac{p}{p-2}, n \geq 2
+\end{cases}
+\end{equation*}
+参考文献：https://cowandsheep.github.io/Fishtoucher/$\#$/
+\end{document}
+
+

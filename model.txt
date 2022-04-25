@@ -1,0 +1,126 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{amsmath,bm}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{bm}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{量统2016-2017郭永期末}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+\end{document}
+
+\section{}
+\section*{}
+
+\begin{wrapfigure}{r}{3cm}
+\includegraphics[width=3cm]{2020-1.png}
+\end{wrapfigure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=4cm,height=4cm]{2020-6.jpg}
+\caption*{图1}
+\end{figure}
+
+\begin{bmatrix}
+0&0&0&3\\
+2&3&0&1\\
+0&0&0&0\\
+0&0&1&3
+\end{bmatrix}
+[]
+
+\begin{vmatrix}
+0&0&0&3\\
+2&3&0&1\\
+0&0&0&0\\
+0&0&1&3
+\end{vmatrix}
+||
+
+\begin{pmatrix}
+0&0&0&3\\
+2&3&0&1\\
+0&0&0&0\\
+0&0&1&3
+\end{pmatrix}
+()
+
+\begin{smallmatrix}
+0&0&0&3\\
+2&3&0&1\\
+0&0&0&0\\
+0&0&1&3
+\end{smallmatrix}
+行内公式
+
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+\quad & 1 & 2 & 3 & 4 & 5 \\
+\hline
+$S_1$ & 1 & $\frac{1}{2}$ & $\frac{1}{4}$ & $\frac{1}{8}$ & \quad \\
+\hline
+$S_2$ & 0 & $\frac{1}{4}$ & $\frac{1}{4}$ & $\frac{3}{16}$ & \quad \\
+\hline
+$S_3$ & 0 & $\frac{1}{4}$ & $\frac{1}{2}$ & $\frac{11}{16}$ & $\frac{13}{16}$\\
+\hline
+\end{tabular}
+
+
+
+\begin{tabular}{|l|c|c|c|}
+\hline
+\diagbox{Y}{X} & 0 & 1 & 2 \\
+\hline
+0 & $\frac{1}{4}$ & $\frac{1}{8}$ & $\frac{1}{8}$ \\
+\hline
+1 & $\frac{1}{8}$ & $\frac{3}{8}$ & 0 \\
+\hline
+\end{tabular}
+
+
+Z=1时，X,Y满足\\
+\begin{tabular}
+\hline
+\diagbox{X}{Y}&0&1\\
+\hline
+0&$\frac{1}{4}$&$\frac{3}{8}$\\
+\hline
+1&$\frac{1}{4}$&$\frac{1}{8}$\\
+\hline
+\end{tabular}
+\section*{一、实验目的} % 加上*可以取消section前面的数字
+1.观测简谐振动的特点\\ 
+2.掌握质量、时间、长度等基本量的测量方法\\
+3.联系并掌握最小二乘法直线拟合
+
+\begin{equation*}
+Z= f_{X,Y}(x,y)=\begin{cases}
+c\lvert xy\rvert\quad\quad -1<x<1,0<y<\lvert x\rvert\\
+0 \quad\quad else
+\end{cases}
+\end{equation*}
+{\color{red/blue/green/black/white/cyan/magenta/yellow}{文字}

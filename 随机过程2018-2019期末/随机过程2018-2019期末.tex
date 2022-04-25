@@ -1,0 +1,165 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\usepackage{color}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{随机过程2018-2019期末}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\begin{document}
+\maketitle
+\section*{1.（张颢）水箱的容积为1200升。管理员按照Poisson过程的规律为水箱注水，平均每天注水4次，每次注水都
+  可以在瞬间将水箱注满。注水完毕后，水箱即开始以每小时100升的速度向外排水。假定水箱在初始时刻是满的，请计算：\\
+  (1)水箱在流空前，注水的平均次数。\\
+  (2)已知某天注水了两次，请计算到这一天结束时，水箱尚未流干的概率。}
+ (1)水箱流空需要$12h$，设$12h$内没有注水的概率为$P_1,\lambda=\frac{1}{6},P_1=e^{-\lambda t}=e^{-2},
+  E=e^2$\\
+(2)此处可能有歧义。\\
+\ding{172}“水箱尚未流干”指当天结束时，水箱里有水，之前的状态无所谓。\\
+已知当天注水两次，则注水时间$X_1,X_2\sim U(0,21),P=1-(\frac{12}{24})^2=\frac{3}{4}$\\
+\ding{173}“水箱尚未流干”指水箱里全天都有水。\\
+$P=(\frac{12}{24})^2+(\frac{12}{24})^2=\frac{1}{2}$
+\section*{2.（张颢）正半数轴上分布着一些随机点，相邻两点间的距离独立，且同服从参数为1的指数分布。每个随机点上
+  都附上一个$[0,\frac{1}{2}]$上均匀分布的随机变量，不同随机点上的随机变量彼此独立。现在按照如下规则为这些随机
+  点染色：如果该随机点到距离最近的整数点的距离小于该点所附的均匀随机变量，则将该点染为红色，否则染为蓝色。请计算
+  区间$[3,5]$内红色随机点个数的分布及其均值。}
+$X_k(\tau_k)=\begin{cases}
+    1,\quad red  \\
+    0,\quad blue \\
+  \end{cases}$\\
+$\tau_k$是该点在x轴上的坐标，$\leq\tau_k\leq5$,$E[X_k]=\int_3^{\tau_k}2dx=2(\tau_k-3)$\\
+设$[a,b]$区间上红点的数量为$Y_{[a,b]}$，则$E[Y_{[3,3.5]}]=\lambda\int_3^5 2(\tau-3)d\tau
+  =\frac{1}{4}\quad\therefore E[Y_{[3,5]}]=1$\\
+一个点被染红和染蓝的概率是相等的，因此$Y_{[3,5]}\sim Poisson(\frac{1}{2})$
+\section*{3.（李刚）$X(t)$是零均值宽平稳高斯过程，其自相关函数为$R(\tau)=e^{-\tau^2},Y(t)=X(t)-X(t-1)$，
+令$Z(t)=E[(X(0)+Y(0))^2\lvert Y(t)]$，请计算随机过程$Z(t)$的自相关函数。}
+\begin{equation*}
+  \begin{aligned}
+     & X(0)+Y(0)=2X(0)-X(-1),\quad\vec X_1=[X(0),X(-1),X(t),X(t-1)]^T,\quad \\
+     & \vec X_2=[2X(0)-X(-1),X(t)-X(t-1)]^T                                 \\
+     & \vec X_1\sim N(0,\Sigma_1),\quad\Sigma_1=
+    \begin{bmatrix}
+      1            & e^{-1}       & e^{-t^2}     & e^{-(t-1)^2} \\
+      e^{-1}       & 1            & e^{-(t-1)^2} & e^{-t^2}     \\
+      e^{-t^2}     & e^{-(t-1)^2} & 1            & e^{-1}       \\
+      e^{-(t-1)^2} & e^{-t^2}     & e^{-1}       & 1            \\
+    \end{bmatrix},\quad
+    \vec X_2=A\vec X_1,\quad A=
+    \begin{bmatrix}
+      2 & -1 & 0 & 0  \\
+      0 & 0  & 1 & -1 \\
+    \end{bmatrix}                                               \\
+     & \vec X_2\sim N(0,\Sigma_2),\quad\Sigma_2=A\Sigma_1 A^T=
+    \begin{bmatrix}
+      5-4e^{-1} & e^{-t^2}(3-e^{-2t-1}-2e^{2t-1}) \\
+      e^{-t^2}(3-e^{-2t-1}-2e^{2t-1})
+    \end{bmatrix}
+  \end{aligned}
+\end{equation*}
+\section*{4.（欧智坚）考虑两个互相独立、均为零均值的高斯过程$\{X(t),-\infty<t<+\infty\}$和$\{Y(t),
+    -\infty<t<+\infty\}$，功率谱密度分别为$S_X(\omega)=\frac{2}{\omega^2+1}$和$S_Y(\omega)=\frac{4}
+    {\omega^2+4}$。试求：$Var[(X(3)-Y(3))\lvert (X(1)-Y(1)=0)]$}
+\begin{equation*}
+  \begin{aligned}
+     & R_X(\tau)=e^{-\lvert\tau\rvert},\quad R_Y(\tau)=e^{-2\lvert\tau\rvert},\quad
+    [X,Y]^T\sim N(0,\Sigma_1),\Sigma_1=I_2                                          \\
+     & Z_1=[X(3),Y(3),X(1),Y(1)]^T\sim N(0,\Sigma_2),\quad\Sigma_2=
+    \begin{bmatrix}
+      1      & 0      & e^{-2} & 0      \\
+      0      & 1      & 0      & e^{-4} \\
+      e^{-2} & 0      & 1      & 0      \\
+      0      & e^{-4} & 0      & 1      \\
+    \end{bmatrix}                                                       \\
+     & Z_2=[X(3)-Y(3),X(1)-Y(1)]^T\sim N(0,\Sigma_3),\quad\Sigma_3=
+    \begin{bmatrix}
+      2             & e^{-2}+e^{-4} \\
+      e^{-2}+e^{-4} & 2             \\
+    \end{bmatrix}                                                       \\
+     & Z_3=(X(3)-Y(3))\lvert(X(1)-Y(1)=0)\sim N(\mu_3,\sigma_3^2),\quad
+    \sigma_3^2=2-\frac{1}{2}(e^{-2}-e^{-4})^2                                       \\
+  \end{aligned}
+\end{equation*}
+\section*{5.（张颢）考虑两个独立的传感器1和2，同时对某物理量进行测量。假定该物理量的真值为$\mu$，传感器1的
+  输出$X_1\sim N(\mu,\sigma_1^2)$，传感器2的输出$X_2\sim N(\mu,\sigma_2^2$，其中$\sigma_1^2>\sigma_2^2$。
+  假定$\mu$的先验分布为$N(\mu_0,\sigma^2)$，请计算$E[\mu\lvert X_1,X_2]$，并对计算结果进行必要的解释。}
+ {\color{red} 声明：本题的解答大概率是错的，请勿轻信！！！}
+\begin{equation*}
+  \begin{aligned}
+     & g(\mu)=\frac{1}{\sqrt{2\pi}\sigma_1}e^{-\frac{(x_1-\mu)^2}{2\sigma_1^2}}\times
+    \frac{1}{\sqrt{2\pi}\sigma_2}e^{-\frac{(x_2-\mu)^2}{2\sigma_2^2}}\times
+    \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(\mu-\mu_0)^2}{2\sigma^2}}                   \\
+     & f(\mu)=\frac{g(\mu)}{\int_{-\infty}^{+\infty}g(\mu)d\mu}
+    =\frac{e^{-\frac{(\mu+b)^2}{2\sigma_3^2}+c}}
+    {\int_{-\infty}^{+\infty}e^{-\frac{(\mu+b)^2}{2\sigma_3^2}+c}d\mu}
+    =\frac{1}{\sqrt{2\pi}\sigma_3}e^{-\frac{(\mu-b)^2}{2\sigma_3^2}}                  \\
+     & E[\mu\lvert X_1,X_2]=b=\frac{\frac{x_1}{\sigma_1^2}+\frac{x_2}{\sigma_2^2}+
+      \frac{\mu_0}{\sigma^2}}{\frac{1}{\sigma_1^2}+\frac{1}{\sigma_2^2}+\frac{1}{\sigma^2}}
+  \end{aligned}
+\end{equation*}
+\section*{6.（李刚）$X(t)=S(t)\cdot(-1)^{N(t)},S(t)$为零均值宽平稳过程且自相关函数为$R_X(\tau)=e^{-
+  \lvert\tau\rvert},N(t)$是参数为$\lambda$的泊松过程，$S(t)$与$N(t)$独立。令$Y(t)=\int_{t-T}^t X(\tau)
+  d\tau$，其中$T$为常数，求$Y(t)$的功率谱密度。}
+\section*{7.（张颢）考虑整数格点$\{0,1,2,\cdots,n\}$上的随机游动，当处于点$k(0<k<n)$时，以$\frac{1}{4}$
+  概率转移到$k+1$，以$\frac{1}{4}$概率转移到$k-1$，以$\frac{1}{2}$概率停留在$k$上不动。当处于0点时，以
+  $\frac{1}{1}$概率转移到1，以$\frac{1}{2}$概率停留在0上不动。当处于$n$点时，以$\frac{1}{2}$概率转移到
+  $n-1$，以$\frac{1}{2}$概率停留在$n$上不动。请写出该随机游动的一步转移概率矩阵，判断状态的常返性，并计算该链
+  的平稳分布。}
+各状态都是常返态。
+\begin{equation*}
+  \begin{aligned}
+     & P_{ij}=\begin{cases}
+      \frac{1}{2},\quad i=j\quad or\quad\{i=0,j=1\}\quad or\quad\{i=n,j=n-1\} \\
+      \frac{1}{4},\quad j=i+1\quad or \quad j=i=1                             \\
+      0,\quad else
+    \end{cases},\quad\pi=\pi\cdot P                   \\
+     & \pi_1=\pi_2=\cdots=\pi_{n-1}=\frac{1}{n},\quad\pi_0=\pi_n=\frac{1}{2n} \\
+  \end{aligned}
+\end{equation*}
+\section*{8.假设某种实验正在逐次进行中，如果本次实验和上次实验都成功，则下次实验成功的概率是$0.8$，否则下次
+  实验成功的概率为$0.4$。定义状态1为\{本次实验失败\}，状态2为\{本次实验成功、上次实验失败\}，状态3为\{本次实验与
+  上次实验都成功\}。经过充分次实验后，请写出一步转移概率矩阵，并求单次实验成功的概率。}
+设单次实验成功为事件A。
+\begin{equation*}
+  \begin{aligned}
+     & P=\begin{bmatrix}
+      0.6 & 0.4 & 0   \\
+      0.6 & 0   & 0.4 \\
+      0.2 & 0   & 0.8 \\
+    \end{bmatrix},\quad\pi=\pi\cdot P,\quad\pi_1=\frac{5}{11},\quad\pi_2=\frac{2}{11},
+    \quad\pi_3=\frac{4}{11}                                                                             \\
+     & P(A)=\pi_2+\pi_3=\frac{6}{11}                                                                    \\
+  \end{aligned}
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
