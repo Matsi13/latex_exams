@@ -71,6 +71,16 @@
     \centering
     \includegraphics[width=4cm,height=4cm]{3.png}
 \end{figure}
+\section*{\bfseries 4.（6分）相距为$r$的两原子，相互作用势能可以表示为$u(r)=u_0[(\frac{\sigma}{r})^m-
+(\frac{\sigma}{r})^n]$，分别求出势能最小值和吸引力最强时的距离。（原题不是m和n，但图片看不清）}
+\section*{\bfseries 5.（8分）假设一个晶格常数为$a$的一维晶格中，电子能量$E(k)=E_0-2E_1cos(ka)$，其中$E_1>0$}
+（1）分别求能带底和能带顶处的简约波矢和能量。\\
+（2）分别求能带底和能带顶处电子的有效质量。\\
+\section*{\bfseries 6.（8分）电子在一个晶格常数为$a$的一维晶体中运动。}
+（1）求布里渊区边界$\frac{2\pi}{a}$处自由电子的能量。\\
+（2）假设单个电子感受到的周期性势场$V(x)=-V_0cos(\frac{4\pi x}{a})cos(\frac{2\pi x}{a})$，其中$V_0>0$。采用
+近自由电子近似分别求出布里渊区边界$\frac{\pi}{a},\frac{2\pi}{a},\frac{3\pi}{a}$处的能隙。\\
+\section*{\bfseries 7.（20分）已知一种由同种原子组成的金属晶体。（原图缺失）}
 \newpage
 \section*{\bfseries 1.填空题答案}
 （1）\ding{172}闪锌矿\makebox[2em]{}
@@ -108,5 +118,37 @@
 \ding{173}绝缘体：价带完全填充，导带是空带，并且带隙较大，不易发生跃迁，因此几乎不导电。\\
 \ding{174}半导体：绝对零度时，价带完全填充，导带是空带，但是带隙较小。室温下，一部分电子可以从价带上被热激发到导带上。
 导带和价带都变成部分填充，可以导电。
-
+\section*{\bfseries 3.解答}
+（1）$(11\overline{2})$\\
+（2）$\frac{\sqrt{6}}{3}a$\\
+\section*{\bfseries 4.解答}
+设势能最小的位置为$r_1$，吸引力最强的位置为$r_2$，则
+\begin{equation*}
+    \begin{aligned}
+        & \frac{dU}{dr}=u_0(-\frac{m\sigma^m}{r^{m+1}}+\frac{n\sigma^n}{r^{n+1}})=0,\quad
+        r_1=(\frac{n}{m})^\frac{1}{n-m}\sigma\\
+        & \frac{d^2U}{{dr}^2}=u_0(\frac{m(m+1)\sigma^m}{r^{m+2}}-\frac{n(n+1)\sigma^n}{r^{n+2}})=0,\quad
+        r_2=(\frac{n(n+1)}{m(m+1)})^\frac{1}{n-m}\sigma\\
+    \end{aligned}
+\end{equation*}
+\section*{\bfseries 5.解答}
+（1）能带底$k=0$，能量$E(0)=E_0-2E_1$\\
+能带顶$k=\frac{\pi}{a}$，能量$E(\frac{\pi}{a})=E_0+2E_1$\\
+（2）$m^*=\frac{\hbar^2}{\frac{\partial^2E}{\partial k^2}}=\frac{\hbar^2}{2a^2E_1cos(ka)}$\\
+能带底$m^*=\frac{\hbar^2}{2a^2E_1}$，能带顶$m^*=-\frac{\hbar^2}{2a^2E_1}$\\
+\section*{\bfseries 6.解答}
+（1）
+\begin{equation*}
+    \begin{aligned}
+        & E=\frac{\hbar^2k^2}{2m}=\frac{2\hbar^2\pi^2}{ma^2}\\
+    \end{aligned}
+\end{equation*}
+（2）
+\begin{equation*}
+    \begin{aligned}
+        & V(x)=-\frac{V_0}{4}(e^{i\frac{6\pi}{a}x}+e^{i\frac{2\pi}{a}x}+e^{-i\frac{2\pi}{a}x}+e^{-i\frac{6\pi}{a}x})\\
+        & V_{\pm1}=-\frac{V_0}{4},\quad V_{\pm3}=-\frac{V_0}{4}\\
+    \end{aligned}
+\end{equation*}
+$\frac{\pi}{a}$处能隙为$\frac{V_0}{2}$，$\frac{2\pi}{a}$处能隙为$0$,$\frac{3\pi}{a}$处能隙为$\frac{V_0}{2}$。
 \end{document}
