@@ -14,6 +14,9 @@
 \usepackage{fancyhdr}
 \usepackage{color}
 \usepackage{bm}
+\usepackage{siunitx}
+\usepackage{ulem}
+\usepackage{CJKulem}
 \pagestyle{plain}
 \geometry{a4paper,scale=0.8}
 \CTEXsetup[format+={\raggedright}]{section} 
@@ -127,7 +130,7 @@ c\lvert xy\rvert\quad\quad -1<x<1,0<y<\lvert x\rvert\\
 
 % 2em是指定的box的长度，{}里可以输入文字内容。如果不输入，就是填空题那样的下划线。
 \underline{\makebox[2em]{}}
-
+\uline{}%可以自动换行
 %latex中的长度单位：
 单位	名称	说明
 mm	毫米	1 mm = 2.845 pt
