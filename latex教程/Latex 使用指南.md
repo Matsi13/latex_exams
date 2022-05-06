@@ -137,7 +137,7 @@ subsection、paragraph、subparagraph同理。
 | `\iff`       | $\iff$       | `\int`           | $\int$        | `\iint`        | $\iint$      | `\iiint`     | $\iiint$     | `\idotsint`   | $\idotsint$   |
 | `\to`        | $\to$        | `\langle`        | $\langle$     | `\rangle`      | $\rangle$    | `\lvert`     | $\lvert$     | `\rvert`      | $\rvert$      |
 | `\lVert`     | $\lVert$     | `\rVert`         | $\rVert$      | `\lceil`       | $\lceil$     | `\rceil`     | $\rceil$     | `\lfloor`     | $\lfloor$     |
-| `\rfloor`    | $\rfloor$    |                  |               |                |              |              |              |               |               |
+| `\rfloor`    | $\rfloor$    | `\prec`          | $\prec$       | `\succ`        | $\succ$      |              |              |               |               |
 |              |              |                  |               |                |              |              |              |               |               |
 |              |              |                  |               |                |              |              |              |               |               |
 |              |              |                  |               |                |              |              |              |               |               |
