@@ -175,8 +175,8 @@ subsection、paragraph、subparagraph同理。
 | `\begin{Vmatrix}\end{Vmatrix}`         | `\begin{Vmatrix}1&2\\3&4\end{Vmatrix}`         | $$\begin{Vmatrix}1&2\\3&4\end{Vmatrix}$$       |
 | `\begin{smallmatrix}\end{smallmatrix}` | `\begin{smallmatrix}1&2\\3&4\end{smallmatrix}` | $\begin{smallmatrix}1&2\\3&4\end{smallmatrix}$ |
 | `\begin{cases}{}\\{}\end{cases}`       | `\begin{cases}1,y>0\\0,y<0\end{cases}`         | $\begin{cases}1,y>0\\0,y<0\end{cases}$         |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
+| `\ddot{}`                              | `\ddot{\mu}`                                   | $\ddot{\mu}$                                   |
+| `\dot{}`                               | `\dot{\mu}`                                    | $\dot{\mu}$                                    |
 |                                        |                                                |                                                |
 
 
