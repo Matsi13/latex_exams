@@ -1,0 +1,99 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{amsmath,bm}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{bm}
+\usepackage{siunitx}
+\usepackage{ulem}
+\usepackage{CJKulem}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{操作系统2016期末}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\titleformat*{\subsection}{\normalsize}
+\begin{document}
+\maketitle
+\section*{一、简答题}
+\subsection*{1.}
+（1）读文件；（2）高优先级进程抢占CPU；（3）CPU被分配给进程；（4）读文件完成
+\subsection*{2.}
+内核级线程由操作系统负责调度，用户级线程有拥护库函数负责调度。
+\subsection*{3.}
+通过利用CPU调度和虚拟内存技术，将物理计算机作为共享资源，让进程认为有自己的处理器和内存。
+\subsection*{4.}
+（1）互斥（2）非抢占（3）请求和保持（4）环路等待；
+\subsection*{5.}
+连续分配
+\subsection*{6.}
+4000位
+\subsection*{7.}
+（1）FCFS：公平，但性能较差。\\
+（2）SSF：对中间磁道有利，但可能有进程处于饥饿状态。\\
+（3）电梯算法：性能较好，对中间磁道有利，且没有进程会饿死。\\
+（4）单向扫描算法：改进对中间磁道的偏好。在中负载或重负载时，性能比电梯算法好。\\
+\subsection*{8.}
+（1）字符设备：以字符为单位存储、传输信息，例如键盘。\\
+（2）块设备：以数据块为单位存储、传输信息，例如磁盘。\\
+\section*{二、综合应用题}
+\subsection*{1.}
+(a)$\frac{1}{4}(15+11+2+7)=8.75$\\
+(b)$\frac{1}{4}(4+6+7+12)=7.25$\\
+(c)$\frac{1}{4}(9+5+2+12)=7$\\
+(d)$\frac{1}{4}(12+9+5+12)=9.5$\\
+(e)$\frac{1}{4}(10+10+4+12)=9$\\
+\subsection*{2.}
+typedef Semaphore int;\\
+Semaphore Inside = 10; //超市里还可以进的人数\\
+Semaphore Cashier = 1; //收银员\\
+void CustomerProcedure(void)\{\\
+    P(Inside);\\
+    V(Customer);\\
+    购物；\\
+    P(Cashier);\\
+    结账；\\
+    V(Inside);\\
+\}\\
+void CashierProcedure(void)\{\\
+    P(Customer);\\
+    结账；\\
+    V(Cashier);\\
+\}\\
+\subsection*{3.}
+(a)每页有250个整数，每250次缺页1次，共$\lceil\frac{256\time256}{250}\rceil=263$次\\
+(b)每次访问都缺页，共$256^2=65536$次。
+\subsection*{4.}
+(a)10次\\
+(b)10次\\
+(c)对于FIFO算法，增加页框数不一定减少缺页次数\\
+(d)W(k,t)=4\\
+(e)W(k,t)=5\\
+
+
+
+
+
+
+
+
+\end{document}
