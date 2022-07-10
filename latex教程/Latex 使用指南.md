@@ -132,6 +132,24 @@ subsection、paragraph、subparagraph同理。
 | `\ddot{}`                              | `\ddot{\mu}`                                   | $\ddot{\mu}$                                   |
 | `\dot{}`                               | `\dot{\mu}`                                    | $\dot{\mu}$                                    |
 | `\degree`                              | `6\degree`                                     | $6\degree$                                     |
+| `\textit`                              | `\textit{it}`                                  | $\textit{it}$                                  |
+| `\centerline`                          | `\centerline{居中}`                            | 居中                                           |
+| `\begin{center}\end{center}`           | `\begin{center}居中\end{center}`               | 居中                                           |
+|                                        |                                                |                                                |
+|                                        |                                                |                                                |
+|                                        |                                                |                                                |
+|                                        |                                                |                                                |
+|                                        |                                                |                                                |
+|                                        |                                                |                                                |
+|                                        |                                                |                                                |
+|                                        |                                                |                                                |
+|                                        |                                                |                                                |
+|                                        |                                                |                                                |
+|                                        |                                                |                                                |
+|                                        |                                                |                                                |
+|                                        |                                                |                                                |
+|                                        |                                                |                                                |
+|                                        |                                                |                                                |
 |                                        |                                                |                                                |
 |                                        |                                                |                                                |
 |                                        |                                                |                                                |
@@ -177,7 +195,21 @@ subsection、paragraph、subparagraph同理。
 \end{figure}                                              % 结束figure环境
 ```
 
-# 八、其他
+ # 八、列表（缩进）
+
+```latex
+\begin{itemsize}     %创建列表，会将整段文字缩进
+\item[]              %列表元素的编号形式
+\end{itemsize}
+```
+
+
+
+
+
+
+
+# 九、其他
 
 ## 1.字体的变化
 
