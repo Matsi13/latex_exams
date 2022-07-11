@@ -1,0 +1,147 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{amsmath,bm}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{diagbox}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{bm}
+\usepackage{siunitx}
+\usepackage{ulem}
+\usepackage{CJKulem}
+\pagestyle{plain}
+\geometry{a4paper,scale=0.8}
+\CTEXsetup[format+={\raggedright}]{section} 
+\title{操作系统2022答案}
+\author{Deschain}
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}
+{0pt}{0pt}{0pt}
+\titleformat*{\section}{\normalsize}
+\titleformat*{\subsection}{\normalsize}
+\begin{document}
+\maketitle
+\section*{一、}
+1.C 2.B 3.B 4.D 5.A 6.B 7.D 8.D 9.C 10.A \\
+\section*{二、}
+\subsection*{1.}
+运行态0~4个，就绪态0~6个，阻塞态0~10个。\\
+\subsection*{2.}
+$10ms+60s\div 5400\div 2=15.6ms$\\
+\subsection*{3.}
+共有$20GB\div 4KB=5M$个簇，因此位图大小为5M，需要$5M\div 4KB=5M\div 32K=160$个簇来存放。\\
+\subsection*{4.}
+单缓冲区：$(100+10)\times 100=11000\mu s=11ms$\\
+双缓冲区：$(100+10)\times 100=11000\mu s=11ms$\\
+\subsection*{5.}
+$\frac{20}{100}+\frac{40}{150}+\frac{100}{300}=0.8<1$，可调度\\
+\subsection*{6.}
+$16\times 0.5ms=8ms$，中断处理方式是合理的，因为鼠标需要的时间占比很小。\\
+\subsection*{7.}
+$\lfloor \frac{12345}{4\times 1024} \rfloor = 3 $，页内偏移量57，物理地址$6\times 4\times 1024+57=24633$\\
+\subsection*{8.}
+$\lfloor \frac{46000}{2\times 1024} \rfloor = 22 $，块内偏移量944，位于第$92+22=114$块。\\
+\section*{三、}
+\subsection*{1.}
+\begin{tabular}{|c|c|c|c|c |c|c|c|c|c |c|c|c|c|c |c|c|c|c|c |c|}
+\hline
+FCFS &A&A&A&A&A&A&B&B&B&C&C&C&C&D&D&D&D&D&E&E\\
+\hline
+SJF  &A&B&B&B&C&E&E&C&C&C&D&D&D&D&D&A&A&A&A&A\\
+\hline
+HRRN &A&A&A&A&A&A&B&B&B&E&E&C&C&C&C&D&D&D&D&D\\
+\hline
+SRT  &A&B&B&B&C&E&E&C&C&C&A&A&A&A&A&D&D&D&D&D\\
+\hline
+\end{tabular}
+\newline
+周转时间：\\
+\begin{tabular}{|c|c|c|c|c |c|c|}
+\hline
+$\quad$&A &B &C &D &E &系统 \\
+\hline
+FCFS   &6 &8 &11&14&15&10.8 \\ 
+\hline
+SJF    &20&3 &8 &11&2 &8.8  \\
+\hline
+HRRN   &6 &8 &13&16&6 &9.8  \\
+\hline
+SRT    &15&3 &8 &16&2 &8.8  \\
+\hline
+\end{tabular}
+\newline
+\subsection*{2.}
+\begin{tabular}{|c|c|c|c|c |c|c|c|c|c |c|c|c|c| }
+    \hline
+    OPT  &M&M&M&H&M&H&M&H&H&M&H&H&6次\\
+    \hline
+    FIFO &M&M&M&H&M&H&M&M&M&M&H&M&9次\\
+    \hline
+    LRU  &M&M&M&H&M&M&M&M&H&M&H&M&9次\\
+    \hline
+    CLOCK&M&M&M&H&M&M&M&M&H&M&H&M&9次\\
+    \hline 
+
+\end{tabular}
+\subsection*{3.}
+(a)$256^2\times 2\times 100ns=13107200ns=13.1072ms$\\
+(b)共用到$256^2\times 4/(4\times 1024)=64$页，初次访问缺页，因此TLB的命中率为$1-64/(256^2)=99.902\%$\\
+(c)$64-16=48$次\\
+(d)$256^2\times(10ns+100ns)+64\times 100ns=7215360ns=7.21536ms$\\
+\subsection*{4.}
+typedef Semaphore int;\\
+Semaphore Guard = 1;//保安空闲\\
+Semaphore GuardQueue = 0;//等待保安扫码的人数\\
+Semaphore Inside = 5;//储蓄所可进人数\\
+Semaphore Counter = 1;//柜员空闲\\
+Semaphore CounterQueue = 0;//等待柜员服务的人数\\
+Semaphore door = 1;//闸机空闲\\
+void CustomerFunc()\{\\
+V(GuardQueue); //通知保安，有人等待扫码\\
+P(Guard);//申请保安服务\\
+扫码;\\
+P(Inside);//在入口处申请进门\\
+进入储蓄所；\\
+V(CounterQueue);//通知柜员，有人等待服务\\
+P(Counter);//申请柜员服务\\
+接受柜员服务；\\
+P(Door);//申请使用闸机\\
+出门；\\
+V(Door);\\
+V(Inside);\\
+\}\\
+void GuardFunc()\{\\
+P(GuardQueue);\\
+扫码；\\
+V(Guard);  \\  
+\}\\
+void CounterFunc()\{\\
+P(CounterQueue);\\
+服务；\\
+V(Counter);\\
+\}\\
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

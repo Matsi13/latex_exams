@@ -1,14 +1,14 @@
 
 
-# 二、Latex的入门教程
+# 一、Latex的入门教程
 
 推荐使用[一份其实很短的 LaTeX 入门文档](https://liam.page/2014/09/08/latex-introduction/)，可以在短时间内理解latex最为重要的功能。文档之后的部分都是一些零碎的知识点，在网上都可以查到，放在这里只是为了方便使用。
 
-# 三、宏包及其用途
+# 二、宏包及其用途
 
 
 
-# 四、排版指令
+# 三、排版指令
 
 ## 1.文档
 
@@ -43,7 +43,7 @@
 
 subsection、paragraph、subparagraph同理。
 
-# 五、数学符号
+# 四、数学符号
 
 标成蓝色的是只能在文本格式中生成的特殊符号，我会用语言描述其输出结果，或者用数学格式下的其他代码冒充其输出结果。
 
@@ -156,7 +156,7 @@ subsection、paragraph、subparagraph同理。
 
 
 
-# 六、表格
+# 五、表格
 
 ```latex
 \begin{tabular}{|l|l|}                      % 指定表格的两列都是靠左对齐
@@ -174,7 +174,7 @@ subsection、paragraph、subparagraph同理。
 
 
 
-# 七、图片
+# 六、图片
 
 ## 1.文字环绕图片
 
@@ -195,7 +195,7 @@ subsection、paragraph、subparagraph同理。
 \end{figure}                                              % 结束figure环境
 ```
 
- # 八、列表（缩进）
+# 七、列表（缩进）
 
 ```latex
 \begin{itemsize}     %创建列表，会将整段文字缩进
@@ -209,7 +209,7 @@ subsection、paragraph、subparagraph同理。
 
 
 
-# 九、其他
+# 八、其他
 
 ## 1.字体的变化
 
