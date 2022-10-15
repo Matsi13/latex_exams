@@ -60,18 +60,7 @@ subsection、paragraph、subparagraph同理。
 | `\Delta`                           | $\Delta$                   | `\Theta`    | $\Theta$    | `\Lambda` | $\Lambda$ | `\Xi`                         | $\Xi$      | `\Pi`                                | $\Pi$       |
 | `\Sigma`                           | $\Sigma$                   | `\Upsilon`  | $\Upsilon$  | `\Phi`    | $\Phi$    | `\Psi`                        | $\Psi$     | `\Omega`                             | $\Omega$    |
 | `\infty`                           | $\infty$                   | `\dagger`   | $\dagger$   | `\quad`   | $\quad$   | <font color=Blue>`\AA`</font> | $\AA$      | <font color=Blue>`\ding{172}`</font> | ①           |
-| <font color=Blue>\ding{182}</font> | <font color=White>①</font> |             |             |           |           |                               |            |                                      |             |
-|                                    |                            |             |             |           |           |                               |            |                                      |             |
-|                                    |                            |             |             |           |           |                               |            |                                      |             |
-|                                    |                            |             |             |           |           |                               |            |                                      |             |
-|                                    |                            |             |             |           |           |                               |            |                                      |             |
-|                                    |                            |             |             |           |           |                               |            |                                      |             |
-|                                    |                            |             |             |           |           |                               |            |                                      |             |
-|                                    |                            |             |             |           |           |                               |            |                                      |             |
-|                                    |                            |             |             |           |           |                               |            |                                      |             |
-|                                    |                            |             |             |           |           |                               |            |                                      |             |
-|                                    |                            |             |             |           |           |                               |            |                                      |             |
-|                                    |                            |             |             |           |           |                               |            |                                      |             |
+| <font color=Blue>\ding{182}</font> | <font color=White>①</font> | `\otimes`   | $\otimes$   | `\circ`   | $\circ$   | `\empty`                      | $\empty$   |                                      |             |
 |                                    |                            |             |             |           |           |                               |            |                                      |             |
 
 
@@ -91,13 +80,8 @@ subsection、paragraph、subparagraph同理。
 | `\iff`       | $\iff$       | `\int`           | $\int$        | `\iint`        | $\iint$      | `\iiint`     | $\iiint$     | `\idotsint`   | $\idotsint$   |
 | `\to`        | $\to$        | `\langle`        | $\langle$     | `\rangle`      | $\rangle$    | `\lvert`     | $\lvert$     | `\rvert`      | $\rvert$      |
 | `\lVert`     | $\lVert$     | `\rVert`         | $\rVert$      | `\lceil`       | $\lceil$     | `\rceil`     | $\rceil$     | `\lfloor`     | $\lfloor$     |
-| `\rfloor`    | $\rfloor$    | `\prec`          | $\prec$       | `\succ`        | $\succ$      |              |              |               |               |
-|              |              |                  |               |                |              |              |              |               |               |
-|              |              |                  |               |                |              |              |              |               |               |
-|              |              |                  |               |                |              |              |              |               |               |
-|              |              |                  |               |                |              |              |              |               |               |
-|              |              |                  |               |                |              |              |              |               |               |
-|              |              |                  |               |                |              |              |              |               |               |
+| `\rfloor`    | $\rfloor$    | `\prec`          | $\prec$       | `\succ`        | $\succ$      | `\perp`      | $\perp$      | `\preceq`     | $\preceq$     |
+| `\succeq`    | $\succeq$    |                  |               |                |              |              |              |               |               |
 |              |              |                  |               |                |              |              |              |               |               |
 
 ## 3.表达式
@@ -114,12 +98,18 @@ subsection、paragraph、subparagraph同理。
 | `\lim_{}`                              | `\lim_{x\to0}x`                                | $\lim\limits_{x\to0}x$                         |
 | `\lim\nolimits _{}`                    | `\lim\nolimits _{x\to0}x`                      | $\lim\nolimits _{x\to0}x$                      |
 | `\int_{}^{}`                           | `\int_a^b x^2 dx`                              | $\int_a^b x^2 dx$                              |
+| `\bigcap\limits_{}^{}`                 | `\bigcap\limits_{i=0}^{m}`                     | $\bigcap\limits_{i=0}^{m}$                     |
+| `\bigcup\limits_{}^{}`                 | `\bigcup\limits_{i=0}^{m}`                     | $\bigcup\limits_{i=0}^{m}$                     |
 | `\tbinom{}{}`                          | `\tbinom{n}{m}`                                | $\tbinom{n}{m}$                                |
 | `\mathop{}\limits_{}`                  | `\mathop{min}\limits_{a}`                      | $\mathop{min}\limits_{a}$                      |
-| `\mathbb{}`                            | `\mathbb{R}`                                   | $\mathbb{R}$                                   |
 | `\mathring{}`                          | `\mathring{A}`                                 | $\mathring{A}$                                 |
+| `\tilde{}`                             | `\tilde{A}`                                    | $\tilde{A}$                                    |
+| `\widetilde`                           | `\widetilde`                                   | $\widetilde{A}$                                |
 | `\bm{}`                                | `\bm{i}`                                       | $\bf{i}$                                       |
 | `{\bfseries }`                         | `{\bfseries i}`                                | ${\bf i}$                                      |
+| `\mathbb{}`                            | `\mathbb{C}`                                   | $\mathbb{C}$                                   |
+| `\mathcal{}`                           | `\mathcal{C}`                                  | $\mathcal{C}$                                  |
+| `\mathscr{}`                           | `\mathscr{C}`                                  | $\mathscr{C}$                                  |
 | `\big`                                 | `\big\lvert`                                   | $\big\lvert$                                   |
 | `\bigg`                                | `\bigg\lvert`                                  | $\bigg\lvert$                                  |
 | `\begin{bmatrix}\end{bmatrix}`         | `\begin{bmatrix}1&2\\3&4\end{bmatrix}`         | $$\begin{bmatrix}1&2\\3&4\end{bmatrix}$$       |
@@ -135,23 +125,6 @@ subsection、paragraph、subparagraph同理。
 | `\textit`                              | `\textit{it}`                                  | $\textit{it}$                                  |
 | `\centerline`                          | `\centerline{居中}`                            | 居中                                           |
 | `\begin{center}\end{center}`           | `\begin{center}居中\end{center}`               | 居中                                           |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
-|                                        |                                                |                                                |
 |                                        |                                                |                                                |
 
 
